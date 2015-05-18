@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sun May 17 16:15:49 2015 david sebaoun
+** Last update Mon May 18 16:24:13 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -36,7 +36,7 @@ int		main(int argc, char **argv, char *envp[])
 {
   t_struct	var;
 
-  if (init_struct(&var, envp) == -1)
+  if (init_struct(&var, , argv, envp) == -1)
     return (puterr(UCAST ERROR_INIT));
   if (signal(SIGINT, gere_sig) == SIG_ERR)
     return (puterr(UCAST ERROR_SIGNAL));
