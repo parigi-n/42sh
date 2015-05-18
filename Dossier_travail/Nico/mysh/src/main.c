@@ -41,7 +41,7 @@ int		main(int argc, char **argv, char *envp[])
     return (puterr(ERROR_INIT));
   if (signal(SIGINT, gere_sig) == SIG_ERR)
     return (puterr(ERROR_SIGNAL));
-  ps1_bashrc(&var.env);
+  prompt_bashrc(&var.env);
     /*mysh(&var);*/
   write(1, "\n", 1);
   (void)argc;

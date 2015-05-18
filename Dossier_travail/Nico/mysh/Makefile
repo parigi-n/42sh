@@ -64,7 +64,8 @@ SRC		= src/main.c \
 		src/prompt/fct_prompt_time.c \
 		src/prompt/fct_prompt_time_2.c \
 		src/prompt/fct_prompt_dir_and_name.c \
-		src/prompt/pwd_home.c
+		src/prompt/pwd_home.c \
+		src/prompt/check_quote.c
 
 OBJ		= $(SRC:.c=.o)
 
