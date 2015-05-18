@@ -1,0 +1,26 @@
+../exe_command.c:  var->check = 0;
+../exe_command.c:  var->new = NULL;
+../exe_command.c:  var->envi = NULL;
+../exe_command.c:  var->alias = NULL;
+../exe_command.c:  if ((var->envtab = do_tab_exec(&var->env)) == NULL)
+../exe_command.c:  if ((var->envi = do_env(&var->env)) == NULL)
+../exe_command.c:  if ((var->new = my_strcpy(tab[0])) == NULL)
+../exe_command.c:  if ((str = my_strcat(var->new, "/")) == NULL)
+../exe_command.c:  if ((tab[0] = my_strcat(str, var->envi[i])) == NULL)
+../exe_command.c:      var->check = 1;
+../exe_command.c:      execve(tab[0], tab, var->envtab);
+../exe_command.c:      var->check = 1;
+../exe_command.c:      execve(tab[0], tab, var->envtab);
+../exe_command.c:  while (var->envi[i] != NULL)
+../exe_solo.c:	wait(&var->status);
+../main.c:  var->env = NULL;
+../main.c:  var->alias = NULL;
+../main.c:  var->buffer = NULL;
+../main.c:  var->term.i = 0;
+../main.c:  var->envp = envp;
+../main.c:  if (get_env(&var->env, var->envp) == -1)
+../mysh.c:  if (var->status == FAIL_STATUS)
+../mysh.c:  else if (var->status != 0)
+../mysh.c:  free_list_pars(&var->buffer);
+../mysh.c:      do_mysh(var, &var->buffer);
+../mysh.c:      free(var->buff);
