@@ -111,7 +111,7 @@ int		my_prompt(char *prompt_line, t_stock **env)
   return (0);
 }
 
-static int	bashrc_prompt_fct(char **tab, t_stock **env)
+static int	bashrc_prompt_fct(char **tab, t_struct **var)
 {
   if (my_tablen(tab) > 0 && tab[0] != NULL && tab[0] != '\0')
     {
@@ -127,7 +127,7 @@ static int	bashrc_prompt_fct(char **tab, t_stock **env)
 	      puterr("something that is deprecated. Please use 'set prompt = [line]'\n");
 	      return (-1);
 	    }
-	  my_prompt(tab[3], env);
+	  var->term.prompt = tab[3];
 	}
       else
 	return (-1);

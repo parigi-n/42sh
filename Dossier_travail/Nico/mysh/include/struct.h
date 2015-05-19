@@ -35,6 +35,7 @@ typedef struct		s_term
   char			*vi;
   int			i;
   int			hist;
+  char			*prompt;
 }			t_term;
 
 typedef struct		s_struct
