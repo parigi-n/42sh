@@ -111,7 +111,7 @@ int		my_prompt(char *prompt_line, t_stock **env)
   return (0);
 }
 
-static int	bashrc_prompt_fct(char **tab, t_struct **var)
+int	bashrc_prompt_fct(t_struct *var, char **tab)
 {
   if (my_tablen(tab) > 0 && tab[0] != NULL && tab[0] != '\0')
     {
@@ -127,7 +127,7 @@ static int	bashrc_prompt_fct(char **tab, t_struct **var)
 	      puterr("something that is deprecated. Please use 'set prompt = [line]'\n");
 	      return (-1);
 	    }
-	  var->term.prompt = tab[3];
+	  var->term.prompt = my_strcpy(tab[3]);
 	}
       else
 	return (-1);
@@ -137,27 +137,17 @@ static int	bashrc_prompt_fct(char **tab, t_struct **var)
   return (0);
 }
 
-int		prompt_bashrc(t_stock **env)
+int		prompt_bashrc(t_struct *var, char *raw_line)
 {
-  char		*raw_line;
   char		*line;
   char		**tab;
-  int		fd;
 
-  if ((fd = open(".tcshrc", O_RDONLY)) == -1)
-    return (puterr("Error opening .rc file, (open fail)."));
-  while	((raw_line = get_next_line(fd)) != NULL)
-    {
-      if (check_quote(raw_line) == -1)
-	return (puterr("Syntax error in .tcshrc (missing quote) : File skipped.\n"));
-      if ((line = epur_str(raw_line)) == NULL)
-	return (puterr("Malloc error in alias epur_str."));
-      if ((tab = my_word_to_tab_custom(line, '"')) == NULL)
-	puterr("Line parsing failed (str_to_word_tab failed).");
-      bashrc_prompt_fct(tab, env);
-      freetab(tab);
-      free(line);
-      free(raw_line);
-    }
-  return (0);
+  if ((line = epur_str(raw_line, 0)) == NULL)
+    return (puterr(ERROR_MALLOC));
+  if ((tab = my_word_to_tab_custom(line, '"')) == NULL)
+    return (puterr(ERROR_MALLOC));
+  bashrc_prompt_fct(var, tab);
+  freetab(tab);
+  free(line);
+  return (SUCCES);
 }

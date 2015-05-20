@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  8 11:30:18 2014 jules vautier
-** Last update Wed May  6 18:26:15 2015 Jules Vautier
+** Last update Sun May 17 15:35:46 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -14,16 +14,17 @@ int		get_env(t_stock **envp, char **env)
 {
   int		i;
   int		len;
-  char		**tab;
+  char	**tab;
 
-  len = my_tablen(env);
+  len = my_tablen((char **)env);
   i = 0;
   (*envp) = NULL;
   while (i < len)
     {
       if ((tab = wordtab_env(env[i])) == NULL)
 	return (puterr(ERROR_MALLOC));
-      if (my_put_in_list_stock(envp, tab[0], tab[1]) == -1)
+      if (my_put_in_list_stock(envp, (char *)tab[0],
+			       (char *)tab[1]) == -1)
 	return (ERROR);
       freetab(tab);
       i++;

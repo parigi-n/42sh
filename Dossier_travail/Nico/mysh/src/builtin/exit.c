@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Wed May 13 11:48:03 2015 Jules Vautier
+** Last update Sun May 17 19:30:05 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -18,11 +18,9 @@ int		my_exit(t_struct *var, char **tab)
   free_list(&var->alias);
   free_list_pars(&var->buffer);
   free(var->buff);
-  my_putstr("Exit the minishell.\n");
+  my_putstr("exit\n");
   un_raw_mod();
-  /*if (my_tablen(tab) > 1 && my_getnbr(tab[2]))
-    return (nb);*/
-  (void)nb;
-  (void)tab;
+  if (my_tablen(tab) > 1 && ((nb = my_getnbr(tab[1])) != -1))
+    return (nb);
   return (SUCCES);
 }

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  8 11:30:18 2014 jules vautier
-** Last update Mon May 11 16:22:23 2015 Jules Vautier
+** Last update Thu May 14 16:07:16 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -26,15 +26,13 @@ void		free_list(t_stock **list)
     }
 }
 
-int		my_put_in_list_stock(t_stock **list, char *name, char *comment)
+int		my_put_in_list_stock(t_stock **list,
+				     char *name, char *comment)
 {
   t_stock	*l_a;
 
   if ((l_a = malloc(sizeof(*l_a))) == NULL)
-    {
-      my_putstr("Error Malloc in put_in_list_stock\n");
-      return (ERROR);
-    }
+    return (ERROR);
   if ((l_a->name = my_strcpy(name)) == NULL)
     return (ERROR);
   if ((l_a->comment = my_strcpy(comment)) == NULL)

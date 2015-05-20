@@ -37,6 +37,9 @@ int		flag_time_month_nbr(t_stock **env);
 int		flag_time_year_first(t_stock **env);
 int		flag_time_year_complete(t_stock **env);
 char		*pwd_home(char *home, char *path);
-int		prompt_bashrc(t_stock **env);
+int		prompt_bashrc(t_struct *var, char *raw_line);
+int		bashrc_prompt_fct(t_struct *var, char **tab);
+int		my_prompt(char *prompt_line, t_stock **env);
+int		check_quote(char *line);
 
 #endif /* !PROMPT_H_ */

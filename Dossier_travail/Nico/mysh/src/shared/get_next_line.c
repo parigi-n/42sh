@@ -5,11 +5,12 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Tue Apr 21 11:24:20 2015 david sebaoun
-** Last update Thu May  7 16:44:57 2015 Jules Vautier
+** Last update Fri May 15 16:03:38 2015 david sebaoun
 */
 
 #include <unistd.h>
 #include <stdlib.h>
+#include "my.h"
 
 char	*re_alloc(char *str, char c)
 {

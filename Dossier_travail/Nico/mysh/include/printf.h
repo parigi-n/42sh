@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Nov  7 17:58:33 2014 jules vautier
-** Last update Wed May 13 15:04:42 2015 Jules Vautier
+** Last update Fri May 15 16:06:33 2015 david sebaoun
 */
 
 #ifndef PRINTF_H_
@@ -25,12 +25,12 @@ typedef struct	s_counter
   int		len;
 }		t_counter;
 
-int	my_printf(char *arg, ...);
-int	printf_error(char *arg, ...);
-int	aff_print_c(int len, va_list ap);
-int	aff_print_s(int len, va_list ap);
-int	aff_print_d(int len, va_list ap);
-int	aff_print_t(int len, va_list ap);
-int	aff_print_mod(int len, va_list ap);
+int		my_printf(char *arg, ...);
+int		printf_error(char *arg, ...);
+int		aff_print_c(int len, va_list ap);
+int		aff_print_s(int len, va_list ap);
+int		aff_print_d(int len, va_list ap);
+int		aff_print_t(int len, va_list ap);
+int		aff_print_mod(int len, va_list ap);
 
 #endif /* !PRINTF_H_ */

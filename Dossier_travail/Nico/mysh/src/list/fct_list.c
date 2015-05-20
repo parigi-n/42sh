@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb 26 17:20:30 2015 Jules Vautier
-** Last update Thu May  7 10:23:21 2015 Jules Vautier
+** Last update Thu May 14 16:03:49 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -77,7 +77,8 @@ t_stock		*reverse_list(t_stock *list)
   (new) = NULL;
   while (tmp != NULL)
     {
-      if (my_put_in_list_stock(&new, tmp->name, tmp->comment) == -1)
+      if (my_put_in_list_stock(&new, tmp->name,
+			       tmp->comment) == -1)
 	return (NULL);
       tmp = tmp->next;
     }

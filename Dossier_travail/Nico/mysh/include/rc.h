@@ -13,7 +13,7 @@
 
 # define QUOTE		39
 
-int	list_stock_rc(t_stock **, int fd);
+int	list_stock_rc(t_stock **alias, char *raw_line);
 int	bashrc_alias_fct(char **tab);
 int	bashrc_alias_parse_name(char *);
 int	open_rc(t_struct *);

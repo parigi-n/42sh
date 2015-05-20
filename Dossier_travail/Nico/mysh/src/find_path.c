@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Jan 14 17:53:03 2015 root
-** Last update Mon May 11 16:58:47 2015 Jules Vautier
+** Last update Sun May 17 14:47:11 2015 david sebaoun
 */
 
 #include "my.h"
@@ -26,11 +26,11 @@ int		nb_env(char *env)
   return (nb + 1);
 }
 
-char		**do_env(t_stock **list)
+char	**do_env(t_stock **list)
 {
-  char		**envi;
-  char		*env;
-  char		*res;
+  char	**envi;
+  char	*env;
+  char	*res;
 
   if ((res = (my_getstock(list, "PATH"))) != NULL)
     if ((env = my_strcpy(res)) == NULL)
@@ -38,15 +38,15 @@ char		**do_env(t_stock **list)
 	puterr(ERROR_PATH);
 	return (NULL);
       }
-  if ((envi = my_word_to_tab_deter(env, ": ")) == NULL)
+  if ((envi = my_word_to_tab(env, ": ")) == NULL)
     return (NULL);
   free(env);
   return (envi);
 }
 
-char		**do_tab_exec(t_stock **list)
+char	**do_tab_exec(t_stock **list)
 {
-  char		**tab;
+  char	**tab;
   int		len;
   int		i;
   t_stock	*tmp;

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  8 11:30:18 2014 jules vautier
-** Last update Thu May 14 10:07:40 2015 Jules Vautier
+** Last update Sun May 17 11:34:27 2015 david sebaoun
 */
 
 #include "my.h"
@@ -24,6 +24,7 @@ void		free_list_pars(t_buff **list)
       free(tmp);
       tmp = wait;
     }
+  list = NULL;
 }
 
 void		my_show_list_pars(t_buff *list)
@@ -33,17 +34,19 @@ void		my_show_list_pars(t_buff *list)
   tmp = list;
   while (tmp != NULL)
     {
-      my_printf("str: %s\n", tmp->buff);
+      my_printf("str: %s", tmp->buff);
+      my_printf("   type: %i", tmp->type);
+      my_putchar('\n');
       tmp = tmp->next;
     }
 }
 
-int		my_put_in_list_pars(t_buff **list,
-				    char *str, int type, char **tab)
+int		my_put_in_list_pars(t_buff **list, char *str,
+				    int type, char **tab)
 {
   t_buff	*l_a;
 
-  if ((l_a = malloc(sizeof(*l_a))) == NULL)
+  if ((l_a = malloc(sizeof(t_buff))) == NULL)
     return (ERROR);
   if ((l_a->buff = my_strcpy(str)) == NULL)
     return (ERROR);
@@ -51,6 +54,8 @@ int		my_put_in_list_pars(t_buff **list,
   if ((l_a->tab = tabcpy(tab)) == NULL)
     return (ERROR);
   l_a->next = *list;
+  if (l_a->next != NULL)
+    l_a->next->prev = l_a;
   *list = l_a;
   return (SUCCES);
 }
@@ -66,7 +71,8 @@ t_buff		*reverse_list_pars(t_buff *buffer)
     return (buffer);
   while (tmp != NULL)
     {
-      if (my_put_in_list_pars(&new, tmp->buff, tmp->type, tmp->tab) == -1)
+      if (my_put_in_list_pars(&new, tmp->buff,
+			      tmp->type, tmp->tab) == -1)
 	return (NULL);
       tmp = tmp->next;
     }

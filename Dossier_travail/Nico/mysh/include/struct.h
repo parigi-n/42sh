@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Thu May 14 11:43:05 2015 Jules Vautier
+** Last update Mon May 18 16:23:56 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -25,7 +25,15 @@ typedef struct		s_buff
   char			**display;
   int			type;
   struct s_buff		*next;
+  struct s_buff		*prev;
 }			t_buff;
+
+typedef struct		s_hist
+{
+  char			*str;
+  int			nb;
+  struct s_hist		*next;
+}			t_hist;
 
 typedef struct		s_term
 {
@@ -34,7 +42,10 @@ typedef struct		s_term
   char			*ve;
   char			*vi;
   int			i;
-  int			hist;
+  int			pos;
+  int			lim_hist;
+  t_hist		*hist;
+  int			curse;
   char			*prompt;
 }			t_term;
 
@@ -46,7 +57,7 @@ typedef struct		s_struct
   int			len;
   int			status;
   char			*new;
-  unsigned char		*buff;
+  char			*buff;
   char			**tab;
   char			**envi;
   char			**envp;

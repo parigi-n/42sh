@@ -5,12 +5,13 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 11:38:41 2015 Jules Vautier
-** Last update Thu Apr 30 11:39:12 2015 Jules Vautier
+** Last update Sun May 17 12:36:33 2015 david sebaoun
 */
 
 #include "my.h"
 
 int		auto_comp(t_struct *var)
 {
+  (void)var;
   return (0);
 }

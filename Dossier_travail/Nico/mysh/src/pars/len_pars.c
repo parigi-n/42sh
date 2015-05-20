@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 09:37:29 2015 Jules Vautier
-** Last update Thu May 14 11:05:10 2015 Jules Vautier
+** Last update Thu May 14 15:43:33 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -33,7 +33,5 @@ int		parsing_len(char *str, int i)
       len++;
       i++;
     }
-  if (str[i] != '\0')
-    len++;
   return (len);
 }

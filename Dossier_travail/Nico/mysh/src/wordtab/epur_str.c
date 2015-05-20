@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Oct 27 16:55:39 2014 jules vautier
-** Last update Wed May 13 16:20:11 2015 Jules Vautier
+** Last update Thu May 14 17:24:00 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -46,7 +46,7 @@ static int	quote(char *new, char *str, int *ptri, int *ptrn)
   return (SUCCES);
 }
 
-char		*epur_str(char *str)
+char		*epur_str(char *str, int check)
 {
   char		*new;
   int		i;
@@ -66,5 +66,7 @@ char		*epur_str(char *str)
       check_space(new, str, &i, &n);
     }
   new[n] = '\0';
+  if (check == 1)
+    free (str);
   return (new);
 }
