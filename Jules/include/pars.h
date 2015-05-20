@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Wed May 20 17:33:21 2015 Jules Vautier
+** Last update Wed May 20 18:05:04 2015 Jules Vautier
 */
 
 #ifndef PARS_H_
@@ -45,5 +45,6 @@ int		aff_last_line(t_struct *, char c);
 int		my_get_next_str(t_struct *);
 int		raw_mode(t_stock **envp);
 char		*decal_read(char *);
+int		prev_list_pars(t_buff **);
 
 #endif /* !PARS_H_ */

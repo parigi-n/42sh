@@ -12,7 +12,8 @@
 # define MYSH_H_
 
 # define FAIL_STATUS	65280
-# define RC_NAME	".bashrc"
+# define RC_NAME	".tcshrc"
+# define DEFAULT_PROMPT "\033[1;36m salut \033[0m"
 # define QUOTE		39
 
 int	my_get_next_str_raw(t_struct *var);

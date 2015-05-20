@@ -5,13 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:27:02 2015 Jules Vautier
-** Last update Mon May 11 17:18:05 2015 Jules Vautier
+** Last update Wed May 20 18:02:59 2015 Jules Vautier
 */
 
 #ifndef RC_H_
 # define RC_H_
 
-# define RC_NAME	".bashrc"
 # define QUOTE		39
 
 int	list_stock_rc(t_stock **, int fd);

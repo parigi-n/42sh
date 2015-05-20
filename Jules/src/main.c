@@ -29,10 +29,10 @@ static int	init_struct(t_struct *var, int argc,
     var->term.curse = 1;
   if (get_env(&var->env, var->envp) == -1)
     return (ERROR);
-  /*if (open_rc(var) == ERROR)
-    return (ERROR);*/
+  if (open_rc(var) == ERROR)
+    return (ERROR);
   g_pid_fils = 0;
-  my_printf("\033[1;36m%s \033[0m", ">$");
+  my_prompt(var->term.prompt, &var->env);
   return (SUCCES);
 }
 
