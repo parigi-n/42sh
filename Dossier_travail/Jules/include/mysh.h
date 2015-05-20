@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Sun May 17 15:43:24 2015 Jules Vautier
+** Last update Mon May 18 16:42:14 2015 Jules Vautier
 */
 
 #ifndef MYSH_H_
@@ -34,7 +34,6 @@ int	my_setenv(t_struct *);
 int	my_check_setenv(t_struct *);
 int	find_old_setenv(t_struct *);
 int	my_exit(t_struct *var, char **);
-int	init_struct(t_struct *, char *envp[]);
 char	**do_tab_exec(t_stock **);
 int     my_write(t_struct *var, char **tab1, char **tab2);
 int	parseur(t_struct *var);

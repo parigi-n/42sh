@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Sun May 17 19:13:50 2015 Jules Vautier
+** Last update Wed May 20 15:59:24 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -60,5 +60,6 @@ int		parseur(t_struct *var)
     return (ERROR);
   if ((var->buffer = reverse_list_pars(var->buffer)) == NULL)
     return (puterr(ERROR_MALLOC));
+  prev_list_pars(&var->buffer)
   return (SUCCES);
 }

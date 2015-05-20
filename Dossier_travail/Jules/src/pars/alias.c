@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Sun May 17 11:48:31 2015 david sebaoun
+** Last update Mon May 18 17:09:34 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -77,6 +77,8 @@ int		remp_alias(t_struct *var)
   while (check == 1)
     {
       check = 0;
+      if ((var->buff = epur_str(var->buff, 1)) == NULL)
+	return (-1);
       if ((tab = my_word_to_tab(var->buff)) == NULL)
 	return (puterr(ERROR_MALLOC));
       check = while_alias(var, tab, check);

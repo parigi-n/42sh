@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Sat May 16 12:53:05 2015 david sebaoun
+** Last update Tue May 19 19:40:49 2015 Jules Vautier
 */
 
 int	exec(int argc, char **argv)
@@ -33,6 +33,7 @@ int	exec(int argc, char **argv)
 	      close(pipefd2[0]);
 	      close(pipefd2[1]);
 	    }
+	  /*excec*/
 	}
       else
 	{
@@ -47,9 +48,13 @@ int	exec(int argc, char **argv)
 	      pipefd1[1] = pipefd2[0];
 	    }
 	}
+    }
+  if (next == NULL)
+    {
       close(pipefd1[0]);
       close(pipefd1[1]);
     }
+}
 
 /* for cmd in cmds */
 /*     if there is a next cmd */

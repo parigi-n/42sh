@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Sun May 17 19:13:50 2015 Jules Vautier
+** Last update Wed May 20 16:22:08 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -22,7 +22,7 @@ static int	do_parseur(t_struct *var, int i)
   int		len;
   int		type;
   char		**tab;
-  char	*new;
+  char		*new;
 
   var->buffer = NULL;
   while (var->buff[i] != '\0')
@@ -60,5 +60,6 @@ int		parseur(t_struct *var)
     return (ERROR);
   if ((var->buffer = reverse_list_pars(var->buffer)) == NULL)
     return (puterr(ERROR_MALLOC));
+  prev_list_pars(&var->buffer);
   return (SUCCES);
 }

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  8 11:30:18 2014 jules vautier
-** Last update Sun May 17 15:00:45 2015 Jules Vautier
+** Last update Wed May 20 16:05:46 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -23,9 +23,9 @@ static int		len_env(char *str, int i, char c)
   return (len);
 }
 
-static char	*arg_one(char *str)
+static char		*arg_one(char *str)
 {
-  char		*new;
+  char			*new;
   int			x;
   int			i;
 
@@ -44,9 +44,9 @@ static char	*arg_one(char *str)
   return (new);
 }
 
-static char	*arg_two(char *str)
+static char		*arg_two(char *str)
 {
-  char		*new;
+  char			*new;
   int			x;
   int			i;
 

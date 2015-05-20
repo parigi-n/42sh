@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Dec  8 09:12:47 2014 jules vautier
-## Last update Sun May 17 19:24:20 2015 Jules Vautier
+## Last update Wed May 20 16:21:15 2015 Jules Vautier
 ##
 
 SRC		= src/main.c \
@@ -89,3 +89,4 @@ fclean:		clean
 re:		fclean all
 
 .PHONY:		all clean fclean re cl
+
