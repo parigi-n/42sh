@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Mon May 18 17:13:58 2015 Jules Vautier
+** Last update Wed May 20 18:14:28 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -59,7 +59,7 @@ int		mysh(t_struct *var)
       my_show_list_pars(var->buffer);
       do_mysh(var, &var->buffer);
       free(var->buff);
-      my_printf("\r\033[1;36m%s \033[0m", ">$");
+      my_prompt(var->term.prompt, &var->env);
     }
   return (ERROR);
 }

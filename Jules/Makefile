@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Dec  8 09:12:47 2014 jules vautier
-## Last update Wed May 20 17:27:41 2015 Jules Vautier
+## Last update Wed May 20 18:11:26 2015 Jules Vautier
 ##
 
 SRC		= src/main.c \
@@ -23,6 +23,13 @@ SRC		= src/main.c \
 		src/tab_env.c \
 		src/42shrc/alias.c \
 		src/42shrc/init.c \
+                src/prompt/prompt.c \
+                src/prompt/fct_prompt_misc.c \
+                src/prompt/fct_prompt_time.c \
+                src/prompt/fct_prompt_time_2.c \
+                src/prompt/fct_prompt_dir_and_name.c \
+                src/prompt/pwd_home.c \
+                src/prompt/check_quote.c \
 		src/builtin/cd.c \
 		src/builtin/builtin.c \
 		src/builtin/exit.c \
