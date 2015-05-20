@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Mon May 11 16:57:30 2015 Jules Vautier
+** Last update Wed May 20 18:34:13 2015 Jules Vautier
 */
 
 #ifndef STRING_H_
@@ -30,5 +30,5 @@
 # define ERROR_PIPE	"Error with pipe.\n"
 # define ERROR_FORK	"Error with fork.\n"
 # define ERROR_KILL	"Error with kill.\n"
-
+# define ERROR_NO_RC	"No .tcshrc found in HOME folder or 42sh folder.\n"
 #endif /* !STRING_H_ */

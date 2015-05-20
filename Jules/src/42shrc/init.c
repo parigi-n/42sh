@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:14:28 2015 Jules Vautier
-** Last update Sun May 17 14:51:46 2015 david sebaoun
+** Last update Wed May 20 18:33:49 2015 Jules Vautier
 */
 
 #include <sys/types.h>
@@ -48,7 +48,7 @@ int		open_rc(t_struct *var)
   if (path != NULL && access(RC_NAME, R_OK) != -1)
     path = my_strcpy(RC_NAME);
   if (path == NULL || access(path, R_OK) == -1)
-    return (puterr("Warning : No .tcshrc found in HOME folder or 42sh folder.\n"));
+    return (puterr(ERROR_NO_RC));
   if ((fd = open(path, O_RDONLY)) == -1)
     return (puterr(ERROR_OPEN));
   if (rc_parser(var, fd) == -1)

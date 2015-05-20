@@ -5,78 +5,51 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Sun May 17 15:46:52 2015 Jules Vautier
+** Last update Wed May 20 19:28:18 2015 Jules Vautier
 */
 
 #include "my.h"
 
-static	int	my_cd_home(t_struct *var)
+static int	do_cd(char *str)
 {
-  int		i;
-  char	*home;
-  char	*tmp;
-
-  i = 0;
-  if ((tmp = my_getstock(&var->env, "HOME")) == NULL)
-    return (puterr("Can't find HOME.\n"));
-  if ((home = malloc(sizeof(char)
-		     * (my_strlen(tmp) + 1))) == NULL)
-    return (ERROR);
-  while (tmp[i + 5] != '\0')
+  if (chdir(tab[1]) == -1)
     {
-      home[i] = tmp[i + 5];
-      i++;
-    }
-  home[i] = '\0';
-  if (chdir(home) == -1)
-    {
-      if ((access(home, F_OK)) == -1)
-	return (puterr("HOME directory doesn't exist (access and chdir error).\n"));
+      if ((access(tab[1], F_OK)) == -1)
+	return (printf_error("%s%s", tab[1],
+			     " : File doesn't exist.\n"));
       else
-	return (puterr("HOME is not a directory (chdir error).\n"));
+	return (printf_error("%s%s", tab[1],
+			     " : Is not a directory (chdir error).\n"));
     }
-  free(home);
   return (SUCCES);
 }
 
-static int	my_cd_old(t_struct *var)
+static char	*get_home(char *old)
 {
-  int	i;
-  char	*home;
-  char	*tmp;
+  char		*env;
 
-  i = 0;
-  if ((tmp = my_getstock(&var->env, "OLDPWD=")) == NULL)
-    return (puterr("Can't find OLDPWD.\n"));
-  if ((home = malloc(sizeof(char)
-		     * (my_strlen(tmp) + 1))) == NULL)
-    return (ERROR);
-  while (tmp[i + 7] != '\0')
-    {
-      home[i] = tmp[i + 7];
-      i++;
-    }
-  home[i] = '\0';
-  if (chdir(home) == -1)
-    return (puterr("Fail with chdir.\n"));
-  free(home);
+  tab[1][0] = decal(tab[1][0], 1);
+  if ((env = my_getstock(&var->env, "HOME")) != NULL)
+    return (puterr(ERROR_HOME));
+  if ((env = my_strcat(tab[1], env)) == NULL)
+    return (puterr(ERROR_MALLOC));
   return (SUCCES);
 }
 
 int		my_cd(t_struct *var, char **tab)
 {
-  if ((my_tablen(tab) < 2) || (my_strcmp(tab[1], "~") == 0))
-    return (my_cd_home(var));
-  else if ((my_strcmp(tab[1], (char *)"-") == 0))
-    return (my_cd_old(var));
-  else if (chdir((char *)tab[1]) == -1)
+
+  if (my_tablen(tab) < 2)
     {
-      /*if ((access(tab[1], F_OK)) == -1)
-	return (printf_error("%s%s", tab[1], " : File doesn't exist.\n"));
-      else
-	return (printf_error("%s%s",
-	tab[1], " : Is not a directory (chdir error).\n"));*/
-      /*NEED PRINTF*/
+      if ((env = my_getstock(&var->env, "HOME")) != NULL)
+	return (puterr(ERROR_HOME));
+      return (do_cd(env));
     }
+  else if (tab[1][0] == '~')
+    {
+      if (get_home(
+    }
+  else if ((my_strcmp(tab[1], "-") == 0))
+    env = my_getstock(&var->env, "OLDPWD"));
   return (SUCCES);
 }
