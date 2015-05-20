@@ -5,10 +5,18 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Wed May 13 11:51:54 2015 Jules Vautier
+** Last update Sun May 17 19:20:24 2015 Jules Vautier
 */
 
 #include "my.h"
+
+static int	echo(char **tab)
+{
+  if (tab[1] != NULL)
+    my_putstr(tab[1]);
+  my_printf("\n");
+  return (SUCCES);
+}
 
 static int	builtin_env(t_struct *var, char **tab, int end)
 {
@@ -27,15 +35,17 @@ static int	builtin_env(t_struct *var, char **tab, int end)
   return (end);
 }
 
-int	builtin(t_struct *var, char **tab)
+int		builtin(t_struct *var, char **tab)
 {
-  int	end;
+  int		end;
 
   end = 1;
   if (my_strcmp(tab[0], "exit") == 0)
     exit(my_exit(var, tab));
   else if (my_strcmp(tab[0], "cd") == 0)
     end = my_cd(var, tab);
+  else if (my_strcmp(tab[0], "echo") == 0)
+    echo(tab);
   else if (my_strcmp(tab[0], "alias") == 0)
     end = builtin_alias(var, tab, end);
   else

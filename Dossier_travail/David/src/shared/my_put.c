@@ -27,7 +27,7 @@ int	my_strlen(char *str)
 
 int	 my_putstr(char *str)
 {
-  if (str)
+  if (str != NULL)
     write(1, str, my_strlen(str));
   return (0);
 }

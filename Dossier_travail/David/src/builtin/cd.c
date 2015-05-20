@@ -5,14 +5,14 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Fri May 15 11:20:22 2015 Jules Vautier
+** Last update Sun May 17 15:46:52 2015 Jules Vautier
 */
 
 #include "my.h"
 
 static	int	my_cd_home(t_struct *var)
 {
-  int	i;
+  int		i;
   char	*home;
   char	*tmp;
 
@@ -67,9 +67,9 @@ int		my_cd(t_struct *var, char **tab)
 {
   if ((my_tablen(tab) < 2) || (my_strcmp(tab[1], "~") == 0))
     return (my_cd_home(var));
-  else if ((my_strcmp(tab[1], "-") == 0))
+  else if ((my_strcmp(tab[1], (char *)"-") == 0))
     return (my_cd_old(var));
-  else if (chdir(tab[1]) == -1)
+  else if (chdir((char *)tab[1]) == -1)
     {
       /*if ((access(tab[1], F_OK)) == -1)
 	return (printf_error("%s%s", tab[1], " : File doesn't exist.\n"));

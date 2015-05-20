@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  8 11:30:18 2014 jules vautier
-** Last update Thu May 14 18:01:08 2015 Jules Vautier
+** Last update Wed May 20 17:21:22 2015 david sebaoun
 */
 
 #include "my.h"
@@ -36,6 +36,8 @@ void		my_show_list_pars(t_buff *list)
     {
       my_printf("str: %s", tmp->buff);
       my_printf("   type: %i", tmp->type);
+      if (tmp->prev != NULL)
+	my_printf("  prev type %i\n", tmp->prev->type);
       my_putchar('\n');
       tmp = tmp->next;
     }
@@ -78,4 +80,20 @@ t_buff		*reverse_list_pars(t_buff *buffer)
     }
   free_list_pars(&buffer);
   return (new);
+}
+
+int		prev_list_pars(t_buff **list)
+{
+  t_buff	*tmp;
+  t_buff	*wait;
+
+  tmp = *list;
+  wait = NULL;
+  while (tmp != NULL)
+    {
+      tmp->prev = wait;
+      wait = tmp;
+      tmp = tmp->next;
+    }
+  return (SUCCES);
 }

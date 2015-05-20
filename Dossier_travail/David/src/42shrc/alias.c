@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:14:28 2015 Jules Vautier
-** Last update Thu May 14 17:24:56 2015 Jules Vautier
+** Last update Sun May 17 14:51:05 2015 david sebaoun
 */
 
 #include "my.h"
@@ -56,9 +56,9 @@ static int	rc_alias_fct(char **tab)
 
 int		list_stock_rc(t_stock **alias, int fd)
 {
-  char		*raw_line;
-  char		*line;
-  char		**tab;
+  char	*raw_line;
+  char	*line;
+  char	**tab;
 
   while ((raw_line = get_next_line(fd)) != NULL)
     {

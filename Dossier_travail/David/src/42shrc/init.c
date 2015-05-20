@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:14:28 2015 Jules Vautier
-** Last update Thu May 14 09:28:34 2015 Jules Vautier
+** Last update Sun May 17 14:51:46 2015 david sebaoun
 */
 
 #include <sys/types.h>
@@ -15,9 +15,9 @@
 
 int		open_rc(t_struct *var)
 {
-  char		*path;
+  char	*home;
+  char	*path;
   int		fd;
-  char		*home;
 
   if ((home = my_getstock(&var->env, "HOME")) == NULL)
     return (SUCCES);

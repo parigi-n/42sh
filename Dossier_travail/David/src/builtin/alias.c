@@ -5,12 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed May 13 11:36:37 2015 Jules Vautier
-** Last update Wed May 13 11:56:22 2015 Jules Vautier
+** Last update Sun May 17 14:52:36 2015 david sebaoun
 */
 
 #include "my.h"
 
-int		builtin_alias(t_struct *var, char **tab, int end)
+int	builtin_alias(t_struct *var, char **tab, int end)
 {
   my_show_tab(tab);
   if (my_tablen(tab) == 3)

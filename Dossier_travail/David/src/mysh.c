@@ -1,16 +1,17 @@
 /*
 ** main.c for main in /home/vautie_a/rendu/PSU_2014_minishell1/mysh_src
-** 
+o** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sat May 16 11:03:51 2015 david sebaoun
+** Last update Wed May 20 17:19:28 2015 david sebaoun
 */
 
 #include <signal.h>
 #include <sys/types.h>
 #include "my.h"
+#include "debug.h"
 
 extern int	g_pid_fils;
 
@@ -21,7 +22,7 @@ static int	end_mysh(t_struct *var)
   else if (var->status != 0)
     {
       g_pid_fils = 0;
-      return (puterr("Fail\n"));
+      return (ERROR);
     }
   free_list_pars(&var->buffer);
   var->buffer = NULL;
@@ -36,12 +37,8 @@ int		do_mysh(t_struct *var, t_buff **buffer)
   tmp = *buffer;
   while (tmp != NULL)
     {
-      if (tmp->type == TYPE_NEW || tmp->type == -1)
-	type_zero(var, tmp);
-      else if (tmp->type == TYPE_RIGHT || tmp->type == TYPE_DRIGHT)
-	type_write(var, tmp, tmp->next, tmp->type);
-      else if (tmp->type == TYPE_PIPE)
-	type_pipe(var, tmp, tmp->next);
+      builtin(var, tmp->tab);
+      exec(tmp);
       if (end_mysh(var) == -1)
 	return (ERROR);
       tmp = tmp->next;
@@ -57,10 +54,9 @@ int		mysh(t_struct *var)
     return (puterr(ERROR_SIGNAL));
   while (my_get_next_str(var) == 0)
     {
-      my_putchar('\n');
+      my_printf("str: %s\n", var->buff);
       if ((check = parseur(var)) == -1)
 	return (puterr("fail_pars\n"));
-      /*my_printf("pars: %s\n", var->buff);*/
       my_show_list_pars(var->buffer);
       do_mysh(var, &var->buffer);
       free(var->buff);
