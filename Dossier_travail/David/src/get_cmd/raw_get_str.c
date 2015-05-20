@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Fri May 15 10:41:33 2015 Jules Vautier
+** Last update Sun May 17 18:28:37 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -13,11 +13,11 @@
 static char	*re_alloc(char *str, char c)
 {
   char		*new;
-  int		i;
+  int			i;
 
   i = 0;
-  if ((new = malloc(sizeof(unsigned char) *
-		    (my_strlen(str) + 2))) == NULL)
+  if ((new = malloc(sizeof(char) *
+		    (my_strlen (str) + 2))) == NULL)
     return (NULL);
   while (str[i] != '\0')
     {
@@ -30,7 +30,7 @@ static char	*re_alloc(char *str, char c)
   return (new);
 }
 
-static int	do_next_str(t_struct *var, unsigned char c)
+static int	do_next_str(t_struct *var, char c)
 {
   int		len;
   static int	check = 0;
@@ -40,7 +40,7 @@ static int	do_next_str(t_struct *var, unsigned char c)
     return (2);
   if (c == ERASE)
     {
-      if ((len = my_strlen(var->buff)) > 0)
+      if ((len = my_strlen (var->buff)) > 0)
 	{
 	  eff_line(var->buff);
 	  var->buff[len - 1] = '\0';
@@ -56,7 +56,7 @@ static int	do_next_str(t_struct *var, unsigned char c)
 
 int		my_get_next_str_raw(t_struct *var)
 {
-  unsigned char	c;
+  char	c;
 
   if (raw_mode(&var->env) == ERROR)
     return (ERROR);
@@ -66,8 +66,8 @@ int		my_get_next_str_raw(t_struct *var)
   var->term.i = 0;
   while (read(0, &c, sizeof(c)) > 0)
     {
-      if (signal(SIGINT, gere_sig) == SIG_ERR)
-	return (puterr(ERROR_SIGNAL));
+      if (c == 0)
+	return (0);
       if (do_next_str(var, c) != 0)
 	{
 	  var->term.i = 0;

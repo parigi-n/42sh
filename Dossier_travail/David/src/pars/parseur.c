@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Fri May 15 10:37:36 2015 Jules Vautier
+** Last update Wed May 20 16:22:08 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -21,18 +21,18 @@ static int	do_parseur(t_struct *var, int i)
 {
   int		len;
   int		type;
-  char		*new;
   char		**tab;
+  char		*new;
 
   var->buffer = NULL;
   while (var->buff[i] != '\0')
     {
-      len = parsing_len(var->buff, i);
+      len = parsing_len((char *)var->buff, i);
       if ((new = malloc(sizeof(char) * (len + 2))) == NULL)
 	return (puterr(ERROR_MALLOC));
       new = parsing_add(var->buff, &i, new);
       if (((new = epur_str(new, 1)) == NULL) ||
-	  (tab = my_word_to_tab(new)) == NULL)
+	  (tab = my_word_to_tab(new, " ")) == NULL)
 	return (puterr(ERROR_MALLOC));
       if ((type = find_type(var->buff, &i)) < 1)
 	return (ERROR);
@@ -51,7 +51,7 @@ int		parseur(t_struct *var)
   i = 0;
   var->buffer = NULL;
   if ((var->buff = epur_str(var->buff, 1)) == NULL)
-    return (NULL);
+    return (ERROR);
   if (var->buff[0] == '\0')
     return (-2);
   if (remp_alias(var) == ERROR)
@@ -60,6 +60,6 @@ int		parseur(t_struct *var)
     return (ERROR);
   if ((var->buffer = reverse_list_pars(var->buffer)) == NULL)
     return (puterr(ERROR_MALLOC));
-  my_show_list_pars(var->buffer);
+  prev_list_pars(&var->buffer);
   return (SUCCES);
 }

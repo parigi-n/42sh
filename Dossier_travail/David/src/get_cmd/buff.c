@@ -5,15 +5,15 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:26:24 2015 Jules Vautier
-** Last update Wed May  6 08:47:03 2015 Jules Vautier
+** Last update Sun May 17 14:58:30 2015 david sebaoun
 */
 
 #include "my.h"
 
-int		check_buff(char *str)
+int	check_buff(char *str)
 {
   int		i;
-  char		c;
+  char	c;
 
   i = 0;
   while (str[i] != '\0')

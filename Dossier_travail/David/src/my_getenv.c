@@ -5,12 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 16:02:58 2015 Jules Vautier
-** Last update Fri May  8 10:20:07 2015 Jules Vautier
+** Last update Sun May 17 14:48:49 2015 david sebaoun
 */
 
 #include "my.h"
 
-char		*my_getstock(t_stock **list, char *str)
+char	*my_getstock(t_stock **list, char *str)
 {
   t_stock	*tmp;
 
@@ -24,7 +24,7 @@ char		*my_getstock(t_stock **list, char *str)
   return (NULL);
 }
 
-char		*my_getstock_name(t_stock **list, char *str)
+char	*my_getstock_name(t_stock **list, char *str)
 {
   t_stock	*tmp;
 

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Thu May 14 16:39:10 2015 Jules Vautier
+** Last update Sun May 17 18:43:56 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -24,9 +24,10 @@ static int	find_alias(char *str, char *alias)
   return (-1);
 }
 
-static char	*alias_cat(char *str, char *alias, char *content)
+static char	*alias_cat(char *str, char *alias,
+				   char *content)
 {
-  int		i;
+  int			i;
   char		*tmp;
   char		*new;
 
@@ -49,7 +50,7 @@ static char	*alias_cat(char *str, char *alias, char *content)
 static int	while_alias(t_struct *var, char **tab,
 			    int check)
 {
-  char		*alias;
+  char	*alias;
   int		i;
 
   i = 0;
@@ -69,7 +70,7 @@ static int	while_alias(t_struct *var, char **tab,
 
 int		remp_alias(t_struct *var)
 {
-  char		**tab;
+  char	**tab;
   int		check;
 
   tab = NULL;
@@ -77,7 +78,7 @@ int		remp_alias(t_struct *var)
   while (check == 1)
     {
       check = 0;
-      if ((tab = my_word_to_tab(var->buff)) == NULL)
+      if ((tab = my_word_to_tab(var->buff, " ")) == NULL)
 	return (puterr(ERROR_MALLOC));
       check = while_alias(var, tab, check);
       freetab(tab);

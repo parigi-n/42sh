@@ -5,13 +5,13 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
-** Last update Thu May  7 12:22:32 2015 Jules Vautier
+** Last update Sun May 17 12:18:10 2015 david sebaoun
 */
 
 #include "my.h"
 #include "string.h"
 
-int		gere_up(t_struct *var)
+int		gere p(t_struct *var)
 {
   /*if (var->term.hist < onche)*/
     var->term.hist = var->term.hist - 1;
@@ -27,7 +27,7 @@ int		gere_down(t_struct *var)
 
 int		gere_right(t_struct *var)
 {
-  if (var->term.i < my_strlen(var->buff))
+  if (var->term.i < my_strlen (var->buff))
     var->term.i = var->term.i + 1;
   return (SUCCES);
 }

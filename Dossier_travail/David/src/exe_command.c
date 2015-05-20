@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Thu May  7 11:00:10 2015 Jules Vautier
+** Last update Sun May 17 14:45:59 2015 david sebaoun
 */
 
 #include "my.h"
@@ -27,7 +27,7 @@ static int	init_exe_cmd(t_struct *var, char **tab)
 
 static int	do_exe_cmd(t_struct *var, int i, char **tab)
 {
-  char		*str;
+  char	*str;
 
   free(tab[0]);
   tab[0] = NULL;
