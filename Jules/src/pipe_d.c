@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Thu May 21 11:46:36 2015 Jules Vautier
+** Last update Thu May 21 15:14:33 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -57,11 +57,13 @@ t_buff	*pipe_me(t_struct *var, t_buff **buffer)
 	}
       tmp = tmp->next;
     }
-  if (tmp->next == NULL)
+  /*if (tmp->next == NULL)
     {
       close(pipefd1[0]);
       close(pipefd1[1]);
-    }
+      }*/
+      close(pipefd1[0]);
+      close(pipefd1[1]);
   return (tmp);
 }
 

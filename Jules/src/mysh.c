@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Thu May 21 11:14:28 2015 Jules Vautier
+** Last update Thu May 21 15:27:11 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -35,7 +35,10 @@ int		do_mysh(t_struct *var, t_buff **buffer)
   t_buff	*tmp;
 
   tmp = *buffer;
-  pipe_me(var, buffer);
+  if (builtin(var, tmp->tab) == -1)
+    exe_cmd(var, tmp->tab);
+
+  /*pipe_me(var, buffer);*/
   if (end_mysh(var) == -1)
     return (ERROR);
   return (SUCCES);
