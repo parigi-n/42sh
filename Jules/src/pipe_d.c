@@ -5,65 +5,43 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Thu May 21 15:14:33 2015 Jules Vautier
+** Last update Thu May 21 20:04:31 2015 Jules Vautier
 */
 
 #include "my.h"
 
 extern int	g_pid_fils;
 
-t_buff	*pipe_me(t_struct *var, t_buff **buffer)
+t_buff		*pipe_me(t_struct *var, t_buff **buffer)
 {
   t_buff	*tmp;
-  int	pipefd1[2];
-  int	pipefd2[2];
+  int		pipefd[2];
+  int		fd = 0;
 
   tmp = *buffer;
   while (tmp != NULL)
     {
-      if ((pipe(pipefd2)) == -1)
+      if ((pipe(pipefd)) == -1)
 	exit(puterr("Fail with pipe\n"));
       if ((g_pid_fils = fork()) == -1)
 	exit(puterr("Fail with fork\n"));
       if (g_pid_fils == 0)
 	{
-	  if (tmp->prev != NULL)
-	    {
-	      dup2(pipefd1[0], 0);
-	      close(pipefd1[0]);
-	      close(pipefd1[1]);
-	    }
+	  dup2(fd, 0);
 	  if (tmp->next != NULL)
-	    {
-	      dup2(pipefd2[0], 0);
-	      close(pipefd2[0]);
-	      close(pipefd2[1]);
-	    }
-	  /*if (builtin(var, tmp->tab) == -1)*/
-	    exe_cmd(var, tmp->tab);
+	    dup2(pipefd[1], 1);
+	  close(pipefd[0]);
+	  exe_cmd(var, tmp->tab);
+	  exit(-1);
 	}
       else
 	{
-	  if (tmp->prev != NULL)
-	    {
-	      close(pipefd1[0]);
-	      close(pipefd1[1]);
-	    }
- 	  if (tmp->next != NULL)
-	    {
-	      pipefd1[0] = pipefd2[0];
-	      pipefd1[1] = pipefd2[0];
-	    }
+	  wait(NULL);
+	  close(pipefd[1]);
+	  fd = pipefd[0];
+	  tmp = tmp->next;
 	}
-      tmp = tmp->next;
     }
-  /*if (tmp->next == NULL)
-    {
-      close(pipefd1[0]);
-      close(pipefd1[1]);
-      }*/
-      close(pipefd1[0]);
-      close(pipefd1[1]);
   return (tmp);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Thu May 21 15:27:11 2015 Jules Vautier
+** Last update Thu May 21 20:09:30 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -32,13 +32,11 @@ static int	end_mysh(t_struct *var)
 
 int		do_mysh(t_struct *var, t_buff **buffer)
 {
-  t_buff	*tmp;
+  t_buff		*tmp;
 
   tmp = *buffer;
-  if (builtin(var, tmp->tab) == -1)
-    exe_cmd(var, tmp->tab);
-
-  /*pipe_me(var, buffer);*/
+  builtin(var, tmp->tab);
+  pipe_me(var, buffer);
   if (end_mysh(var) == -1)
     return (ERROR);
   return (SUCCES);
@@ -52,10 +50,10 @@ int		mysh(t_struct *var)
     return (puterr(ERROR_SIGNAL));
   while (my_get_next_str(var) == 0)
     {
-      my_printf("str: %s\n", var->buff);
+      /*my_printf("str: %s\n", var->buff);*/
       if ((check = parseur(var)) == -1)
 	return (puterr("fail_pars\n"));
-      my_show_list_pars(var->buffer);
+      /*my_show_list_pars(var->buffer);*/
       do_mysh(var, &var->buffer);
       free(var->buff);
       my_prompt(var->term.prompt, &var->env);
