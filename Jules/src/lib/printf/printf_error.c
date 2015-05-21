@@ -5,21 +5,21 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Nov 11 10:56:52 2014 jules vautier
-** Last update Wed May 13 15:01:04 2015 Jules Vautier
+** Last update Thu May 21 08:53:57 2015 Jules Vautier
 */
 
 #include "my.h"
-
+/*
 static const		t_flag g_flag[] =
   {
-    {&aff_print_c, 'c'},
-    {&aff_print_s, 's'},
-    {&aff_print_d, 'd'},
-    {&aff_print_d, 'i'},
+    {&aff_print_c_error, 'c'},
+    {&aff_print_s_error, 's'},
+    {&aff_print_d_error, 'd'},
+    {&aff_print_d_error, 'i'},
     {NULL, '\0'}
   };
 
-static int		aff_print_c_error(int len, va_list ap)
+int			aff_print_c_error(int len, va_list ap)
 {
   char			tmp;
 
@@ -28,7 +28,7 @@ static int		aff_print_c_error(int len, va_list ap)
   return (0);
 }
 
-static int		aff_print_s_error(int len, va_list ap)
+int			aff_print_s_error(int len, va_list ap)
 {
   char			*tmp;
 
@@ -37,7 +37,7 @@ static int		aff_print_s_error(int len, va_list ap)
   return (0);
 }
 
-static int		aff_print_d_error(int len, va_list ap)
+int			aff_print_d_error(int len, va_list ap)
 {
   int			x;
   int			nb;
@@ -61,7 +61,8 @@ static int		aff_print_d_error(int len, va_list ap)
   return (0);
 }
 
-static t_counter	what_is_this_print(char *arg, t_counter counter, va_list ap)
+static t_counter	what_is_this_print(char *arg,
+					   t_counter counter, va_list ap)
 {
   int			n;
 
@@ -109,4 +110,4 @@ int			printf_err(char *arg, ...)
     }
   va_end(ap);
   return (-1);
-}
+  }*/

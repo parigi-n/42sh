@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:14:28 2015 Jules Vautier
-** Last update Sun May 17 14:51:05 2015 david sebaoun
+** Last update Thu May 21 10:43:48 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -54,24 +54,19 @@ static int	rc_alias_fct(char **tab)
   return (0);
 }
 
-int		list_stock_rc(t_stock **alias, int fd)
+int		list_stock_rc(t_stock **alias, char *raw_line)
 {
-  char	*raw_line;
-  char	*line;
-  char	**tab;
+  char		*line;
+  char		**tab;
 
-  while ((raw_line = get_next_line(fd)) != NULL)
-    {
-      if ((line = epur_str(raw_line, 0)) == NULL)
-        return (puterr(ERROR_MALLOC));
-      if ((tab = my_word_to_tab_custom(line, QUOTE)) == NULL)
-        return (puterr(ERROR_MALLOC));
-      if (rc_alias_fct(tab) != -1)
-        if (my_put_in_list_stock(alias, tab[1], tab[2]) == -1)
-          return (puterr(ERROR_MALLOC));
-      freetab(tab);
-      free(line);
-      free(raw_line);
-    }
+  if ((line = epur_str(raw_line, 0)) == NULL)
+    return (puterr(ERROR_MALLOC));
+  if ((tab = my_word_to_tab_custom(line, QUOTE)) == NULL)
+    return (puterr(ERROR_MALLOC));
+  if (rc_alias_fct(tab) != -1)
+    if (my_put_in_list_stock(alias, tab[1], tab[2]) == -1)
+      return (puterr(ERROR_MALLOC));
+  freetab(tab);
+  free(line);
   return (SUCCES);
 }

@@ -1,5 +1,4 @@
 set prompt = "%{\033[1;38m%}[%P] %{\033[1;31m%}[%n]%{\033[0m%}:"
-alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -la'
 alias j='jobs'

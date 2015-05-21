@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Wed May 20 18:04:17 2015 Jules Vautier
+** Last update Thu May 21 10:50:54 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -55,7 +55,7 @@ int		parseur(t_struct *var)
     return (ERROR);
   if (var->buff[0] == '\0')
     return (-2);
-  if (remp_alias(var) == ERROR)
+  if (remplace_alias(var) == ERROR)
     return (puterr("error alias\n"));
   if (do_parseur(var, i) == -1)
     return (ERROR);

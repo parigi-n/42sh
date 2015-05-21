@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:14:28 2015 Jules Vautier
-** Last update Wed May 20 18:33:49 2015 Jules Vautier
+** Last update Thu May 21 10:42:28 2015 Jules Vautier
 */
 
 #include <sys/types.h>
@@ -16,6 +16,7 @@
 int		rc_parser(t_struct *var, int fd)
 {
   char		*raw_line;
+
   while	((raw_line = get_next_line(fd)) != NULL)
     {
       if (check_quote(raw_line) == -1)

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 09:37:29 2015 Jules Vautier
-** Last update Sun May 17 12:44:59 2015 david sebaoun
+** Last update Thu May 21 10:39:28 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -30,7 +30,7 @@ int		advance(char *str, int i)
   return (i);
 }
 
-char	*parsing_add(char *str, int *ptri, char *new)
+char		*parsing_add(char *str, int *ptri, char *new)
 {
   int		len;
   int		i;

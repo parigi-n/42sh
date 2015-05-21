@@ -5,22 +5,19 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Dec  8 09:12:47 2014 jules vautier
-## Last update Wed May 20 18:11:26 2015 Jules Vautier
+## Last update Thu May 21 10:59:52 2015 Jules Vautier
 ##
 
 SRC		= src/main.c \
 		src/env.c \
-		src/read.c \
-		src/pipe.c \
-		src/write.c \
 		src/mysh.c \
-		src/choice_type.c \
 		src/exe_command.c \
 		src/exe_solo.c \
 		src/find_path.c \
 		src/my_getenv.c \
 		src/signal.c \
 		src/tab_env.c \
+		src/pipe_d.c \
 		src/42shrc/alias.c \
 		src/42shrc/init.c \
                 src/prompt/prompt.c \
@@ -43,6 +40,7 @@ SRC		= src/main.c \
 		src/get_cmd/fct_get_str.c \
 		src/get_cmd/auto_comp.c \
 		src/pars/type.c \
+		src/pars/alias.c \
 		src/pars/decal_read.c \
 		src/pars/parseur.c \
 		src/pars/len_pars.c \
@@ -52,6 +50,7 @@ SRC		= src/main.c \
 		src/list/fct_list.c \
 		src/lib/printf/mainprintf.c \
 		src/lib/printf/fct_printf.c \
+		src/lib/printf/printf_error.c \
 		src/lib/wordtab/my_show_tab.c \
 		src/lib/wordtab/fct_tab.c \
 		src/lib/wordtab/my_word_to_tab.c \
