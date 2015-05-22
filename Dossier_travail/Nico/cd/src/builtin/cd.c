@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Wed May 20 19:28:18 2015 Jules Vautier
+** Last update Fri May 22 11:58:18 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -14,7 +14,6 @@ static int	do_cd(char *str, t_stock **env)
 {
   char		*oldpwd;
 
-/*
   if (chdir(str) == -1)
     {
       if ((access(str, F_OK)) == -1)
@@ -27,14 +26,13 @@ static int	do_cd(char *str, t_stock **env)
   else
     {
       if ((oldpwd = my_getstock(env, "PWD")) == NULL)
-	puterr("Error : Can't get previous working directory, Oldpdw not set.\n");
+	puterr(ERROR_NOPWD);
       else
 	if ((add_list_stock(env, "OLDPWD", oldpwd)) == -1)
-	  puterr("Error : Can't set previous working directory (Oldpwd).\n");
+	  puterr(ERROR_NOOLDPWD);
       if ((add_list_stock(env, "PWD", str)) == -1)
-	puterr("Error : Can't set actual working directory (Pwd).\n");
+	puterr(ERROR_NONEWPWD);
     }
-    */
   return (SUCCES);
 }
 
@@ -61,24 +59,26 @@ int		my_cd(t_struct *var, char **tab)
 {
   char		*path;
 
-  if (tab == NULL || tab[0] == NULL)
-    return (puterr("Error : Undefined error in CD.\n"));
   path = NULL;
   if (my_tablen(tab) == 1)
+    {
       if ((path = my_getstock(&var->env, "HOME")) == NULL)
 	return (puterr(ERROR_HOME));
+    }
   else if (tab[1][0] == '~')
+    {
       if ((path = get_home(&var->env, tab[1])) == NULL)
 	return (-1);
+    }
   else if (my_strcmp(tab[1], "-") == 0)
-    if ((path = my_getstock(&var->env, "OLDPWD")) == NULL)
-      return (puterr("Error : No previous working directory found in env.\n"));
+    {
+      if ((path = my_getstock(&var->env, "OLDPWD")) == NULL)
+	return (puterr(ERROR_NOPWD));
+    }
   else if (my_tablen(tab) >= 2)
     path = tab[1];
-  else
-    return (puterr("Error : Undefined error in CD.\n"));
   if (path == NULL)
-    return (puterr("Error : Undefined error in CD.\n"));
+    return (puterr(ERROR_CD));
   if (do_cd(path, &var->env) == -1)
     return(ERROR);
   return (SUCCES);
