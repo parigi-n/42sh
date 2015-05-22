@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Fri May 22 18:14:47 2015 Martin PELLEMOINE
+** Last update Fri May 22 19:11:34 2015 Martin PELLEMOINE
 */
 
 #include <signal.h>
@@ -22,7 +22,7 @@ static int	init_struct(t_struct *var, int argc,
   var->buffer = NULL;
   var->term.i = 0;
   var->term.pos = 0;
-  var->term.lim_hist = 50;
+  var->term.lim_hist = 5;
   var->term.curse = 0;
   var->term.hist = NULL;
   if (argc >= 2 && my_strcmp(argv[1], "-curse") == SUCCES)

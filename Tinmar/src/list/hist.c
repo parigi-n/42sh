@@ -5,27 +5,32 @@
 ** Login   <pellem_m@epitech.net>
 ** 
 ** Started on  Fri May 22 16:43:08 2015 Martin PELLEMOINE
-** Last update Fri May 22 18:42:52 2015 Martin PELLEMOINE
+** Last update Fri May 22 19:22:17 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
 
-void		free_hist(t_hist *hist)
-{
-  free(hist->str);
-  hist->nb--;
-}
-
-int		my_put_in_hist(t_hist *hist, char *cmd)
+void		free_hist(t_hist **hist)
 {
   t_hist	*tmp;
 
-  if ((hist = malloc(sizeof(*hist))) == NULL)
+  free(hist->str);
+  hist->nb--;
+  tmp->next = *hist;
+  *hist = tmp;
+  my_putstr("Historique free frère #iZi\n");
+}
+
+int		my_put_in_hist(t_hist **hist, char *cmd)
+{
+  t_hist	*tmp;
+
+  if ((tmp = malloc(sizeof(*hist))) == NULL)
     return (ERROR);
-  if ((hist->str = my_strcpy(cmd)) == NULL)
+  if ((tmp->str = my_strcpy(cmd)) == NULL)
     return (ERROR);
-  hist->next = tmp;
-  tmp = hist;
+  tmp->next = *hist;
+  *hist = tmp;
   return (SUCCES);
 }
 
@@ -33,11 +38,10 @@ void		my_show_hist(t_hist **hist_stock)
 {
   t_hist	*tmp;
 
-  tmp = hist_stock;
+  tmp = *hist_stock;
   while (tmp != NULL)
     {
-      my_putstr("hist");
-      my_putstr("=");
+      my_putstr("hist = ");
       my_putstr(tmp->str);
       my_putchar('\n');
       tmp = tmp->next;

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Fri May 22 18:33:08 2015 Martin PELLEMOINE
+** Last update Fri May 22 19:16:13 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
@@ -50,6 +50,7 @@ static int	solo_char(t_struct *var, char c)
     {
       my_put_in_hist(&var->term.hist, var->buff);
       my_show_hist(&var->term.hist);
+      var->term.hist->nb++;
       if (var->term.hist->nb == var->term.lim_hist)
 	free_hist(&var->term.hist);
       return (2);
