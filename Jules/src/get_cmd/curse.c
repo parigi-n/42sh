@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Feb  2 15:41:46 2015 Jules Vautier
-** Last update Sun May 17 15:00:10 2015 david sebaoun
+** Last update Fri May 22 10:26:43 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -27,9 +27,9 @@ int			init_var_term(t_term *term)
   return (OK);
 }
 
-int                     un_raw_mod()
+int			un_raw_mod()
 {
-  struct termios        t;
+  struct termios	t;
 
   if (tcgetattr(0, &t) < 0)
     return (puterr("Fail tcgetattr in un_raw_mod.\n"));

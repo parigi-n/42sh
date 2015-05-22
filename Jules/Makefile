@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Dec  8 09:12:47 2014 jules vautier
-## Last update Thu May 21 10:59:52 2015 Jules Vautier
+## Last update Fri May 22 10:06:01 2015 Jules Vautier
 ##
 
 SRC		= src/main.c \
@@ -26,7 +26,6 @@ SRC		= src/main.c \
                 src/prompt/fct_prompt_time_2.c \
                 src/prompt/fct_prompt_dir_and_name.c \
                 src/prompt/pwd_home.c \
-                src/prompt/check_quote.c \
 		src/builtin/cd.c \
 		src/builtin/builtin.c \
 		src/builtin/exit.c \
@@ -63,6 +62,7 @@ SRC		= src/main.c \
 		src/lib/shared/puterr.c \
 		src/lib/shared/my_putchar.c \
 		src/lib/shared/my_putstr.c \
+		src/lib/shared/check_quote.c \
 		src/lib/shared/my_putnbr.c \
 		src/lib/shared/my_strlen.c \
 		src/lib/shared/strcmp.c \

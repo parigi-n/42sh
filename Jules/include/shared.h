@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:06:37 2015 david sebaoun
-** Last update Wed May 20 17:35:48 2015 Jules Vautier
+** Last update Fri May 22 09:50:56 2015 Jules Vautier
 */
 
 #ifndef SHARED_H_
@@ -36,6 +36,6 @@ char		*my_strcat_separ(char *str1, char *str2, const char separator);
 char		*add_char(char *str, int i, char c);
 char		*decal(char *str, int i);
 int		my_getnbr(const char *str);
-char		*decal_op(char *, int, int);
+char		*decaln(char *, int, int);
 
 #endif /* !SHARED_H_ */

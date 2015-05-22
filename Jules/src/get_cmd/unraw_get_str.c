@@ -5,15 +5,29 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Wed May 20 18:38:39 2015 Jules Vautier
+** Last update Fri May 22 10:14:18 2015 Jules Vautier
 */
 
 #include "my.h"
 
 int		my_get_next_str_unraw(t_struct *var)
 {
-  var->term.i = 0;
+  char		*wait;
+  char		*tmp;
+
   var->buff = get_next_line(0);
+  while (check_quote(var->buff) == ERROR)
+    {
+      if ((wait = get_next_line(0)) == NULL)
+	return (-1);
+      if ((tmp = my_strcat_separ(var->buff, wait, '\n')) == NULL)
+	return (-1);
+      free(var->buff);
+      free(wait);
+      if ((var->buff = my_strcpy(tmp)) == NULL)
+	return (-1);
+      free(tmp);
+    }
   if (var->buff == NULL)
     return (ERROR);
   return (SUCCES);

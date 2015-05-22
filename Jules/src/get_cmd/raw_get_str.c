@@ -5,10 +5,21 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sun May 17 18:28:37 2015 Jules Vautier
+** Last update Fri May 22 10:54:28 2015 Jules Vautier
 */
 
 #include "my.h"
+
+static int	init(t_struct *var)
+{
+  if (raw_mode(&var->env) == ERROR)
+    return (ERROR);
+  if ((var->buff = malloc(1)) == NULL)
+    return (ERROR);
+  var->buff[0] = '\0';
+  var->term.i = 0;
+  return (SUCCES);
+}
 
 static char	*re_alloc(char *str, char c)
 {
@@ -30,49 +41,50 @@ static char	*re_alloc(char *str, char c)
   return (new);
 }
 
-static int	do_next_str(t_struct *var, char c)
+static int	solo_char(t_struct *var, char c)
 {
-  int		len;
   static int	check = 0;
+  int		len;
 
-  /*my_printf("key %i\n", c);*/
   if (c == '\n' && (check % 2) == 0)
-    return (2);
+    {
+      /*my_put_in_hist*/
+      return (2);
+    }
   if (c == ERASE)
     {
       if ((len = my_strlen (var->buff)) > 0)
-	{
-	  eff_line(var->buff);
-	  var->buff[len - 1] = '\0';
-	}
+	var->buff[len - 1] = '\0';
     }
-  else if ((c >= 33 || c == ' ' || c == '\t' || c == '\n'))
-    var->buff = re_alloc(var->buff, c);
-  if (c == '"')
-    check = check + 1;
+  else
+    {
+      if ((var->buff = re_alloc(var->buff, c)) == NULL)
+	return (ERROR);
+    }
+  eff_line(var->buff);
+  my_prompt(var->term.prompt, &var->env);
   aff_last_line(var, c);
   return (SUCCES);
 }
 
 int		my_get_next_str_raw(t_struct *var)
 {
-  char	c;
+  char		buff[4];
+  int		len;
 
-  if (raw_mode(&var->env) == ERROR)
+  if (init(var) == ERROR)
     return (ERROR);
-  if ((var->buff = malloc(1)) == NULL)
-    return (-1);
-  var->buff[0] = '\0';
-  var->term.i = 0;
-  while (read(0, &c, sizeof(c)) > 0)
+  while ((len = read(0, buff, 3)) > 0)
     {
-      if (c == 0)
-	return (0);
-      if (do_next_str(var, c) != 0)
+      buff[len] = '\0';
+      if (len == 1)
 	{
-	  var->term.i = 0;
-	  un_raw_mod();
-	  return (SUCCES);
+	  if (solo_char(var, buff[0]) == 2)
+	    return (un_raw_mod());
+	}
+      else
+	{
+	  /*key_hook + hist + autocmpl*/;
 	}
     }
   return (puterr(INVALID_READ));

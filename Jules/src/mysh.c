@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Fri May 22 09:29:36 2015 Jules Vautier
+** Last update Fri May 22 10:13:47 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -62,7 +62,7 @@ int		mysh(t_struct *var)
     return (puterr(ERROR_SIGNAL));
   while (my_get_next_str(var) == 0)
     {
-      /*my_printf("str: %s\n", var->buff);*/
+      my_printf("str: -%s-\n", var->buff);
       if ((check = parseur(var)) == -1)
 	return (puterr("fail_pars\n"));
       /*my_show_list_pars(var->buffer);*/
