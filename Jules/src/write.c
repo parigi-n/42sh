@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Mar  5 15:36:41 2015 Jules Vautier
-** Last update Sun May 17 14:50:43 2015 david sebaoun
+** Last update Fri May 22 08:45:04 2015 Jules Vautier
 */
 
 #include <sys/types.h>
@@ -36,7 +36,8 @@ static int	write_in(int pipefd[2], int fd)
     {
       buff[len] = '\0';
       write(fd, buff, len);
-    }  return (SUCCES);
+    }
+  return (SUCCES);
 }
 
 int	my_write(t_struct *var, char **tab1, char **tab2)

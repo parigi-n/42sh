@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Thu May 21 09:53:10 2015 Jules Vautier
+** Last update Fri May 22 08:54:25 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -48,6 +48,8 @@ int	exe_cmd(t_struct *var, char **tab)
   int	i;
 
   i = 0;
+  if (builtin(var, tab) == SUCCES)
+    exit(0);
   if ((init_exe_cmd(var, tab)) == -1)
     exit(-1);
   if (access(tab[0], X_OK) == 0)
