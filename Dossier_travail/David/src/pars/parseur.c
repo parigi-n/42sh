@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Wed May 20 16:22:08 2015 Jules Vautier
+** Last update Fri May 22 19:32:10 2015 david sebaoun
 */
 
 #include "my.h"
@@ -17,6 +17,38 @@ static int	free_parseur(char *new, char **tab)
   return (SUCCES);
 }
 
+static char	**mod_tab(char **tab)
+{
+  int		i;
+  int		j;
+  char		**new_tab;
+
+  i = -1;
+  j = 0;
+  /* my_show_tab(tab); */
+  if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
+    return (NULL);
+  while (tab[++i] != NULL)
+    {
+      if (tab[i][0] != '<' && tab[i][0] != '>' &&
+	  (tab[i][0] != '>' || tab[i][1] != '>') &&
+	  (tab[i][0] != '<' || tab[i][1] != '<'))
+	new_tab[j++] = my_strcpy(tab[i]);
+    }
+  i = -1;
+  while (tab[++i] != NULL)
+    {
+      if (tab[i][0] == '<' || tab[i][0] == '>' ||
+  	  (tab[i][0] == '>' && tab[i][1] == '>') ||
+  	  (tab[i][0] == '<' && tab[i][1] == '<'))
+	new_tab[j++] = my_strcpy(tab[i]);
+    }
+  new_tab[j] = NULL;
+  freetab(tab);
+  /* my_show_tab(new_tab); */
+  return (new_tab);
+}
+
 static int	do_parseur(t_struct *var, int i)
 {
   int		len;
@@ -25,6 +57,7 @@ static int	do_parseur(t_struct *var, int i)
   char		*new;
 
   var->buffer = NULL;
+  type = TYPE_NEW;
   while (var->buff[i] != '\0')
     {
       len = parsing_len((char *)var->buff, i);
@@ -32,13 +65,14 @@ static int	do_parseur(t_struct *var, int i)
 	return (puterr(ERROR_MALLOC));
       new = parsing_add(var->buff, &i, new);
       if (((new = epur_str(new, 1)) == NULL) ||
-	  (tab = my_word_to_tab(new, " ")) == NULL)
+	  (new = decal_read(new)) == NULL ||
+	  (tab = mod_tab(my_word_to_tab(new, " "))) == NULL)
 	return (puterr(ERROR_MALLOC));
-      if ((type = find_type(var->buff, &i)) < 1)
-	return (ERROR);
       if ((my_put_in_list_pars(&var->buffer,
 			       new, type, tab)) == ERROR)
         return (puterr(ERROR_MALLOC));
+      if ((type = find_type(var->buff, &i)) < 1)
+	return (ERROR);
       free_parseur(new, tab);
     }
   return (SUCCES);
@@ -54,7 +88,7 @@ int		parseur(t_struct *var)
     return (ERROR);
   if (var->buff[0] == '\0')
     return (-2);
-  if (remp_alias(var) == ERROR)
+  if (remplace_alias(var) == ERROR)
     return (puterr("error alias\n"));
   if (do_parseur(var, i) == -1)
     return (ERROR);

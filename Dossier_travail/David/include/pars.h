@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Wed May 20 17:21:27 2015 david sebaoun
+** Last update Fri May 22 09:51:45 2015 Jules Vautier
 */
 
 #ifndef PARS_H_
@@ -32,7 +32,6 @@ typedef struct	s_tabtype
   char		*str;
 }		t_tabtype;
 
-int		prev_list_pars(t_buff **list);
 char		*next_buff(char *, int);
 char		*parsing_add(char *, int *, char *);
 int		find_type(char *, int *);
@@ -45,5 +44,8 @@ int		eff_line(char *);
 int		aff_last_line(t_struct *, char c);
 int		my_get_next_str(t_struct *);
 int		raw_mode(t_stock **envp);
+char		*decal_read(char *);
+int		prev_list_pars(t_buff **);
+int		remplace_alias(t_struct *var);
 
 #endif /* !PARS_H_ */

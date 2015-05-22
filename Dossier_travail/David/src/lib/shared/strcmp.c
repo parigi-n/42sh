@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Apr 27 20:15:15 2015 Jules Vautier
-** Last update Sun May 17 15:42:22 2015 david sebaoun
+** Last update Fri May 22 09:49:09 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -15,7 +15,9 @@ int	my_strcmp(const char *str,
 {
   int	i;
 
-  i = 0;
+  i = 0; 
+  if (str == NULL || new == NULL)
+    return (ERROR);
   while (str[i] != '\0' || new[i] != '\0')
     {
       if (str[i] != new[i])
@@ -33,6 +35,8 @@ int	my_strlcmp(const char *str,
   int	i;
   int	n;
 
+  if (str == NULL || new == NULL)
+    return (ERROR);
   i = my_strlen(str);
   n = my_strlen(new);
   while (nb > 0 && i >= 0 && n >= 0)
@@ -54,6 +58,8 @@ int	my_strncmp(const char *str,
   int	i;
 
   i = 0;
+  if (str == NULL || new == NULL)
+    return (ERROR);
   while (i < (nb - 1) && str[i] != '\0' && new[i] != '\0')
     {
       if (str[i] != new[i])
@@ -71,6 +77,8 @@ int	my_strcmp_op(const char *str,
   int	i;
   int	x;
 
+  if (str == NULL || new == NULL)
+    return (ERROR);
   if (my_strlen(str) < deb)
     return (ERROR);
   i = deb;

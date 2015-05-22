@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Wed May 20 16:46:01 2015 david sebaoun
+** Last update Thu May 21 11:21:55 2015 Jules Vautier
 */
 
 #include 
@@ -19,7 +19,7 @@ int	exec(int argc, char **argv)
   while (next != NULL)
     {
       if ((pipe(pipefd2)) == -1)
-	exit(puterr("Fail with pipe\n"));  
+	exit(puterr("Fail with pipe\n"));
       if ((g_pid_fils = fork()) == -1)
 	exit(puterr("Fail with fork\n"));
       if (g_pid_fils = 0)

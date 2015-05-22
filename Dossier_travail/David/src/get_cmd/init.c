@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May 14 09:29:44 2015 Jules Vautier
-** Last update Mon May 18 16:43:53 2015 Jules Vautier
+** Last update Fri May 22 12:16:01 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -14,8 +14,7 @@ int		my_get_next_str(t_struct *var)
 {
   int		ret;
 
-  if ((my_getstock(&var->env, "TERM") == NULL)
-      && var->term.curse == 1)
+  if (my_getstock(&var->env, "TERM") != NULL)
     ret = my_get_next_str_raw(var);
   else
     ret = my_get_next_str_unraw(var);

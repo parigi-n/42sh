@@ -5,15 +5,12 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Dec  8 09:12:47 2014 jules vautier
-## Last update Wed May 20 17:15:49 2015 david sebaoun
+## Last update Fri May 22 10:06:01 2015 Jules Vautier
 ##
 
 SRC		= src/main.c \
 		src/env.c \
-		src/pipe.c \
-		src/write.c \
 		src/mysh.c \
-		src/choice_type.c \
 		src/exe_command.c \
 		src/exe_solo.c \
 		src/find_path.c \
@@ -23,6 +20,12 @@ SRC		= src/main.c \
 		src/pipe_d.c \
 		src/42shrc/alias.c \
 		src/42shrc/init.c \
+                src/prompt/prompt.c \
+                src/prompt/fct_prompt_misc.c \
+                src/prompt/fct_prompt_time.c \
+                src/prompt/fct_prompt_time_2.c \
+                src/prompt/fct_prompt_dir_and_name.c \
+                src/prompt/pwd_home.c \
 		src/builtin/cd.c \
 		src/builtin/builtin.c \
 		src/builtin/exit.c \
@@ -36,6 +39,8 @@ SRC		= src/main.c \
 		src/get_cmd/fct_get_str.c \
 		src/get_cmd/auto_comp.c \
 		src/pars/type.c \
+		src/pars/alias.c \
+		src/pars/decal_read.c \
 		src/pars/parseur.c \
 		src/pars/len_pars.c \
 		src/pars/parsing.c \
@@ -44,6 +49,7 @@ SRC		= src/main.c \
 		src/list/fct_list.c \
 		src/lib/printf/mainprintf.c \
 		src/lib/printf/fct_printf.c \
+		src/lib/printf/printf_error.c \
 		src/lib/wordtab/my_show_tab.c \
 		src/lib/wordtab/fct_tab.c \
 		src/lib/wordtab/my_word_to_tab.c \
@@ -56,6 +62,7 @@ SRC		= src/main.c \
 		src/lib/shared/puterr.c \
 		src/lib/shared/my_putchar.c \
 		src/lib/shared/my_putstr.c \
+		src/lib/shared/check_quote.c \
 		src/lib/shared/my_putnbr.c \
 		src/lib/shared/my_strlen.c \
 		src/lib/shared/strcmp.c \

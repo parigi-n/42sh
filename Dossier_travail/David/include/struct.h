@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Wed May 20 16:33:29 2015 Jules Vautier
+** Last update Thu May 21 09:52:43 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -45,7 +45,15 @@ typedef struct		s_term
   int			lim_hist;
   t_hist		*hist;
   int			curse;
+  char			*prompt;
 }			t_term;
+
+typedef struct		s_exe
+{
+  char			*tmp;
+  char			**envi;
+  char			**envtab;
+}			t_exe;
 
 typedef struct		s_struct
 {
@@ -54,12 +62,8 @@ typedef struct		s_struct
   int			pid;
   int			len;
   int			status;
-  char			*new;
   char			*buff;
-  char			**tab;
-  char			**envi;
-  char			**envp;
-  char			**envtab;
+  t_exe			exe;
   t_stock		*env;
   t_stock		*alias;
   t_buff		*buffer;

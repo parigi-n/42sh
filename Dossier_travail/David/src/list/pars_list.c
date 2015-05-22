@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  8 11:30:18 2014 jules vautier
-** Last update Wed May 20 17:21:22 2015 david sebaoun
+** Last update Fri May 22 09:47:13 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -34,7 +34,7 @@ void		my_show_list_pars(t_buff *list)
   tmp = list;
   while (tmp != NULL)
     {
-      my_printf("str: %s", tmp->buff);
+      my_printf("str: -%s-", tmp->buff);
       my_printf("   type: %i", tmp->type);
       if (tmp->prev != NULL)
 	my_printf("  prev type %i\n", tmp->prev->type);

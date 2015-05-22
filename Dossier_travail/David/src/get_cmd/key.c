@@ -5,13 +5,13 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
-** Last update Sun May 17 12:18:10 2015 david sebaoun
+** Last update Fri May 22 10:53:04 2015 Jules Vautier
 */
 
 #include "my.h"
 #include "string.h"
 
-int		gere p(t_struct *var)
+int		gere_up(t_struct *var)
 {
   /*if (var->term.hist < onche)*/
     var->term.hist = var->term.hist - 1;

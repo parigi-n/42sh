@@ -1,11 +1,11 @@
 /*
 ** main.c for main in /home/vautie_a/rendu/PSU_2014_minishell1/mysh_src
-o** 
+** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Wed May 20 17:19:28 2015 david sebaoun
+** Last update Fri May 22 10:13:47 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -33,16 +33,24 @@ static int	end_mysh(t_struct *var)
 int		do_mysh(t_struct *var, t_buff **buffer)
 {
   t_buff	*tmp;
+  int		pipefd[2];
+  int		fd;
 
+  fd = 0;
   tmp = *buffer;
   while (tmp != NULL)
     {
-      builtin(var, tmp->tab);
-      exec(tmp);
-      if (end_mysh(var) == -1)
-	return (ERROR);
+      if (my_strcmp(tmp->tab[0], "exit") == 0)
+	exit(my_exit(var, tmp->tab));
+      if ((pipe(pipefd)) == -1)
+	exit(puterr("Fail with pipe\n"));
+      if ((g_pid_fils = fork()) == -1)
+	exit(puterr("Fail with fork\n"));
+      pipe_me(&fd, pipefd, var, tmp);
       tmp = tmp->next;
     }
+  if (end_mysh(var) == -1)
+    return (ERROR);
   return (SUCCES);
 }
 
@@ -54,13 +62,13 @@ int		mysh(t_struct *var)
     return (puterr(ERROR_SIGNAL));
   while (my_get_next_str(var) == 0)
     {
-      my_printf("str: %s\n", var->buff);
+      my_printf("str: -%s-\n", var->buff);
       if ((check = parseur(var)) == -1)
 	return (puterr("fail_pars\n"));
-      my_show_list_pars(var->buffer);
+      /*my_show_list_pars(var->buffer);*/
       do_mysh(var, &var->buffer);
       free(var->buff);
-      my_printf("\r\033[1;36m%s \033[0m", ">$");
+      my_prompt(var->term.prompt, &var->env);
     }
   return (ERROR);
 }

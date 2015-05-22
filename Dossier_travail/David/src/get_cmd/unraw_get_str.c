@@ -5,28 +5,30 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Mon May 18 17:06:44 2015 Jules Vautier
+** Last update Fri May 22 10:14:18 2015 Jules Vautier
 */
 
 #include "my.h"
 
 int		my_get_next_str_unraw(t_struct *var)
 {
-  char		buff[1024];
-  int		len;
+  char		*wait;
+  char		*tmp;
 
-  if ((var->buff = malloc(1)) == NULL)
-    return (-1);
-  var->buff[0] = '\0';
-  var->term.i = 0;
-  while ((len = read(0, buff, 1023)) > 0)
+  var->buff = get_next_line(0);
+  while (check_quote(var->buff) == ERROR)
     {
-      if (buff[0] != '\0' && len > 0)
-	buff[len - 1] = '\0';
-      if ((var->buff = my_strcpy(buff)) == NULL)
-	return (ERROR);
-      my_strlen(var->buff);
-      return(SUCCES);
+      if ((wait = get_next_line(0)) == NULL)
+	return (-1);
+      if ((tmp = my_strcat_separ(var->buff, wait, '\n')) == NULL)
+	return (-1);
+      free(var->buff);
+      free(wait);
+      if ((var->buff = my_strcpy(tmp)) == NULL)
+	return (-1);
+      free(tmp);
     }
-  return (ERROR);
+  if (var->buff == NULL)
+    return (ERROR);
+  return (SUCCES);
 }

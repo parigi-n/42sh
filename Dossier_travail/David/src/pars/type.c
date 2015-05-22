@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Fri May 15 11:04:44 2015 Jules Vautier
+** Last update Fri May 22 18:49:40 2015 david sebaoun
 */
 
 #include "my.h"
@@ -28,7 +28,7 @@ static int	len_type(char *str, int i)
   int		len;
 
   len = 0;
-  while (char_cmp_str(str[i], ">|&;") == SUCCES)
+  while (char_cmp_str(str[i], "|&;") == SUCCES)
     {
       i++;
       len++;
@@ -61,7 +61,7 @@ static int	creat_type(char *str, int i, int len)
   x = 0;
   if ((new = malloc(sizeof(char) * (len + 1))) == NULL)
     return (ERROR);
-  while (char_cmp_str(str[i], ">|&;") == SUCCES)
+  while (char_cmp_str(str[i], "|&;") == SUCCES)
     {
       new[x] = str[i];
       x++;

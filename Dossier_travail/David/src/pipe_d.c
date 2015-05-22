@@ -5,81 +5,40 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Wed May 20 17:33:47 2015 david sebaoun
+** Last update Fri May 22 11:27:17 2015 Jules Vautier
 */
 
 #include "my.h"
 
 extern int	g_pid_fils;
 
-static int	close_fd(int fd1, int fd2)
+static int	son_pipe(int fd, int pipefd[2],
+			 t_struct *var, t_buff *tmp)
 {
-  close(fd1);
-  close(fd2);
-  return (OK);
+  dup2(fd, 0);
+  if (tmp->next != NULL && tmp->next->type == TYPE_PIPE)
+    dup2(pipefd[1], 1);
+  close(pipefd[0]);
+  exe_cmd(var, tmp->tab);
+  exit(-1);
+  return (SUCCES);
 }
 
-int	exec(t_buff *buff)
+static t_buff	*end_pipe(int *fd, int pipefd[],
+			  t_struct *var, t_buff *tmp)
 {
-  int		pipefd1[2];
-  int		pipefd2[2];
-  
-  while (buff->next != NULL)
-    {
-      if ((pipe(pipefd2)) == -1)
-	exit(puterr("Fail with pipe\n"));  
-      if ((g_pid_fils = fork()) == -1)
-	exit(puterr("Fail with fork\n"));
-      if (g_pid_fils == 0)
-	{
-	  if (buff->prev != NULL)
-	    {
-	      dup2(pipefd1[0], 0);
-	      close_fd(pipefd1[0], pipefd1[1]);
-	    }
-	  if (buff->next != NULL)
-	    {
-	      dup2(pipefd2[0], 0);
-	      close_fd(pipefd1[0], pipefd1[1]);
-	    }
-	  /*excec*/
-	}
-      else
-	{
-	  if (buff->prev != NULL)
-	    close_fd(pipefd1[0], pipefd1[1]);
- 	  if (buff->next != NULL)
-	    {
-	      pipefd1[0] = pipefd2[0];
-	      pipefd1[1] = pipefd2[0];
-	    }
-	}
-    }
-  if (buff->next == NULL)
-    close_fd(pipefd1[0], pipefd1[1]);
-  return (OK);
+  var->status = wait(NULL);
+  close(pipefd[1]);
+  *fd = pipefd[0];
+  return (tmp);
 }
 
-/* for cmd in cmds */
-/*     if there is a next cmd */
-/* 	       pipe(new_fds) */
-/*     fork */
-/*     if child */
-/*         if there is a previous cmd */
-/* 		   dup2(old_fds[0], 0) */
-/* 		   close(old_fds[0]) */
-/* 		   close(old_fds[1]) */
-/*         if there is a next cmd */
-/* 		   close(new_fds[0]) */
-/* 		   dup2(new_fds[1], 1) */
-/* 		   close(new_fds[1]) */
-/*         exec cmd || die */
-/*      else */
-/*         if there is a previous cmd */
-/* 		   close(old_fds[0]) */
-/* 		   close(old_fds[1]) */
-/*         if there is a next cmd */
-/*             old_fds = new_fds */
-/* if there are multiple cmds */
-/* 	   close(old_fds[0]) */
-/* 	   close(old_fds[1]) */
+t_buff		*pipe_me(int *fd, int pipefd[2],
+			 t_struct *var, t_buff *tmp)
+{
+  if (g_pid_fils == 0)
+    son_pipe(*fd, pipefd, var, tmp);
+  else
+    end_pipe(fd, pipefd, var, tmp);
+  return (NULL);
+}

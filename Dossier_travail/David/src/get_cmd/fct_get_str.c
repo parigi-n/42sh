@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sun May 17 12:26:42 2015 david sebaoun
+** Last update Fri May 22 10:47:35 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -29,7 +29,6 @@ int		aff_last_line(t_struct *var, char c)
 {
   int		i;
 
-  my_printf("\r\033[1;36m%s \033[0m", ">$");
   i = my_strlen (var->buff);
   while (i > 0 && var->buff[i] != '\n')
     i--;

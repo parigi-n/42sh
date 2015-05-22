@@ -5,16 +5,35 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri May  8 09:09:43 2015 Jules Vautier
-** Last update Sun May 17 15:32:21 2015 david sebaoun
+** Last update Wed May 20 17:38:51 2015 Jules Vautier
 */
 
-#include "my.h"
+#include	"my.h"
 
-char	*decal(char *str, int i)
+char		*decal(char *str, int i)
 {
   int		x;
 
   x = 0;
+  if (i > my_strlen(str))
+    return (NULL);
+  while (str[i] != '\0')
+    {
+      str[x] = str[i];
+      x++;
+      i++;
+    }
+  str[x] = '\0';
+  return (str);
+}
+
+char		*decaln(char *str, int deb, int len)
+{
+  int		x;
+  int		i;
+
+  i = deb + len;
+  x = deb;
   if (i > my_strlen(str))
     return (NULL);
   while (str[i] != '\0')
