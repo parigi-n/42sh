@@ -5,12 +5,10 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Fri May 22 09:30:46 2015 Jules Vautier
+** Last update Fri May 22 11:25:54 2015 Jules Vautier
 */
 
 #include "my.h"
-
-extern int	g_pid_fils;
 
 static int	son_pipe(int fd, int pipefd[2],
 			 t_struct *var, t_buff *tmp)
