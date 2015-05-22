@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Nov 11 10:56:52 2014 jules vautier
-** Last update Fri May 22 12:06:32 2015 Jules Vautier
+** Last update Fri May 22 12:12:45 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -113,4 +113,4 @@ int			printf_err(char *arg, ...)
     }
   va_end(ap);
   return (-1);
-  }
+}
