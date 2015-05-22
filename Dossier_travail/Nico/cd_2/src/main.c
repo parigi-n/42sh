@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Thu May 21 09:51:54 2015 Jules Vautier
+** Last update Fri May 22 16:37:15 2015 Nicolas PARIGI
 */
 
 #include <signal.h>
@@ -40,9 +40,9 @@ int		main(int argc, char **argv, char *envp[])
   t_struct	var;
 
   if (init_struct(&var, argc, argv, envp) == -1)
-    return (puterr(UCAST ERROR_INIT));
+    return (puterr(ERROR_INIT));
   if (signal(SIGINT, gere_sig) == SIG_ERR)
-    return (puterr(UCAST ERROR_SIGNAL));
+    return (puterr(ERROR_SIGNAL));
   mysh(&var);
   write(1, "\n", 1);
   (void)argc;

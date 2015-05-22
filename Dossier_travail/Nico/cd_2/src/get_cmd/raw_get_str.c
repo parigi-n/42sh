@@ -5,11 +5,34 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Fri May 22 10:54:28 2015 Jules Vautier
+** Last update Fri May 22 19:13:09 2015 Nicolas PARIGI
 */
+
+extern int	g_pid_fils;
+
+#define _POSIX_SOURCE
+#include <sys/types.h>
+#include <signal.h>
 
 #include "my.h"
 
+static int	gere_key_control(t_struct *var, char c)
+{
+  int		len;
+
+  if (c == 3)
+    {
+      my_putchar('\n');
+      my_prompt(var->term.prompt, &var->env);
+      eff_line(var->buff);
+    }
+  else if (c == ERASE)
+    {
+      if ((len = my_strlen(var->buff)) > 0)
+	var->buff[len - 1] = '\0';
+    }
+}
+  
 static int	init(t_struct *var)
 {
   if (raw_mode(&var->env) == ERROR)
@@ -44,18 +67,14 @@ static char	*re_alloc(char *str, char c)
 static int	solo_char(t_struct *var, char c)
 {
   static int	check = 0;
-  int		len;
 
   if (c == '\n' && (check % 2) == 0)
     {
       /*my_put_in_hist*/
       return (2);
-    }
-  if (c == ERASE)
-    {
-      if ((len = my_strlen (var->buff)) > 0)
-	var->buff[len - 1] = '\0';
-    }
+    }    
+  if (c <= 31 || c == ERASE)
+    gere_key_control(var, c);
   else
     {
       if ((var->buff = re_alloc(var->buff, c)) == NULL)
