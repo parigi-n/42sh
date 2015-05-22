@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Fri May 22 11:27:17 2015 Jules Vautier
+** Last update Fri May 22 19:00:00 2015 Nicolas PARIGI
 */
 
 #include "my.h"
