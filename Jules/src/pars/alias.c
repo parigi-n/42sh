@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Thu May 21 10:53:36 2015 Jules Vautier
+** Last update Fri May 22 11:58:53 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -46,44 +46,43 @@ static char	*alias_cat(char *str, char *alias, char *content)
   return (new);
 }
 
-static int	while_alias(t_struct *var, char **tab,
-			    int check)
+static int	while_alias(t_struct *var, t_stock **list,
+			    char **tab)
 {
-  char		*alias;
+  t_stock	*tmp;
   int		i;
 
-  i = 0;
-  while (tab[i] != NULL && check == 0)
+  tmp = *list;
+  while (tmp != NULL)
     {
-      if ((alias = my_getstock(&var->alias, tab[i])) != NULL)
+      i = 0;
+      while (tab[i] != NULL)
 	{
-	  check = 1;
-	  if ((var->buff = (alias_cat(var->buff,
-				      tab[i], alias))) == NULL)
-	    return (puterr(ERROR_MALLOC));
+	  if (my_strcmp(tab[i], tmp->name) == SUCCES)
+	    {
+	      if ((var->buff
+		   = alias_cat(tab[i], tmp->name, tmp->comment)) == NULL)
+		return (ERROR);
+	    }
+	  i++;
 	}
-      i++;
+      tmp = tmp->next;
     }
-  return (check);
+  return (SUCCES);
 }
 
 int		remplace_alias(t_struct *var)
 {
   char		**tab;
-  int		check;
 
   tab = NULL;
-  check = 1;
-  while (check == 1)
-    {
-      check = 0;
-      if ((var->buff = epur_str(var->buff, 1)) == NULL)
-	return (-1);
-      if ((tab = my_word_to_tab(var->buff, " ")) == NULL)
-	return (puterr(ERROR_MALLOC));
-      check = while_alias(var, tab, check);
-      freetab(tab);
-    }
+  if ((var->buff = epur_str(var->buff, 1)) == NULL)
+    return (-1);
+  if ((tab = my_word_to_tab(var->buff, " ")) == NULL)
+    return (puterr(ERROR_MALLOC));
+  if (while_alias(var, &var->alias, tab) == ERROR)
+    return (ERROR);
+  freetab(tab);
   if ((var->buff = epur_str(var->buff, 1)) == NULL)
     return (-1);
   return (SUCCES);

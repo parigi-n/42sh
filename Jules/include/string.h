@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Wed May 20 18:34:13 2015 Jules Vautier
+** Last update Fri May 22 11:58:16 2015 Nicolas PARIGI
 */
 
 #ifndef STRING_H_
@@ -30,5 +30,15 @@
 # define ERROR_PIPE	"Error with pipe.\n"
 # define ERROR_FORK	"Error with fork.\n"
 # define ERROR_KILL	"Error with kill.\n"
+
+/* .tcshrc */
+
 # define ERROR_NO_RC	"No .tcshrc found in HOME folder or 42sh folder.\n"
+
+/* CD */
+
+# define ERROR_NOPWD	"Error : Can't get previous working directory, Oldpdw not set.\n"
+# define ERROR_NOOLDPWD	"Error : Can't set previous working directory (Oldpwd).\n"
+# define ERROR_NONEWPWD	"Error : Can't set actual working directory (Pwd).\n"
+# define ERROR_CD	"Error : Undefined error in CD.\n"
 #endif /* !STRING_H_ */
