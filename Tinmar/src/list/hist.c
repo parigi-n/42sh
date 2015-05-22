@@ -5,7 +5,7 @@
 ** Login   <pellem_m@epitech.net>
 ** 
 ** Started on  Fri May 22 16:43:08 2015 Martin PELLEMOINE
-** Last update Fri May 22 17:56:18 2015 Martin PELLEMOINE
+** Last update Fri May 22 18:42:52 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
@@ -29,7 +29,7 @@ int		my_put_in_hist(t_hist *hist, char *cmd)
   return (SUCCES);
 }
 
-void		my_show_hist(t_hist *hist_stock)
+void		my_show_hist(t_hist **hist_stock)
 {
   t_hist	*tmp;
 

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Fri May 22 18:08:06 2015 Martin PELLEMOINE
+** Last update Fri May 22 18:33:08 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
@@ -49,9 +49,9 @@ static int	solo_char(t_struct *var, char c)
   if (c == '\n' && (check % 2) == 0)
     {
       my_put_in_hist(&var->term.hist, var->buff);
-      my_show_list(var->term.hist);
-      if (var->term.hist.nb == var->term.lim_hist)
-	free_list(&var->term.hist);
+      my_show_hist(&var->term.hist);
+      if (var->term.hist->nb == var->term.lim_hist)
+	free_hist(&var->term.hist);
       return (2);
     }
   if (c == ERASE)

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb 26 17:38:14 2015 Jules Vautier
-** Last update Fri May 22 17:56:25 2015 Martin PELLEMOINE
+** Last update Fri May 22 18:41:35 2015 Martin PELLEMOINE
 */
 
 #ifndef LIST_H_
@@ -27,6 +27,6 @@ void	my_show_list(t_stock *);
 void	my_show_list_pars(t_buff *);
 void    free_hist(t_hist *hist);
 int	my_put_in_hist(t_hist *hist, char *cmd);
-void	my_show_hist(t_hist *hist_stock);
+void	my_show_hist(t_hist **hist_stock);
 
 #endif /* !LIST_H_ */
