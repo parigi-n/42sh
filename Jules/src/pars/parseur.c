@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Thu May 21 10:50:54 2015 Jules Vautier
+** Last update Fri May 22 09:26:14 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -25,6 +25,7 @@ static int	do_parseur(t_struct *var, int i)
   char		*new;
 
   var->buffer = NULL;
+  type = TYPE_NEW;
   while (var->buff[i] != '\0')
     {
       len = parsing_len((char *)var->buff, i);
@@ -35,11 +36,11 @@ static int	do_parseur(t_struct *var, int i)
 	  (new = decal_read(new)) == NULL ||
 	  (tab = my_word_to_tab(new, " ")) == NULL)
 	return (puterr(ERROR_MALLOC));
-      if ((type = find_type(var->buff, &i)) < 1)
-	return (ERROR);
       if ((my_put_in_list_pars(&var->buffer,
 			       new, type, tab)) == ERROR)
         return (puterr(ERROR_MALLOC));
+      if ((type = find_type(var->buff, &i)) < 1)
+	return (ERROR);
       free_parseur(new, tab);
     }
   return (SUCCES);

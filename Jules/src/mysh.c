@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Fri May 22 08:52:48 2015 Jules Vautier
+** Last update Fri May 22 09:29:36 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -32,10 +32,23 @@ static int	end_mysh(t_struct *var)
 
 int		do_mysh(t_struct *var, t_buff **buffer)
 {
-  t_buff		*tmp;
+  t_buff	*tmp;
+  int		pipefd[2];
+  int		fd;
 
+  fd = 0;
   tmp = *buffer;
-  pipe_me(var, buffer);
+  while (tmp != NULL)
+    {
+      if (my_strcmp(tmp->tab[0], "exit") == 0)
+	exit(my_exit(var, tmp->tab));
+      if ((pipe(pipefd)) == -1)
+	exit(puterr("Fail with pipe\n"));
+      if ((g_pid_fils = fork()) == -1)
+	exit(puterr("Fail with fork\n"));
+      pipe_me(&fd, pipefd, var, tmp);
+      tmp = tmp->next;
+    }
   if (end_mysh(var) == -1)
     return (ERROR);
   return (SUCCES);
