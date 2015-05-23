@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sat May 23 16:59:02 2015 Jules Vautier
+** Last update Sat May 23 17:21:39 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -22,6 +22,7 @@ static int	end_mysh(t_struct *var)
   free_list_pars(&var->buffer);
   var->buffer = NULL;
   var->buff = NULL;
+  my_printf("%i\n", var->status);
   if (var->status == FAIL_STATUS)
     return (puterr(INVALID_CMD));
   else if (var->status != 0)
