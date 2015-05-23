@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:14:28 2015 Jules Vautier
-** Last update Thu May 21 10:42:28 2015 Jules Vautier
+** Last update Sat May 23 10:56:33 2015 Jules Vautier
 */
 
 #include <sys/types.h>
@@ -41,13 +41,13 @@ int		open_rc(t_struct *var)
 
   var->term.prompt = NULL;
   path = NULL;
-  if ((home = my_getstock(&var->env, "HOME")) != NULL)
+  if (access(RC_NAME, R_OK) != -1)
+    path = my_strcpy(RC_NAME);
+  else if ((home = my_getstock(&var->env, "HOME")) != NULL)
     {
       if ((path = my_strcat_separ(home, RC_NAME, '/')) == NULL)
 	return (puterr(ERROR_MALLOC));
     }
-  if (path != NULL && access(RC_NAME, R_OK) != -1)
-    path = my_strcpy(RC_NAME);
   if (path == NULL || access(path, R_OK) == -1)
     return (puterr(ERROR_NO_RC));
   if ((fd = open(path, O_RDONLY)) == -1)

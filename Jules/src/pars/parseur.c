@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Fri May 22 09:26:14 2015 Jules Vautier
+** Last update Fri May 22 19:32:10 2015 david sebaoun
 */
 
 #include "my.h"
@@ -15,6 +15,38 @@ static int	free_parseur(char *new, char **tab)
   free(new);
   freetab(tab);
   return (SUCCES);
+}
+
+static char	**mod_tab(char **tab)
+{
+  int		i;
+  int		j;
+  char		**new_tab;
+
+  i = -1;
+  j = 0;
+  /* my_show_tab(tab); */
+  if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
+    return (NULL);
+  while (tab[++i] != NULL)
+    {
+      if (tab[i][0] != '<' && tab[i][0] != '>' &&
+	  (tab[i][0] != '>' || tab[i][1] != '>') &&
+	  (tab[i][0] != '<' || tab[i][1] != '<'))
+	new_tab[j++] = my_strcpy(tab[i]);
+    }
+  i = -1;
+  while (tab[++i] != NULL)
+    {
+      if (tab[i][0] == '<' || tab[i][0] == '>' ||
+  	  (tab[i][0] == '>' && tab[i][1] == '>') ||
+  	  (tab[i][0] == '<' && tab[i][1] == '<'))
+	new_tab[j++] = my_strcpy(tab[i]);
+    }
+  new_tab[j] = NULL;
+  freetab(tab);
+  /* my_show_tab(new_tab); */
+  return (new_tab);
 }
 
 static int	do_parseur(t_struct *var, int i)
@@ -34,7 +66,7 @@ static int	do_parseur(t_struct *var, int i)
       new = parsing_add(var->buff, &i, new);
       if (((new = epur_str(new, 1)) == NULL) ||
 	  (new = decal_read(new)) == NULL ||
-	  (tab = my_word_to_tab(new, " ")) == NULL)
+	  (tab = mod_tab(my_word_to_tab(new, " "))) == NULL)
 	return (puterr(ERROR_MALLOC));
       if ((my_put_in_list_pars(&var->buffer,
 			       new, type, tab)) == ERROR)

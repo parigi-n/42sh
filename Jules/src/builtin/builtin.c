@@ -5,10 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Sat May 23 10:24:20 2015 Jules Vautier
+** Last update Sat May 23 10:49:15 2015 Jules Vautier
 */
 
 #include "my.h"
+
 
 static int	echo(char **tab)
 {
@@ -20,6 +21,7 @@ static int	echo(char **tab)
 
 static int	builtin_alias(t_struct *var, char **tab, int end)
 {
+  end = -1;
   if (my_tablen(tab) == 3)
     end = add_list_stock(&var->alias, tab[1], tab[2]);
   else if (my_tablen(tab) == 1)

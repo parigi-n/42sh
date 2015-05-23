@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 09:37:29 2015 Jules Vautier
-** Last update Fri May 22 17:08:14 2015 Jules Vautier
+** Last update Thu May 21 10:39:28 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -14,7 +14,7 @@ int		advance(char *str, int i)
 {
   char		c;
 
-  while (str[i] != '\0' && char_cmp_str(str[i], "|&;") == ERROR)
+  while (str[i] != '\0' && char_cmp_str(str[i], ">|&;") == ERROR)
     {
       if (str[i] == 39 || str[i] == '"')
 	{
@@ -37,7 +37,7 @@ char		*parsing_add(char *str, int *ptri, char *new)
 
   i = *ptri;
   len = 0;
-  while (str[i] != '\0' && char_cmp_str(str[i], "|&;") == ERROR)
+  while (str[i] != '\0' && char_cmp_str(str[i], ">|&;") == ERROR)
     {
       new[len] = str[i];
       len++;
