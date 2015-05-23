@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May 14 09:29:44 2015 Jules Vautier
-** Last update Fri May 22 18:02:59 2015 Nicolas PARIGI
+** Last update Fri May 22 19:17:22 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -17,6 +17,6 @@ int		my_get_next_str(t_struct *var)
   if (my_getstock(&var->env, "TERM") != NULL)
     ret = my_get_next_str_raw(var);
   else
-      ret = my_get_next_str_unraw(var);
+    ret = my_get_next_str_unraw(var);
   return (ret);
 }

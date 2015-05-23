@@ -1,3 +1,21 @@
+______________________________________________________
+
+   Man_prompt for man prompt in /home/parigi_n/Testrendu/PSU_2014_42sh/Dossier_travail
+   
+   Made by Nicolas PARIGI
+   Login   <parigi_n@epitech.net>
+   
+   Started on  Sat May 23 16:04:44 2015 Nicolas PARIGI
+   Last update Sat May 23 16:05:57 2015 Nicolas PARIGI
+______________________________________________________
+
+Variables description from http://www.nparikh.org/unix/prompt.php#tcsh
+
+The prompt can be customized by setting the variable in the .tcshrc file.
+Syntax :
+set prompt = "[your prompt]"
+
+List of variables :
 %/  The current working directory.
 %~  The  current working directory, but with one's
    home directory represented by  `~'  and  other
