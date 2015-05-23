@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Fri May 22 11:58:53 2015 Jules Vautier
+** Last update Sat May 23 11:09:01 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -39,10 +39,12 @@ static char	*alias_cat(char *str, char *alias, char *content)
   free(new);
   if ((str = my_strlcpy(str, i + my_strlen(alias))) == NULL)
     return (NULL);
+  my_printf("%s\n", str);
   if ((new = my_strcat(str, tmp)) == NULL)
     return (NULL);
   free(str);
   free(tmp);
+  my_printf("%s\n", new);
   return (new);
 }
 
