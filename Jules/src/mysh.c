@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sat May 23 18:49:20 2015 Jules Vautier
+** Last update Sat May 23 19:56:33 2015 Nicolas PARIGI
 */
 
 #include <signal.h>
@@ -64,8 +64,6 @@ int		mysh(t_struct *var)
 {
   int		check;
 
-  if (signal(SIGINT, gere_sig) == SIG_ERR)
-    return (puterr(ERROR_SIGNAL));
   while (my_get_next_str(var) == 0)
     {
       my_printf("\nstr: -%s-\n", var->buff);
