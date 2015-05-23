@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sat May 23 11:36:20 2015 Jules Vautier
+** Last update Sat May 23 16:21:13 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -49,6 +49,8 @@ int		do_mysh(t_struct *var, t_buff **buffer)
 	exit(puterr("Fail with pipe\n"));
       if ((g_pid_fils = fork()) == -1)
 	exit(puterr("Fail with fork\n"));
+      if (signal(SIGINT, gere_sig) == SIG_ERR)
+	return (puterr(ERROR_SIGNAL));
       pipe_me(&fd, pipefd, var, tmp);
       tmp = tmp->next;
     }

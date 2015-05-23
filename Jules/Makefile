@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Dec  8 09:12:47 2014 jules vautier
-## Last update Sat May 23 10:19:21 2015 Jules Vautier
+## Last update Sat May 23 16:41:23 2015 Jules Vautier
 ##
 
 SRC		= src/main.c \
@@ -31,6 +31,7 @@ SRC		= src/main.c \
 		src/builtin/builtin_main.c \
 		src/builtin/exit.c \
 		src/get_cmd/alias.c \
+		src/get_cmd/key.c \
 		src/get_cmd/curse.c \
 		src/get_cmd/buff.c \
 		src/get_cmd/unraw_get_str.c \

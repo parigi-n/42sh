@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
-** Last update Fri May 22 10:53:04 2015 Jules Vautier
+** Last update Sat May 23 16:39:54 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -36,5 +36,23 @@ int		gere_left(t_struct *var)
 {
   if (var->term.i > 0)
     var->term.i = var->term.i - 1;
+  return (SUCCES);
+}
+
+int		gere_key_control(t_struct *var, char c)
+{
+  int		len;
+
+  if (c == 3)
+    {
+      my_putchar('\n');
+      my_prompt(var->term.prompt, &var->env);
+      eff_line(var->buff);
+    }
+  else if (c == ERASE)
+    {
+      if ((len = my_strlen(var->buff)) > 0)
+        var->buff[len - 1] = '\0';
+    }
   return (SUCCES);
 }
