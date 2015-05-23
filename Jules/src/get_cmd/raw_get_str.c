@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sat May 23 16:39:23 2015 Jules Vautier
+** Last update Sat May 23 16:57:46 2015 Jules Vautier
 */
 
 #define _POSIX_SOURCE
@@ -22,6 +22,7 @@ static int	init(t_struct *var)
     return (ERROR);
   var->buff[0] = '\0';
   var->term.i = 0;
+  my_prompt(var->term.prompt, &var->env);
   return (SUCCES);
 }
 
