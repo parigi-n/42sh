@@ -36,9 +36,9 @@ int		my_put_in_hist(t_hist **hist, char *cmd)
     return (ERROR);
   if ((tmp->str = my_strcpy(cmd)) == NULL)
     return (ERROR);
-  my_printf("OK!\n");
   count++;
   tmp->prev = NULL;
+  my_printf("OK!\n");
   tmp->nb = count;
   tmp->next = *hist;
   *hist = tmp;
