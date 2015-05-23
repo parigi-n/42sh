@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Fri May 22 08:54:25 2015 Jules Vautier
+** Last update Sat May 23 19:15:40 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -43,9 +43,9 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
   return (SUCCES);
 }
 
-int	exe_cmd(t_struct *var, char **tab)
+int		exe_cmd(t_struct *var, char **tab)
 {
-  int	i;
+  int		i;
 
   i = 0;
   if (builtin(var, tab) == SUCCES)
@@ -60,7 +60,7 @@ int	exe_cmd(t_struct *var, char **tab)
   while (var->exe.envi[i] != NULL)
     {
       if (do_exe_cmd(var, i, tab) == -1)
-	exit(2);
+	exit(-1);
       i++;
     }
   exit(-1);

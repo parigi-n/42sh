@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Sat May 23 10:18:23 2015 Jules Vautier
+** Last update Sat May 23 19:06:43 2015 Jules Vautier
 */
 
 #ifndef MYSH_H_
@@ -42,6 +42,6 @@ int	fct_pipe(t_struct *var, char **, char **);
 int	un_raw_mod();
 char	**wordtab_env(char *str);
 int	my_prompt(char *, t_stock **);
-t_buff	*pipe_me(int *fd, int pipefd[2], t_struct *var, t_buff *tmp);
+int	pipe_me(int *fd, int pipefd[2], t_struct *var, t_buff *tmp);
 
 #endif /* !MYSH_H_ */

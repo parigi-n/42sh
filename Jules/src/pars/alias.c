@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Sat May 23 17:52:14 2015 Jules Vautier
+** Last update Sat May 23 18:49:43 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -75,6 +75,5 @@ int		remplace_alias(t_struct *var)
     return (ERROR);
   if ((var->buff = epur_str(var->buff, 1)) == NULL)
     return (-1);
-  my_printf("FINAL %s\n", var->buff);
   return (SUCCES);
 }
