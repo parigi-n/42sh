@@ -5,9 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Fri May 22 08:54:25 2015 Jules Vautier
+** Last update Sat May 23 19:08:20 2015 david sebaoun
 */
 
+#include <sys/stat.h>
+#include <fcntl.h>
 #include "my.h"
 
 static int	init_exe_cmd(t_struct *var, char **tab)
@@ -24,12 +26,101 @@ static int	init_exe_cmd(t_struct *var, char **tab)
   return (SUCCES);
 }
 
+static char	**delete_redir(char **tab)
+{
+  int		i;
+  char		**new_tab;
+
+  i = 0;
+  if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
+    return (NULL);
+  while (tab[i] != NULL && tab[i][0] != '>' && tab[i][0] != '<' &&
+	 tab[i][my_strlen(tab[i]) - 1] != '>' &&
+	 tab[i][my_strlen(tab[i]) - 1] != '>')
+    {
+      new_tab[i] = my_strcpy(tab[i]);
+      ++i;
+    }
+  new_tab[i] = NULL;
+  return (new_tab);
+}
+
+/* static int	get_flag(char *path) */
+/* { */
+/*   if (my_strlen(path) > 2 && path[0] == '>' && path[1] == '>') */
+/*     return (O_WRONLY | O_APPEND | O_CREAT); */
+/*   return (O_WRONLY | O_CREAT); */
+/* } */
+
+static char	*mod_path(char *str, char symb)
+{
+  int		i;
+  int		j;
+  char		*new_str;
+
+  i = 0;
+  j = 0;
+  my_putstr(str);
+  if ((new_str = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
+    return (NULL);
+  while (str[i] == symb)
+    ++i;
+  while (str[i] != 0)
+    {
+      new_str[j++] = str[i];
+      ++i;
+    }
+  new_str[j] = 0;
+  my_putstr(new_str);
+  return (new_str);
+}
+
+static int	redir_right(int fdout, char *path)
+{
+  if (fdout != 0)
+    close(fdout);
+  if (my_strlen(path) > 2 && path[0] == '>' && path[1] == '>')
+    {
+      if ((fdout = open(mod_path(path, '>'), O_WRONLY | O_APPEND | O_CREAT)) == ERROR)
+	return (ERROR);
+    }
+  else if (my_strlen(path) > 1 && path[0] == '>')
+    if ((fdout = open(mod_path(path, '>'), O_WRONLY | O_CREAT)) == ERROR)
+      return (ERROR);
+  return (fdout);
+}
+
+static int	redir(char **tab)
+{
+  int		i;
+  int		fdout;
+
+  i = 0;
+  fdout = 0;
+  /* while (tab[i] != NULL && tab[i][0] != '>' && tab[i][0] != '<' && */
+  /* 	 tab[i][my_strlen(tab[i]) - 1] != '>' && */
+  /* 	 tab[i][my_strlen(tab[i]) - 1] != '>') */
+  /*   ++i; */
+  while (tab[i] != NULL)
+    {
+      if (tab[i][0] == '>' || ((tab[i][0] == '>') && (tab[i][1] == '>')))
+	if ((fdout = redir_right(fdout, tab[i])) == ERROR)
+	  return (ERROR);
+      ++i;
+    }
+  /* if (tab[i][0] == '<' || my_strncmp(tab[i], "<<", 2)) */
+  /*   ; */
+  return (SUCCES);
+}
+
 static int	do_exe_cmd(t_struct *var, int i, char **tab)
 {
-  char	*str;
+  int		fdout;
+  char		*str;
 
   free(tab[0]);
   tab[0] = NULL;
+  fdout = 1;
   if ((str = my_strcat(var->exe.tmp, "/")) == NULL)
     return (ERROR);
   if ((tab[0] = my_strcat(str, var->exe.envi[i])) == NULL)
@@ -38,7 +129,12 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
   if (access(tab[0], X_OK) == 0)
     {
       var->check = 1;
-      execve(tab[0], tab, var->exe.envtab);
+      if ((fdout = redir(tab)) == ERROR)
+	return (ERROR);
+      dup2(1, fdout);
+      if (execve(tab[0], delete_redir(tab), var->exe.envtab) == ERROR)
+	return (ERROR);
+      close(fdout);
     }
   return (SUCCES);
 }
@@ -55,7 +151,8 @@ int	exe_cmd(t_struct *var, char **tab)
   if (access(tab[0], X_OK) == 0)
     {
       var->check = 1;
-      execve(tab[0], tab, var->exe.envtab);
+      if (execve(tab[0], tab, var->exe.envtab) == ERROR)
+	return (ERROR);
     }
   while (var->exe.envi[i] != NULL)
     {

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Fri May 22 10:13:47 2015 Jules Vautier
+** Last update Sat May 23 11:36:20 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -17,6 +17,11 @@ extern int	g_pid_fils;
 
 static int	end_mysh(t_struct *var)
 {
+  if (var->buff != NULL)
+    free(var->buff);
+  free_list_pars(&var->buffer);
+  var->buffer = NULL;
+  var->buff = NULL;
   if (var->status == FAIL_STATUS)
     return (puterr(INVALID_CMD));
   else if (var->status != 0)
@@ -24,8 +29,6 @@ static int	end_mysh(t_struct *var)
       g_pid_fils = 0;
       return (ERROR);
     }
-  free_list_pars(&var->buffer);
-  var->buffer = NULL;
   g_pid_fils = 0;
   return (SUCCES);
 }
@@ -62,10 +65,10 @@ int		mysh(t_struct *var)
     return (puterr(ERROR_SIGNAL));
   while (my_get_next_str(var) == 0)
     {
-      my_printf("str: -%s-\n", var->buff);
+      my_printf("\nstr: -%s-\n", var->buff);
       if ((check = parseur(var)) == -1)
 	return (puterr("fail_pars\n"));
-      /*my_show_list_pars(var->buffer);*/
+      my_show_list_pars(var->buffer);
       do_mysh(var, &var->buffer);
       free(var->buff);
       my_prompt(var->term.prompt, &var->env);

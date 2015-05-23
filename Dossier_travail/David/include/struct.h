@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Thu May 21 09:52:43 2015 Jules Vautier
+** Last update Sat May 23 10:39:51 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -59,6 +59,7 @@ typedef struct		s_struct
 {
   t_term		term;
   int			check;
+  int			flag_rc;
   int			pid;
   int			len;
   int			status;
