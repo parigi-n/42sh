@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sat May 23 17:45:25 2015 Jules Vautier
+** Last update Sat May 23 19:33:26 2015 Martin PELLEMOINE
 */
 
 #include <signal.h>
@@ -38,7 +38,7 @@ static int	init_struct(t_struct *var, int argc,
   var->buffer = NULL;
   var->term.i = 0;
   var->term.pos = 0;
-  var->term.lim_hist = 50;
+  var->term.lim_hist = 5;
   var->term.curse = 0;
   var->flag_rc = 0;
   var->term.hist = NULL;
