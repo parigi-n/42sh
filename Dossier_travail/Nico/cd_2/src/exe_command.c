@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Fri May 22 08:54:25 2015 Jules Vautier
+** Last update Sat May 23 16:28:35 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -37,6 +37,8 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
   free(str);
   if (access(tab[0], X_OK) == 0)
     {
+      my_putstr("SALUT\n");
+      un_raw_mod();
       var->check = 1;
       execve(tab[0], tab, var->exe.envtab);
     }
