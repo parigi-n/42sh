@@ -5,12 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 16:02:58 2015 Jules Vautier
-** Last update Sun May 17 14:48:49 2015 david sebaoun
+** Last update Fri May 22 18:23:49 2015 Jules Vautier
 */
 
 #include "my.h"
 
-char	*my_getstock(t_stock **list, char *str)
+char		*my_getstock(t_stock **list, char *str)
 {
   t_stock	*tmp;
 
@@ -24,7 +24,7 @@ char	*my_getstock(t_stock **list, char *str)
   return (NULL);
 }
 
-char	*my_getstock_name(t_stock **list, char *str)
+char		*my_getstock_name(t_stock **list, char *str)
 {
   t_stock	*tmp;
 
@@ -33,6 +33,20 @@ char	*my_getstock_name(t_stock **list, char *str)
     {
       if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCES)
 	return (tmp->name);
+      tmp = tmp->next;
+    }
+  return (NULL);
+}
+
+t_stock		*my_getstock_list(t_stock **list, char *str)
+{
+  t_stock	*tmp;
+
+  tmp = *list;
+  while (tmp != NULL)
+    {
+      if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCES)
+	return (tmp);
       tmp = tmp->next;
     }
   return (NULL);

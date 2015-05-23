@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Fri May 22 12:09:49 2015 Jules Vautier
+** Last update Fri May 22 12:38:25 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -26,13 +26,12 @@ static int	do_cd(char *str, t_stock **env)
     }
   else
     {
-      if ((oldpwd = my_getstock(env, "PWD")) == NULL)
-	puterr(ERROR_NOPWD);
-      else
+      if ((oldpwd = my_getstock(env, "PWD")) != NULL)
 	if ((add_list_stock(env, "OLDPWD", oldpwd)) == -1)
-	  puterr(ERROR_NOOLDPWD);
+	  puterr(ERROR_MALLOC);
+      my_printf("oldpwd %s // new %s\n", oldpwd, str);
       if ((add_list_stock(env, "PWD", str)) == -1)
-	puterr(ERROR_NONEWPWD);
+      puterr(ERROR_MALLOC);
     }
   return (SUCCES);
 }

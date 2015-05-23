@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Thu May 21 09:51:54 2015 Jules Vautier
+** Last update Fri May 22 16:47:16 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -24,6 +24,7 @@ static int	init_struct(t_struct *var, int argc,
   var->term.pos = 0;
   var->term.lim_hist = 50;
   var->term.curse = 0;
+  var->term.hist = NULL;
   if (argc >= 2 && my_strcmp(argv[1], "-curse") == SUCCES)
     var->term.curse = 1;
   if (get_env(&var->env, envp) == -1)

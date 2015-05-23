@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb 26 17:38:14 2015 Jules Vautier
-** Last update Sun May 17 18:40:45 2015 Jules Vautier
+** Last update Fri May 22 18:29:41 2015 Jules Vautier
 */
 
 #ifndef LIST_H_
@@ -18,12 +18,13 @@ void	free_list(t_stock **list);
 int	erase_list(t_stock **list, char *str);
 int	add_list_stock(t_stock **list, char *env, char *str);
 int	listlen(t_stock **list);
-t_stock	 *reverse_list(t_stock *list);
+t_stock	*reverse_list(t_stock *list);
 int	my_put_in_list_stock(t_stock **, char *, char *);
 t_buff	*reverse_list_pars(t_buff *);
 t_stock	*reverse_list(t_stock *);
 void	free_list_pars(t_buff **);
 void	my_show_list(t_stock *);
 void	my_show_list_pars(t_buff *);
+t_stock	*my_getstock_list(t_stock **, char *);
 
 #endif /* !LIST_H_ */
