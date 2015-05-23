@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Feb 26 17:20:30 2015 Jules Vautier
-** Last update Thu May 14 16:03:49 2015 Jules Vautier
+** Last update Sat May 23 10:19:48 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -23,7 +23,7 @@ int		erase_list(t_stock **list, char *str)
       tmp = tmp->next;
     }
   if (tmp == NULL)
-    return (puterr("This element doesn't.\n"));
+    return (ERROR);
   free(wait->name);
   free(wait->comment);
   free(wait);
@@ -36,19 +36,16 @@ int		add_list_stock(t_stock **list, char *name, char *comment)
 {
   t_stock	*tmp;
 
-  tmp = *list;
-  while (tmp != NULL && my_strcmp(tmp->name, name) != 0)
-    tmp = tmp->next;
-  if (tmp == NULL)
+  if ((tmp = my_getstock_list(list, name)) == NULL)
     {
       if (my_put_in_list_stock(list, name, comment) == -1)
-	return (ERROR);
+	return (-1);
     }
   else
     {
       free(tmp->comment);
       if ((tmp->comment = my_strcpy(comment)) == NULL)
-	return (ERROR);
+	return (-1);
     }
   return (SUCCES);
 }
@@ -74,7 +71,7 @@ t_stock		*reverse_list(t_stock *list)
   t_stock	*new;
 
   tmp = list;
-  (new) = NULL;
+  new = NULL;
   while (tmp != NULL)
     {
       if (my_put_in_list_stock(&new, tmp->name,

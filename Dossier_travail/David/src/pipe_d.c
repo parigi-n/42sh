@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Fri May 22 11:27:17 2015 Jules Vautier
+** Last update Sat May 23 10:17:28 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -28,6 +28,7 @@ static t_buff	*end_pipe(int *fd, int pipefd[],
 			  t_struct *var, t_buff *tmp)
 {
   var->status = wait(NULL);
+  builtin_main(var, tmp->tab);
   close(pipefd[1]);
   *fd = pipefd[0];
   return (tmp);

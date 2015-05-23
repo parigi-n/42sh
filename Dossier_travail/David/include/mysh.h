@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Fri May 22 09:52:45 2015 Jules Vautier
+** Last update Sat May 23 10:18:23 2015 Jules Vautier
 */
 
 #ifndef MYSH_H_
@@ -19,7 +19,6 @@
 int	my_get_next_str_raw(t_struct *var);
 int	my_get_next_str_unraw(t_struct *var);
 int	my_get_next_str(t_struct *var);
-int	builtin_alias(t_struct *var, char **tab, int end);
 int	mysh(t_struct *);
 int	exe_cmd(t_struct *var, char **tab);
 char	**do_cmd(char *, char **);
