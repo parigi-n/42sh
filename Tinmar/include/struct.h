@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Fri May 22 16:09:50 2015 Martin PELLEMOINE
+** Last update Sat May 23 11:25:01 2015 Martin PELLEMOINE
 */
 
 #ifndef STRUCT_H_
@@ -32,6 +32,7 @@ typedef struct		s_hist
   char			*str;
   int			nb;
   struct s_hist		*next;
+  struct s_hist		*prev;
 }			t_hist;
 
 typedef struct		s_term
