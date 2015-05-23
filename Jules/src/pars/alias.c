@@ -5,54 +5,44 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Sat May 23 11:50:23 2015 Jules Vautier
+** Last update Sat May 23 12:34:26 2015 Jules Vautier
 */
 
 #include "my.h"
 
-static int	find_alias(char *str, char *alias)
+static int	find_alias(char *str, char *alias, int *i)
 {
-  int		i;
-
-  i = 0;
-  while (str[i] != '\0')
+  while (str[*i] != '\0')
     {
-      if (my_strcmp_op(str, alias, i) == SUCCES)
-	return (i);
-      i++;
+      if (my_strcmp_op(str, alias, *i) == SUCCES)
+	return (0);
+      *i = *i + 1;
     }
   return (-1);
 }
 
-static char	*alias_cat(char *str, char *alias, char *content)
+static char	*alias_cat(char *str, char *name, char *content, int *i)
 {
-  int		i;
   char		*tmp;
   char		*new;
+  char		*wait;
 
-  if ((i = find_alias(str, alias)) == ERROR)
+  if ((tmp = my_strncpy(str, *i)) == NULL)
     return (NULL);
-  if ((new = my_strncpy(str, i)) == NULL)
+  if ((new = decal(str, *i + my_strlen(name))) == NULL)
     return (NULL);
-  if ((tmp = my_strcat(content, new)) == NULL)
+  if ((wait = my_strcat(content, tmp)) == NULL)
     return (NULL);
-  my_printf("\nnew %s\n", new);
-  free(new);
-  if ((str = my_strlcpy(str, i + my_strlen(alias))) == NULL)
-    return (NULL);
-  if ((new = my_strcat(str, tmp)) == NULL)
-    return (NULL);
-  my_printf("tmp %s\n", tmp);
-  my_printf("str %s\n", str);
-  my_printf("new2 %s\n", new);
-  my_printf("\n");
-  free(str);
   free(tmp);
-  return (new);
+  if ((str = my_strcat(new, wait)) == NULL)
+    return (NULL);
+  free(new);
+  free(wait);
+  *i = *i + my_strlen(name);
+  return (str);
 }
 
-static int	while_alias(t_struct *var, t_stock **list,
-			    char **tab)
+static char	*while_alias(char *str, t_stock **list)
 {
   t_stock	*tmp;
   int		i;
@@ -61,34 +51,28 @@ static int	while_alias(t_struct *var, t_stock **list,
   while (tmp != NULL)
     {
       i = 0;
-      while (tab[i] != NULL)
+      while (str[i] != '\0')
 	{
-	  if (my_strcmp(tab[i], tmp->name) == SUCCES)
+	  if (find_alias(str, tmp->name, &i) == SUCCES)
 	    {
-	      if ((var->buff
-		   = alias_cat(tab[i], tmp->name, tmp->comment)) == NULL)
-		return (ERROR);
+	      if ((str = alias_cat(str, tmp->name,
+				   tmp->comment, &i)) == NULL)
+		return (NULL);
 	    }
-	  i++;
 	}
       tmp = tmp->next;
     }
-  return (SUCCES);
+  return (str);
 }
 
 int		remplace_alias(t_struct *var)
 {
-  char		**tab;
-
-  tab = NULL;
   if ((var->buff = epur_str(var->buff, 1)) == NULL)
     return (-1);
-  if ((tab = my_word_to_tab(var->buff, " ")) == NULL)
-    return (puterr(ERROR_MALLOC));
-  if (while_alias(var, &var->alias, tab) == ERROR)
+  if ((var->buff = while_alias(var->buff, &var->alias)) == NULL)
     return (ERROR);
-  freetab(tab);
   if ((var->buff = epur_str(var->buff, 1)) == NULL)
     return (-1);
+  my_printf("FINAL %s\n", var->buff);
   return (SUCCES);
 }
