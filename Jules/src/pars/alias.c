@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Sat May 23 17:42:16 2015 Jules Vautier
+** Last update Sat May 23 17:52:14 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -14,9 +14,9 @@ static int	find_alias(char *str, char *alias, int *i)
 {
   while (str[*i] != '\0')
     {
-      if (*i >= 1 && str[*i - 1] == ' ' &&
-	  my_strcmp_op(str, alias, *i) == SUCCES)
-	return (0);
+      if ((*i == 0) || (*i >= 1 && char_cmp_str(str[*i - 1], " |&;") == SUCCES))
+	if (my_strcmp_op(str, alias, *i) == SUCCES)
+	  return (0);
       *i = *i + 1;
     }
   return (-1);

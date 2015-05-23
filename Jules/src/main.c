@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sat May 23 11:17:04 2015 Jules Vautier
+** Last update Sat May 23 17:45:25 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -51,7 +51,6 @@ static int	init_struct(t_struct *var, int argc,
     if ( open_rc(var) == ERROR)
       return (ERROR);
   g_pid_fils = 0;
-  my_prompt(var->term.prompt, &var->env);
   return (SUCCES);
 }
 
