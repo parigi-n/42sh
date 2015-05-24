@@ -5,7 +5,7 @@
 ** Login   <pellem_m@epitech.net>
 ** 
 ** Started on  Fri May 22 16:43:08 2015 Martin PELLEMOINE
-** Last update Sat May 23 19:46:52 2015 Martin PELLEMOINE
+** Last update Sun May 24 23:00:56 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -26,8 +26,6 @@ void		free_hist(t_hist **hist)
     }
   if (wait != NULL)
     {
-      /* free(wait->str); */
-      /* free(wait); */
       wait = NULL;
       my_putstr("Historique free frère #iZi\n");
     }

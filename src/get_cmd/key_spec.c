@@ -5,17 +5,13 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
-** Last update Sun May 24 18:18:23 2015 Nicolas PARIGI
+** Last update Sun May 24 23:01:25 2015 Nicolas PARIGI
 */
 
 #include "my.h"
 
 int		end_get_cmd(t_struct *var)
 {
-  /*if (my_put_in_hist(&var->term.hist, var->buff) == ERROR)
-    return (ERROR);
-  if (var->term.hist->nb == var->term.lim_hist)
-  free_hist(&var->term.hist);*/
   my_putchar('\n');
   return (2);
 }

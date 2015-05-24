@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 26 18:11:37 2015 Jules Vautier
-** Last update Sun May 24 21:38:24 2015 Nicolas PARIGI
+** Last update Sun May 24 23:03:39 2015 Nicolas PARIGI
 */
 
 #define _POSIX_SOURCE
@@ -17,7 +17,7 @@ extern int	g_pid_fils;
 
 void		gere_sig(int sign)
 {
-  my_printf("Ctrl-C %i\n");
+  my_printf("^C\n");
   if ((sign == SIGINT || sign == SIGQUIT) && g_pid_fils != 0)
     {
       if (kill(g_pid_fils, SIGKILL) == -1 )

@@ -1,3 +1,13 @@
+/*
+** prompt.c for prompt in /home/parigi_n/Testrendu/PSU_2014_42sh
+** 
+** Made by Nicolas PARIGI
+** Login   <parigi_n@epitech.net>
+** 
+** Started on  Sun May 24 23:07:05 2015 Nicolas PARIGI
+** Last update Sun May 24 23:07:07 2015 Nicolas PARIGI
+*/
+
 #include <stddef.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -6,8 +16,6 @@
 #include <time.h>
 #include "struct.h"
 #include "my.h"
-
-#define APOSTR	39
 
 static const	t_prompt g_prompt[] =
   {
@@ -124,7 +132,8 @@ int	bashrc_prompt_fct(t_struct *var, char **tab)
 	  if ((my_strcmp(tab[2], "=")) != 0)
 	    {
 	      puterr("Prompt bad syntax : no = in 'set' line. You may have used ");
-	      puterr("something that is deprecated. Please use 'set prompt = [line]'\n");
+	      puterr("something that is deprecated.");
+	      puterr(" Please use 'set prompt = [line]'\n");
 	      return (-1);
 	    }
 	  var->term.prompt = my_strcpy(tab[3]);

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Sun May 24 21:05:12 2015 kevin ventalon
+** Last update Sun May 24 23:10:22 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -45,6 +45,7 @@ static char	*alias_cat(char *str, char *alias,
   free(str);
   free(tmp);
   return (new);
+
 }
 
 static int	while_alias(t_struct *var, char **tab,

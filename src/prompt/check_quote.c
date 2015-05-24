@@ -5,13 +5,10 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Mon May 18 16:56:12 2015 Nicolas PARIGI
-** Last update Mon May 18 16:56:18 2015 Nicolas PARIGI
+** Last update Sun May 24 23:10:51 2015 Nicolas PARIGI
 */
 
 #include <stddef.h>
-
-#define QUOTE 39
-#define DQUOTE 34
 
 int		check_quote(char *line)
 {
