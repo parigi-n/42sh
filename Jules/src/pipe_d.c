@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Sun May 24 21:49:56 2015 Jules Vautier
+** Last update Sun May 24 22:03:55 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -21,7 +21,7 @@ static int	son_pipe(int fd, int pipefd[2],
   close(pipefd[0]);
   if (execve(tmp->tabl[0], delete_redir(tmp->tabl), var->exe.envtab) == ERROR)
     return (ERROR);
-  return (SUCCESS);
+  return (ERROR);
 }
 
 static int	end_pipe(int *fd, int pipefd[],
@@ -32,12 +32,6 @@ static int	end_pipe(int *fd, int pipefd[],
     my_printf("Segmentation fault");
   builtin_main(var, tmp->tabl);
   close(pipefd[1]);
-  if (var->exe.fdout != 1)
-    close(var->exe.fdout);
-  if (var->exe.fdin != 0)
-    close(var->exe.fdin);
-  freetab(var->exe.envi);
-  freetab(var->exe.envtab);
   *fd = pipefd[0];
   return (SUCCESS);
 }
