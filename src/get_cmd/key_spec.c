@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun May 24 23:01:25 2015 Nicolas PARIGI
+** Last update Sun May 24 23:12:42 2015 Jules Vautier
 =======
 ** Last update Sun May 24 22:57:26 2015 Jules Vautier
 >>>>>>> 2f63a1805299513c507e2787d5c087b3f2ff6936
@@ -16,10 +16,7 @@
 
 int		end_get_cmd(t_struct *var)
 {
-<<<<<<< HEAD
-=======
   (void)var;
->>>>>>> 2f63a1805299513c507e2787d5c087b3f2ff6936
   my_putchar('\n');
   return (2);
 }
