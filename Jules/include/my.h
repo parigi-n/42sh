@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Oct 10 21:03:48 2014 jules vautier
-** Last update Wed May 20 18:12:35 2015 Jules Vautier
+** Last update Sun May 24 17:09:31 2015 Jules Vautier
 */
 
 #ifndef MY_H_
@@ -21,6 +21,7 @@
 # include "struct.h"
 # include "list.h"
 # include "mysh.h"
+# include "getcmd.h"
 # include "pars.h"
 # include "rc.h"
 # include "prompt.h"

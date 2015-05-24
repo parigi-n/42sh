@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Sun May 24 16:35:23 2015 Nicolas PARIGI
+** Last update Sun May 24 12:02:07 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -64,7 +64,7 @@ static int	do_parseur(t_struct *var, int i)
       new = parsing_add(var->buff, &i, new);
       if (((new = epur_str(new, 1)) == NULL) ||
 	  (new = decal_read(new)) == NULL ||
-	  (tab = mod_tab(my_word_to_tabnew, " "))) == NULL)
+	  (tab = mod_tab(my_word_to_tab(new, " "))) == NULL)
 	return (puterr(ERROR_MALLOC));
       if ((my_put_in_list_pars(&var->buffer,
 			       new, type, tab)) == ERROR)

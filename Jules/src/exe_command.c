@@ -5,15 +5,34 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Sun May 24 08:43:01 2015 Jules Vautier
+** Last update Sun May 24 16:25:03 2015 david sebaoun
 */
 
 #include "my.h"
 
+static char	**delete_redir(char **tab)
+{
+  int		i;
+  char		**new_tab;
+
+  i = 0;
+  if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
+    return (NULL);
+  while (tab[i] != NULL && tab[i][0] != '>' && tab[i][0] != '<' &&
+	 tab[i][my_strlen(tab[i]) - 1] != '>' &&
+	 tab[i][my_strlen(tab[i]) - 1] != '>')
+    {
+      new_tab[i] = my_strcpy(tab[i]);
+      ++i;
+    }
+  new_tab[i] = NULL;
+  return (new_tab);
+}
+
 static int	init_exe_cmd(t_struct *var, char **tab)
 {
   var->exe.fdin = 0;
-  var->exe.fdout = 0;
+  var->exe.fdout = 1;
   var->check = 0;
   var->exe.tmp = NULL;
   var->exe.envi = NULL;
@@ -23,8 +42,8 @@ static int	init_exe_cmd(t_struct *var, char **tab)
     return (ERROR);
   if ((var->exe.tmp = my_strcpy(tab[0])) == NULL)
     return (ERROR);
-  /*if (redir(var, tab) == ERROR)
-    return (ERROR);*/
+  if (redir(var, tab) == ERROR)
+    return (ERROR);
   return (SUCCES);
 }
 
@@ -42,7 +61,8 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
   if (access(tab[0], X_OK) == 0)
     {
       var->check = 1;
-      execve(tab[0], tab, var->exe.envtab);
+      execve(tab[0], delete_redir(tab), var->exe.envtab);
+      close(var->exe.fdout);
     }
   return (SUCCES);
 }

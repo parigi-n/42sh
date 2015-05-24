@@ -5,38 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Sun May 24 08:45:04 2015 Jules Vautier
+** Last update Sun May 24 16:41:54 2015 david sebaoun
 */
 
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "my.h"
-
-static char	**delete_redir(char **tab)
-{
-  int		i;
-  char		**new_tab;
-
-  i = 0;
-  if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
-    return (NULL);
-  while (tab[i] != NULL && tab[i][0] != '>' && tab[i][0] != '<' &&
-	 tab[i][my_strlen(tab[i]) - 1] != '>' &&
-	 tab[i][my_strlen(tab[i]) - 1] != '>')
-    {
-      new_tab[i] = my_strcpy(tab[i]);
-      ++i;
-    }
-  new_tab[i] = NULL;
-  return (new_tab);
-}
-
-/* static int	get_flag(char *path) */
-/* { */
-/*   if (my_strlen(path) > 2 && path[0] == '>' && path[1] == '>') */
-/*     return (O_WRONLY | O_APPEND | O_CREAT); */
-/*   return (O_WRONLY | O_CREAT); */
-/* } */
 
 static char	*mod_path(char *str, char symb)
 {
@@ -62,20 +36,20 @@ static char	*mod_path(char *str, char symb)
 
 static int	redir_right(t_struct *var, char *path)
 {
-  if (var->exe.fdout != 0)
+  if (var->exe.fdout != 1)
     close(var->exe.fdout);
   if (my_strlen(path) > 2 && path[0] == '>' && path[1] == '>')
     {
       if ((var->exe.fdout = open(mod_path(path, '>'),
-			O_RDWR | O_APPEND | O_CREAT |
-			S_IRUSR | S_IWUSR)) == ERROR)
-	return (puterr("fail1\n"));
+				 O_RDWR | O_APPEND | O_CREAT, S_IRUSR | S_IWUSR |
+			       S_IRGRP | S_IWGRP | S_IROTH)) == ERROR)
+	return (puterr("Error : error hile opening output file\n"));
     }
   else if (my_strlen(path) > 1 && path[0] == '>')
     if ((var->exe.fdout = open(mod_path(path, '>'),
-			       O_RDWR | O_CREAT |
-			       S_IRUSR | S_IWUSR)) == ERROR)
-      return (puterr("fail2\n"));
+			       O_RDWR | O_CREAT, S_IRUSR | S_IWUSR |
+			       S_IRGRP | S_IWGRP | S_IROTH)) == ERROR)
+      return (puterr("Error : error hile opening output file\n"));
   return (var->exe.fdout);
 }
 
@@ -84,21 +58,15 @@ int		redir(t_struct *var, char **tab)
   int		i;
 
   i = 0;
-  /* while (tab[i] != NULL && tab[i][0] != '>' && tab[i][0] != '<' && */
-  /* 	 tab[i][my_strlen(tab[i]) - 1] != '>' && */
-  /* 	 tab[i][my_strlen(tab[i]) - 1] != '>') */
-  /*   ++i; */
   while (tab[i] != NULL)
     {
-      my_printf("deb %s\n", tab[i]);
       if (tab[i][0] == '>' || ((tab[i][0] == '>') && (tab[i][1] == '>')))
 	if ((var->exe.fdout =
 	     redir_right(var, tab[i])) == ERROR)
 	  return (ERROR);
-      my_printf("end %s\n", tab[i]);
       ++i;
     }
-  /* if (tab[i][0] == '<' || my_strncmp(tab[i], "<<", 2)) */
-  /*   ; */
+  if (dup2(var->exe.fdout, 1) == ERROR)
+    return (puterr("Error: dup2 sys call failed\n"));
   return (SUCCES);
 }

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sun May 24 09:34:42 2015 Jules Vautier
-** Last update Sun May 24 12:05:10 2015 Jules Vautier
+** Last update Sun May 24 17:01:22 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -75,15 +75,11 @@ int		mysh(t_struct *var)
 
   while (my_get_next_str(var) == 0)
     {
-      my_printf("\nstr: -%s-\n", var->buff);
-      if (my_strcmp(var->buff, "exit") == 0)
-	return (0);
-      my_show_tab(my_word_to_tab(var->buff, " "));
-      /*if ((check = parseur(var)) == 0)
+      if ((check = parseur(var)) == 0)
 	{
 	  my_show_list_pars(var->buffer);
 	  do_mysh(var, &var->buffer);
-	  }*/
+	}
       free(var->buff);
       if (check == -1)
 	return (ERROR);
