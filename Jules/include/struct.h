@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Sat May 23 19:25:43 2015 Martin PELLEMOINE
+** Last update Sun May 24 08:36:02 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -51,6 +51,8 @@ typedef struct		s_term
 
 typedef struct		s_exe
 {
+  int			fdin;
+  int			fdout;
   char			*tmp;
   char			**envi;
   char			**envtab;

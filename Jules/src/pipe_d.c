@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Sat May 23 19:05:36 2015 Jules Vautier
+** Last update Sun May 24 09:03:58 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -20,8 +20,7 @@ static int	son_pipe(int fd, int pipefd[2],
     dup2(pipefd[1], 1);
   close(pipefd[0]);
   exe_cmd(var, tmp->tab);
-  my_printf("fail\n");
-  exit(-1);
+  exit(2);
   return (SUCCES);
 }
 
@@ -29,11 +28,10 @@ static int	end_pipe(int *fd, int pipefd[],
 			  t_struct *var, t_buff *tmp)
 {
   wait(&var->status);
-  my_printf("satus end %i\n", var->status);
   builtin_main(var, tmp->tab);
   close(pipefd[1]);
   *fd = pipefd[0];
-  return (tmp);
+  return (SUCCES);
 }
 
 int		pipe_me(int *fd, int pipefd[2],

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Fri May 22 10:14:18 2015 Jules Vautier
+** Last update Sun May 24 09:28:11 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -15,8 +15,11 @@ int		my_get_next_str_unraw(t_struct *var)
   char		*wait;
   char		*tmp;
 
-  var->buff = get_next_line(0);
-  while (check_quote(var->buff) == ERROR)
+  my_prompt(var->term.prompt, &var->env);
+  if ((var->buff = get_next_line(0)) == NULL)
+    return (-1);
+  while (check_quote(var->buff) == ERROR
+	 || var->buff[0] == '\0' || var->buff[0] == '\n')
     {
       if ((wait = get_next_line(0)) == NULL)
 	return (-1);

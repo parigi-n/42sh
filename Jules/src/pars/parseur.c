@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Sat May 23 11:53:42 2015 david sebaoun
+** Last update Sun May 24 09:03:09 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -25,7 +25,6 @@ static char	**mod_tab(char **tab)
 
   i = -1;
   j = 0;
-  my_show_tab(tab);
   if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
     return (NULL);
   while (tab[++i] != NULL)
@@ -45,7 +44,6 @@ static char	**mod_tab(char **tab)
     }
   new_tab[j] = NULL;
   freetab(tab);
-  my_show_tab(new_tab);
   return (new_tab);
 }
 

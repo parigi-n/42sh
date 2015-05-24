@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sat May 23 18:49:20 2015 Jules Vautier
+** Last update Sat May 23 19:25:35 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -22,7 +22,6 @@ static int	end_mysh(t_struct *var)
   free_list_pars(&var->buffer);
   var->buffer = NULL;
   var->buff = NULL;
-  my_printf("status %i\n", var->status);
   if (var->status == FAIL_STATUS)
     return (puterr(INVALID_CMD));
   else if (var->status != 0)
@@ -53,6 +52,7 @@ int		do_mysh(t_struct *var, t_buff **buffer)
       if (signal(SIGINT, gere_sig) == SIG_ERR)
 	return (puterr(ERROR_SIGNAL));
       pipe_me(&fd, pipefd, var, tmp);
+      my_printf("status %i\n", var->status);
       tmp = tmp->next;
     }
   if (end_mysh(var) == -1)
