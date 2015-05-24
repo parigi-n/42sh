@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri May 15 10:54:35 2015 Jules Vautier
-** Last update Fri May 15 11:11:31 2015 Jules Vautier
+** Last update Sun May 24 21:08:09 2015 kevin ventalon
 */
 
 #include "my.h"
@@ -45,10 +45,7 @@ int		hist(t_struct *var)
   if (var->buff[0] == '!')
     str = find_hist(&var->term.hist, var->buff);
   if (str == NULL)
-    {
-      /*COMMENTAIRE DANS LE CODE*/
-      return (puterr("METTRE UN PRINTF ICI\n"));
-    }
+    return (ERROR);
   else
     {
       free(var->buff);

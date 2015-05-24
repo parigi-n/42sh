@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Mar  5 15:36:41 2015 Jules Vautier
-** Last update Fri May 22 08:45:04 2015 Jules Vautier
+** Last update Sun May 24 21:04:32 2015 kevin ventalon
 */
 
 #include <sys/types.h>
@@ -28,7 +28,7 @@ static int	exe_write(int pipefd[2], int fd,
 static int	write_in(int pipefd[2], int fd)
 {
  int		len;
- char	buff[1024];
+ char		buff[1024];
 
   if (close(pipefd[1]) == -1)
     exit(puterr(ERROR_CLOSE));
@@ -40,11 +40,11 @@ static int	write_in(int pipefd[2], int fd)
   return (SUCCES);
 }
 
-int	my_write(t_struct *var, char **tab1, char **tab2)
+int		my_write(t_struct *var, char **tab1, char **tab2)
 {
-  int	pid;
-  int	pipefd[2];
-  int	fd;
+  int		pid;
+  int		pipefd[2];
+  int		fd;
 
   if ((fd = open(tab2[0], O_CREAT | O_RDWR, 0664)) < 0)
     return (puterr(ERROR_OPEN));

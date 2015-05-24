@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Feb  2 15:41:46 2015 Jules Vautier
-** Last update Sun May 24 16:59:44 2015 Nicolas PARIGI
+** Last update Sun May 24 21:06:11 2015 kevin ventalon
 */
 
 #include <ncurses/curses.h>
@@ -42,8 +42,8 @@ int			un_raw_mod()
 int			raw_mode(t_stock **envp)
 {
   struct termios	t;
-  char		buff[2];
-  char		*env;
+  char			buff[2];
+  char			*env;
 
   if ((env = my_getstock(envp, "TERM")) == NULL)
     return (puterr("Can't find TERM.\n"));

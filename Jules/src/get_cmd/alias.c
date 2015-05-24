@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Sun May 17 18:43:56 2015 Jules Vautier
+** Last update Sun May 24 21:05:12 2015 kevin ventalon
 */
 
 #include "my.h"
@@ -27,7 +27,7 @@ static int	find_alias(char *str, char *alias)
 static char	*alias_cat(char *str, char *alias,
 				   char *content)
 {
-  int			i;
+  int		i;
   char		*tmp;
   char		*new;
 
@@ -50,7 +50,7 @@ static char	*alias_cat(char *str, char *alias,
 static int	while_alias(t_struct *var, char **tab,
 			    int check)
 {
-  char	*alias;
+  char		*alias;
   int		i;
 
   i = 0;
@@ -70,7 +70,7 @@ static int	while_alias(t_struct *var, char **tab,
 
 int		remp_alias(t_struct *var)
 {
-  char	**tab;
+  char		**tab;
   int		check;
 
   tab = NULL;

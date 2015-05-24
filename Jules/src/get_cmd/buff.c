@@ -5,14 +5,14 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:26:24 2015 Jules Vautier
-** Last update Sun May 17 14:58:30 2015 david sebaoun
+** Last update Sun May 24 21:05:50 2015 kevin ventalon
 */
 
 #include "my.h"
 
 int	check_buff(char *str)
 {
-  int		i;
+  int	i;
   char	c;
 
   i = 0;
