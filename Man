@@ -1,0 +1,27 @@
+  
+   Man for 42sh in /home/parigi_n/Testrendu/PSU_2014_42sh
+   
+   Made by Nicolas PARIGI
+   Login   <parigi_n@epitech.net>
+   
+   Started on  Sun May 24 22:16:07 2015 Nicolas PARIGI
+   Last update Sun May 24 22:21:53 2015 Nicolas PARIGI
+  
+
+
+Usage : ./42sh -[flags]
+
+List of flags :
+
+"-curse" : Enable all the ncurse functionnalities
+
+"-rc" : Enable the .tcshrc parsing. So enable the alias and prompt parsing of .tcshrc
+
+List of 42sh functionnalities :
+
+- Classic execution (from local directory and path)
+- Pipe
+- Double right redirection
+-
+- Prompt, set from the .tcshrc
+- Alias, set from the .tcshrc and temporary from 42sh
