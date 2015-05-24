@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Sun May 24 16:41:54 2015 david sebaoun
+** Last update Sun May 24 20:09:16 2015 Jules Vautier
 */
 
 #include <sys/stat.h>
@@ -40,9 +40,9 @@ static int	redir_right(t_struct *var, char *path)
     close(var->exe.fdout);
   if (my_strlen(path) > 2 && path[0] == '>' && path[1] == '>')
     {
-      if ((var->exe.fdout = open(mod_path(path, '>'),
-				 O_RDWR | O_APPEND | O_CREAT, S_IRUSR | S_IWUSR |
-			       S_IRGRP | S_IWGRP | S_IROTH)) == ERROR)
+      if ((var->exe.fdout = open(mod_path(path, '>'), O_RDWR |
+				 O_APPEND | O_CREAT, S_IRUSR | S_IWUSR |
+				 S_IRGRP | S_IWGRP | S_IROTH)) == ERROR)
 	return (puterr("Error : error hile opening output file\n"));
     }
   else if (my_strlen(path) > 1 && path[0] == '>')

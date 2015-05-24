@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Sun May 24 17:18:15 2015 Jules Vautier
+** Last update Sun May 24 19:35:28 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -61,12 +61,10 @@ int		builtin(t_struct *var, char **tab)
   int		end;
 
   end = 1;
-  if (my_strcmp(tab[0], "exit") == 0)
-    exit(my_exit(var, tab));
+  if (my_strcmp(tab[0], "echo") == 0)
+    end = echo(tab);
   else if (my_strcmp(tab[0], "cd") == 0)
     end = my_cd(var, tab);
-  else if (my_strcmp(tab[0], "echo") == 0)
-    echo(tab);
   else if (my_strcmp(tab[0], "alias") == 0)
     end = builtin_alias(var, tab, end);
   else

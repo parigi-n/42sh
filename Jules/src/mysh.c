@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sun May 24 09:34:42 2015 Jules Vautier
-** Last update Sun May 24 17:01:22 2015 Jules Vautier
+** Last update Sun May 24 19:47:48 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -21,13 +21,6 @@ static int	end_mysh(t_struct *var)
   free_list_pars(&var->buffer);
   var->buffer = NULL;
   var->buff = NULL;
-  if (var->status == FAIL_STATUS)
-    return (puterr(INVALID_CMD));
-  else if (var->status != 0)
-    {
-      g_pid_fils = 0;
-      return (ERROR);
-    }
   g_pid_fils = 0;
   return (SUCCES);
 }
@@ -55,15 +48,21 @@ static int	do_mysh(t_struct *var, t_buff **buffer)
       if (tmp != NULL)
 	{
 	  if (my_strcmp(tmp->tabl[0], "exit") == 0)
-	    exit(my_exit(var, tmp->tabl));
-	  if ((pipe(pipefd)) == -1)
-	    exit(puterr("Fail with pipe\n"));
-	  if ((g_pid_fils = fork()) == -1)
-	    exit(puterr("Fail with fork\n"));
-	  pipe_me(&fd, pipefd, var, tmp);
+	    return (my_exit(var, tmp->tabl));
+	  if ((var->status = exe_cmd(var, tmp->tabl)) != ERROR)
+	    {
+	      if ((pipe(pipefd)) == -1)
+		return (puterr("Fail with pipe\n"));
+	      if ((g_pid_fils = fork()) == -1)
+		return (puterr("Fail with fork\n"));
+	      if (pipe_me(&fd, pipefd, var, tmp) == ERROR)
+		return (ERROR);
+	    }
+	  my_printf("status %i\n", var->status);
 	  tmp = tmp->next;
 	}
     }
+      my_printf("wtf\n");
   if (end_mysh(var) == -1)
     return (ERROR);
   return (SUCCES);
@@ -78,11 +77,10 @@ int		mysh(t_struct *var)
       if ((check = parseur(var)) == 0)
 	{
 	  my_show_list_pars(var->buffer);
-	  do_mysh(var, &var->buffer);
+	  if ((check = do_mysh(var, &var->buffer)) != SUCCES)
+	    return (SUCCES);
 	}
       free(var->buff);
-      if (check == -1)
-	return (ERROR);
     }
   return (ERROR);
 }

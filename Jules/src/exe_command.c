@@ -5,12 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Sun May 24 16:25:03 2015 david sebaoun
+** Last update Sun May 24 19:47:31 2015 Jules Vautier
 */
 
 #include "my.h"
 
-static char	**delete_redir(char **tab)
+char		**delete_redir(char **tab)
 {
   int		i;
   char		**new_tab;
@@ -61,10 +61,9 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
   if (access(tab[0], X_OK) == 0)
     {
       var->check = 1;
-      execve(tab[0], delete_redir(tab), var->exe.envtab);
-      close(var->exe.fdout);
+      return (SUCCES);
     }
-  return (SUCCES);
+  return (ERROR);
 }
 
 int		exe_cmd(t_struct *var, char **tab)
@@ -73,19 +72,19 @@ int		exe_cmd(t_struct *var, char **tab)
 
   i = 0;
   if (builtin(var, tab) == SUCCES)
-    exit(0);
+    return (SUCCES);
   if ((init_exe_cmd(var, tab)) == -1)
-    exit(-1);
+    return (ERROR);
   if (access(tab[0], X_OK) == 0)
     {
       var->check = 1;
-      execve(tab[0], tab, var->exe.envtab);
+      return (SUCCES);
     }
   while (var->exe.envi[i] != NULL)
     {
-      if (do_exe_cmd(var, i, tab) == -1)
-	exit(2);
+      if (do_exe_cmd(var, i, tab) == 0)
+	return (SUCCES);
       i++;
     }
-  return (ERROR);
+  return (puterr(INVALID_CMD));
 }
