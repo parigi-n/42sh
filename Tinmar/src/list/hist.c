@@ -5,7 +5,7 @@
 ** Login   <pellem_m@epitech.net>
 ** 
 ** Started on  Fri May 22 16:43:08 2015 Martin PELLEMOINE
-** Last update Sat May 23 17:39:49 2015 Martin PELLEMOINE
+** Last update Sat May 23 19:46:52 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
@@ -13,16 +13,22 @@
 void		free_hist(t_hist **hist)
 {
   t_hist	*tmp;
+  t_hist	*wait;
 
+  my_putstr("Début de free, bellek frère...\n");
   tmp = *hist;
+  wait = tmp;
   while (tmp != NULL)
-    tmp = tmp->next;
-  if (tmp->prev != NULL)
     {
-      tmp = tmp->prev;
-      free(tmp->str);
-      tmp->nb--;
-      *hist = tmp;
+      my_putstr("On parcourt la liste jusqu'a la fin...\n");
+      wait = tmp;
+      tmp = tmp->next;
+    }
+  if (wait != NULL)
+    {
+      /* free(wait->str); */
+      /* free(wait); */
+      wait = NULL;
       my_putstr("Historique free frère #iZi\n");
     }
 }
@@ -36,13 +42,13 @@ int		my_put_in_hist(t_hist **hist, char *cmd)
     return (ERROR);
   if ((tmp->str = my_strcpy(cmd)) == NULL)
     return (ERROR);
-  my_printf("OK!\n");
   count++;
   tmp->prev = NULL;
   tmp->nb = count;
   tmp->next = *hist;
+  if (tmp->next != NULL)
+    tmp->next->prev = tmp;
   *hist = tmp;
-  tmp->next->prev = tmp;
   return (SUCCES);
 }
 
@@ -57,7 +63,8 @@ void		my_show_hist(t_hist **hist_stock)
       my_putstr(tmp->str);
       my_printf("\n");
       my_printf("tmp->nb = %d\n", tmp->nb);
-      my_printf("tmp->prev->str", tmp->prev->str);
+      if (tmp->prev != NULL)
+	my_printf("tmp->prev->str%s", tmp->prev->str);
       tmp = tmp->next;
     }
 }

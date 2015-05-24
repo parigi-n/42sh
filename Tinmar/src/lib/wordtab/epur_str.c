@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Oct 27 16:55:39 2014 jules vautier
-** Last update Sun May 17 18:32:06 2015 Jules Vautier
+** Last update Sat May 23 11:19:42 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -57,7 +57,7 @@ char	*epur_str(char *str, int check)
 
   i = 0;
   n = 0;
-  if ((new = malloc(sizeof(char) * (my_strlen(str) + 30))) == NULL)
+  if ((new = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
     return (NULL);
   while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t'))
     i++;

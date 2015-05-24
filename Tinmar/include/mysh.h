@@ -5,13 +5,14 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Fri May 22 09:52:45 2015 Jules Vautier
+** Last update Sat May 23 19:23:46 2015 Jules Vautier
 */
 
 #ifndef MYSH_H_
 # define MYSH_H_
 
-# define FAIL_STATUS	65280
+# define SEGFAUL	11
+# define FAIL_STATUS	512
 # define RC_NAME	".tcshrc"
 # define DEFAULT_PROMPT "\033[1;36m salut \033[0m"
 # define QUOTE		39
@@ -19,7 +20,6 @@
 int	my_get_next_str_raw(t_struct *var);
 int	my_get_next_str_unraw(t_struct *var);
 int	my_get_next_str(t_struct *var);
-int	builtin_alias(t_struct *var, char **tab, int end);
 int	mysh(t_struct *);
 int	exe_cmd(t_struct *var, char **tab);
 char	**do_cmd(char *, char **);
@@ -43,6 +43,6 @@ int	fct_pipe(t_struct *var, char **, char **);
 int	un_raw_mod();
 char	**wordtab_env(char *str);
 int	my_prompt(char *, t_stock **);
-t_buff	*pipe_me(int *fd, int pipefd[2], t_struct *var, t_buff *tmp);
+int	pipe_me(int *fd, int pipefd[2], t_struct *var, t_buff *tmp);
 
 #endif /* !MYSH_H_ */

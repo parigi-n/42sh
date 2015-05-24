@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Fri May 22 12:09:49 2015 Jules Vautier
+** Last update Sat May 23 11:30:38 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -19,20 +19,18 @@ static int	do_cd(char *str, t_stock **env)
     {
       if ((access(str, F_OK)) == -1)
 	return (printf_err("%s%s", str,
-			     " : File doesn't exist.\n"));
+			   " : File doesn't exist.\n"));
       else
 	return (printf_err("%s%s", str,
-			     " : Is not a directory (chdir error).\n"));
+			   " : Is not a directory (chdir error).\n"));
     }
   else
     {
-      if ((oldpwd = my_getstock(env, "PWD")) == NULL)
-	puterr(ERROR_NOPWD);
-      else
+      if ((oldpwd = my_getstock(env, "PWD")) != NULL)
 	if ((add_list_stock(env, "OLDPWD", oldpwd)) == -1)
-	  puterr(ERROR_NOOLDPWD);
+	  puterr(ERROR_MALLOC);
       if ((add_list_stock(env, "PWD", str)) == -1)
-	puterr(ERROR_NONEWPWD);
+	puterr(ERROR_MALLOC);
     }
   return (SUCCES);
 }

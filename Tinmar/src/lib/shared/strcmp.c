@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Apr 27 20:15:15 2015 Jules Vautier
-** Last update Fri May 22 09:49:09 2015 Jules Vautier
+** Last update Fri May 22 15:53:25 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -15,7 +15,7 @@ int	my_strcmp(const char *str,
 {
   int	i;
 
-  i = 0; 
+  i = 0;
   if (str == NULL || new == NULL)
     return (ERROR);
   while (str[i] != '\0' || new[i] != '\0')

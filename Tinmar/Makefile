@@ -5,7 +5,7 @@
 ## Login   <vautie_a@epitech.net>
 ## 
 ## Started on  Mon Dec  8 09:12:47 2014 jules vautier
-## Last update Fri May 22 16:57:20 2015 Martin PELLEMOINE
+## Last update Sun May 24 10:51:37 2015 Martin PELLEMOINE
 ##
 
 SRC		= src/main.c \
@@ -18,6 +18,7 @@ SRC		= src/main.c \
 		src/signal.c \
 		src/tab_env.c \
 		src/pipe_d.c \
+		src/redir.c \
 		src/42shrc/alias.c \
 		src/42shrc/init.c \
                 src/prompt/prompt.c \
@@ -28,9 +29,11 @@ SRC		= src/main.c \
                 src/prompt/pwd_home.c \
 		src/builtin/cd.c \
 		src/builtin/builtin.c \
+		src/builtin/builtin_main.c \
 		src/builtin/exit.c \
-		src/builtin/alias.c \
 		src/get_cmd/alias.c \
+		src/get_cmd/key_spec.c \
+		src/get_cmd/key.c \
 		src/get_cmd/curse.c \
 		src/get_cmd/buff.c \
 		src/get_cmd/unraw_get_str.c \

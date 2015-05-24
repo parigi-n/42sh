@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Sat May 23 11:25:01 2015 Martin PELLEMOINE
+** Last update Sun May 24 08:36:02 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -20,7 +20,7 @@ typedef struct		s_stock
 
 typedef struct		s_buff
 {
-   char			*buff;
+  char			*buff;
   char			**tab;
   int			type;
   struct s_buff		*next;
@@ -51,6 +51,8 @@ typedef struct		s_term
 
 typedef struct		s_exe
 {
+  int			fdin;
+  int			fdout;
   char			*tmp;
   char			**envi;
   char			**envtab;
@@ -60,6 +62,7 @@ typedef struct		s_struct
 {
   t_term		term;
   int			check;
+  int			flag_rc;
   int			pid;
   int			len;
   int			status;

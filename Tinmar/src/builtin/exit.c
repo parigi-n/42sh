@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Wed May 20 16:24:21 2015 Jules Vautier
+** Last update Sat May 23 11:32:36 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -21,6 +21,7 @@ int		my_exit(t_struct *var, char **tab)
   free_list(&var->alias);
   free_list_pars(&var->buffer);
   free(var->buff);
+  free(var->term.prompt);
   my_putstr("exit\n");
   un_raw_mod();
   return (nb);

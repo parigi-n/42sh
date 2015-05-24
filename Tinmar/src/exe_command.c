@@ -5,13 +5,15 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Fri May 22 08:54:25 2015 Jules Vautier
+** Last update Sun May 24 08:43:01 2015 Jules Vautier
 */
 
 #include "my.h"
 
 static int	init_exe_cmd(t_struct *var, char **tab)
 {
+  var->exe.fdin = 0;
+  var->exe.fdout = 0;
   var->check = 0;
   var->exe.tmp = NULL;
   var->exe.envi = NULL;
@@ -21,6 +23,8 @@ static int	init_exe_cmd(t_struct *var, char **tab)
     return (ERROR);
   if ((var->exe.tmp = my_strcpy(tab[0])) == NULL)
     return (ERROR);
+  /*if (redir(var, tab) == ERROR)
+    return (ERROR);*/
   return (SUCCES);
 }
 
@@ -43,9 +47,9 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
   return (SUCCES);
 }
 
-int	exe_cmd(t_struct *var, char **tab)
+int		exe_cmd(t_struct *var, char **tab)
 {
-  int	i;
+  int		i;
 
   i = 0;
   if (builtin(var, tab) == SUCCES)
@@ -63,6 +67,5 @@ int	exe_cmd(t_struct *var, char **tab)
 	exit(2);
       i++;
     }
-  exit(-1);
   return (ERROR);
 }

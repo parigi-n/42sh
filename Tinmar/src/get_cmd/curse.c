@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Feb  2 15:41:46 2015 Jules Vautier
-** Last update Fri May 22 10:26:43 2015 Jules Vautier
+** Last update Sat May 23 16:54:31 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -33,7 +33,7 @@ int			un_raw_mod()
 
   if (tcgetattr(0, &t) < 0)
     return (puterr("Fail tcgetattr in un_raw_mod.\n"));
-  t.c_lflag = (ECHO | ICANON);
+  t.c_lflag = (ECHO | ICANON | ISIG);
   if ((tcsetattr(0, 0, &t)) == -1)
     return (puterr("Fail tcsetattr in un_raw_mod.\n"));
   return (OK);
@@ -52,6 +52,7 @@ int			raw_mode(t_stock **envp)
     return (ERROR);
   t.c_lflag &= ~ECHO;
   t.c_lflag &= ~ICANON;
+  t.c_lflag &= ~ISIG;
   t.c_cc[VMIN] = 1;
   t.c_cc[VTIME] = 0;
   if ((tcsetattr(0,  TCSANOW, &t)) == -1)
