@@ -85,7 +85,7 @@ int		flag_current_dir_home(t_stock **env)
   if (pwd == NULL || home == NULL)
     return (0);
   if ((str = pwd_home(my_strcpy(home), my_strcpy(pwd))) == NULL)
-    return(0);
+    return (0);
   my_putstr(str);
   free(str);
   return (0);
