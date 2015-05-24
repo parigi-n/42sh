@@ -6,7 +6,7 @@
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun May 24 10:46:38 2015 Jules Vautier
+** Last update Sun May 24 11:46:51 2015 Jules Vautier
 =======
 ** Last update Sat May 23 19:33:26 2015 Martin PELLEMOINE
 >>>>>>> dfc23cc18e4b7f40ea8a9f36cc395ba2a4fc9079
@@ -46,6 +46,10 @@ static int	init_struct(t_struct *var, int argc,
   var->term.curse = 0;
   var->flag_rc = 0;
   var->term.hist = NULL;
+  var->term.ret[0] = 27;
+  var->term.ret[1] = 91;
+  var->term.ret[2] = 68;
+  var->term.ret[3] = '\0';
   if ((var->term.prompt = my_strcpy("$>")) == NULL)
     return (ERROR);
   gere_flag(var, argc, argv);

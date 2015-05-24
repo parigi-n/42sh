@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sun May 24 09:13:27 2015 Jules Vautier
+** Last update Sun May 24 11:48:19 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -40,9 +40,9 @@ static int	solo_char(t_struct *var, char c)
     }
   else
     {
-      var->term.i++;
       if ((var->buff = add_char(var->buff, var->term.i, c)) == NULL)
 	return (ERROR);
+      var->term.i++;
     }
   eff_line(var->buff);
   my_prompt(var->term.prompt, &var->env);

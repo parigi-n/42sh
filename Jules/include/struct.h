@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Sun May 24 08:36:02 2015 Jules Vautier
+** Last update Sun May 24 11:43:30 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -47,6 +47,7 @@ typedef struct		s_term
   t_hist		*hist;
   int			curse;
   char			*prompt;
+  char			ret[4];
 }			t_term;
 
 typedef struct		s_exe

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Fri May 22 10:47:35 2015 Jules Vautier
+** Last update Sun May 24 11:45:59 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -36,6 +36,11 @@ int		aff_last_line(t_struct *var, char c)
     i++;
   while (var->buff[i] != '\0')
     write(1, &var->buff[i++], 1);
+  while (i > var->term.i)
+    {
+      my_putstr(var->term.ret);
+      i--;
+    }
   if (c == '\n')
     my_putchar(c);
   else if (c == ERASE)
