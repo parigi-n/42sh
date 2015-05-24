@@ -1,0 +1,271 @@
+[3;J[H[2JScan : [1mbuiltin_main.c[0m
+Scan : [1mbuiltin.c[0m
+Scan : [1mexit.c[0m
+Scan : [1mcd.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mcd.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1munraw_get_str.c[0m
+Scan : [1mkey_spec.c[0m
+[1;31mErreur: [0;36mkey_spec.c: [0mligne 15 commentaire dans le code
+[1;31mErreur: [0;36mkey_spec.c: [0mligne 18 multi instruction
+Scan : [1mbuff.c[0m
+Scan : [1mraw_get_str.c[0m
+Scan : [1mauto_comp.c[0m
+Scan : [1mcurse.c[0m
+Scan : [1mlist_hist.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mlist_hist.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mfind_hist.c[0m
+Scan : [1minit.c[0m
+Scan : [1mkey.c[0m
+Scan : [1malias.c[0m
+[1;31mErreur: [0;36malias.c: [0mfind_alias(str, alias)) == ERROR): fonction de plus de 25 lignes
+Scan : [1mfct_get_str.c[0m
+Scan : [1msignal.c[0m
+[1;31mErreur: [0;36msignal.c: [0mligne 11, 1 define dans un .c
+[1;31mErreur: [0;36msignal.c: [0mligne 28 multi instruction
+Scan : [1mmain.c[0m
+[1;31mErreur: [0;36mmain.c: [0mmy_strcpy("[1;36m>$ [0m")) == NULL): fonction de plus de 25 lignes
+[1;31mErreur: [0;36mmain.c: [0mligne 52 multi instruction
+Scan : [1mlist.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mlist.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mhist.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mhist.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+[1;31mErreur: [0;36mhist.c: [0mligne 29 commentaire dans le code
+[1;31mErreur: [0;36mhist.c: [0mligne 30 commentaire dans le code
+[1;31mErreur: [0;36mhist.c: [0mligne 29 , 30 multi instruction
+[1;31mErreur: [0;36mhist.c: [0mligne 40, il manque un saut de ligne
+Scan : [1mfct_list.c[0m
+Scan : [1mpars_list.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mpars_list.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mtab_env.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mtab_env.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mmy_getenv.c[0m
+Scan : [1minit.c[0m
+Scan : [1malias.c[0m
+Scan : [1mexe_command.c[0m
+Scan : [1mwrite.c[0m
+Scan : [1mexe_solo.c[0m
+Scan : [1mpipe_d.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mpipe_d.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+[1;31mErreur: [0;36mpipe_d.c: [0mexecve(tmp->tabl[0], delete_redir(tmp->tabl), var->exe.envtab) == ERROR): fonction de plus de 25 lignes
+Scan : [1menv.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36menv.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mparseur.c[0m
+[1;31mErreur: [0;36mparseur.c: [0mmod_tab(char **tab): fonction de plus de 25 lignes
+Scan : [1mdecal_read.c[0m
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 31 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 32 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 33 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 35 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 36 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 37 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 38 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 39 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 40 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 41 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 42 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 43 commentaire dans le code
+[1;31mErreur: [0;36mdecal_read.c: [0mligne 33:/ , 35:/ , 39:/ , 40:/ , 42:/ multi instruction
+Scan : [1mlen_pars.c[0m
+[1;31mErreur: [0;36mlen_pars.c: [0mligne 21 multi instruction
+Scan : [1mtype.c[0m
+[1;31mErreur: [0;36mtype.c: [0mligne 31 , 64 multi instruction
+Scan : [1malias.c[0m
+[1;31mErreur: [0;36malias.c: [0mligne 17 multi instruction
+Scan : [1mparsing.c[0m
+[1;31mErreur: [0;36mparsing.c: [0mligne 17 , 40 multi instruction
+Scan : [1mmy_putnbr.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_putnbr.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mmy_strlen.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_strlen.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mdecal.c[0m
+Scan : [1mmy_getnbr.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_getnbr.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mmy_putstr.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_putstr.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mputerr.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mputerr.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mfct_char.c[0m
+Scan : [1mstrcpy.c[0m
+Scan : [1mget_next_line.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mget_next_line.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+[1;31mErreur: [0;36mget_next_line.c: [0mligne 40, il manque un saut de ligne
+Scan : [1mstrcat.c[0m
+Scan : [1mmy_putchar.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_putchar.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mstrcmp.c[0m
+[1;31mErreur: [0;36mstrcmp.c: [0mmy_strlen(str) < deb): fonction de plus de 25 lignes
+Scan : [1mcheck_quote.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mcheck_quote.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mmy_show_tab.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_show_tab.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mfreetab.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mfreetab.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mtabcpy.c[0m
+Scan : [1mfct_tab.c[0m
+Scan : [1mepur_str.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mepur_str.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mmy_word_to_tab_custom.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_word_to_tab_custom.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+[1;31mErreur: [0;36mmy_word_to_tab_custom.c: [0mmalloc(sizeof(char *) * (len + 1))) == NULL): fonction de plus de 25 lignes
+Scan : [1mmy_word_to_tab.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmy_word_to_tab.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mmainprintf.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mmainprintf.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mprintf_error.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mprintf_error.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mfct_printf.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mfct_printf.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mmysh.c[0m
+Scan : [1mfind_path.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mfind_path.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mredir.c[0m
+Scan : [1mfct_prompt_dir_and_name.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mfct_prompt_dir_and_name.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+[1;31mErreur: [0;36mfct_prompt_dir_and_name.c: [0mligne 88: pas d'espace après mot clef
+Scan : [1mfct_prompt_misc.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mfct_prompt_misc.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mfct_prompt_time_2.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mfct_prompt_time_2.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mfct_prompt_time.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mfct_prompt_time.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mprompt.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mprompt.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+[1;31mErreur: [0;36mprompt.c: [0mligne 1 invalide
+[1;31mErreur: [0;36mprompt.c: [0mligne 127 83 caractères
+[1;31mErreur: [0;36mprompt.c: [0mligne 10, 1 define dans un .c
+Scan : [1mpwd_home.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mpwd_home.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+Scan : [1mcheck_quote.c[0m
+[1;36m/***************************************\ [0m
+[1;36m|            [1;31m TRICHE[1;36m                     
+| [1;31mErreur: [0;36mcheck_quote.c: [0mmauvais header          [1;36m
+[1;36m\                                       /[0m
+[1;36m****************************************[0m
+[1;31mErreur: [0;36mcheck_quote.c: [0mligne 13, 2 define dans un .c
+[1;31m: file not found or not readable for symbols[0m
+[1;31mVous avez fait 70 fautes de norme.
+[0m
