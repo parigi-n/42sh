@@ -99,5 +99,5 @@ int		redir(t_struct *var, char **tab)
   /*   } */
   if (dup2(var->exe.fdout, 1) == ERROR)
     return (puterr("Error: dup2 sys call failed out\n"));
-  return (SUCCES);
+  return (SUCCESS);
 }

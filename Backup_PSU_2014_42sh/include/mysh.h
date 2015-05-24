@@ -37,7 +37,7 @@ int	find_old_setenv(t_struct *);
 int	my_exit(t_struct *var, char **);
 char	**do_tab_exec(t_stock **);
 int     my_write(t_struct *var, char **tab1, char **tab2);
-int	parseur(t_struct *var);
+int	parser(t_struct *var);
 int	exe_solo(t_struct *, char **);
 int	fct_pipe(t_struct *var, char **, char **);
 int	un_raw_mod();

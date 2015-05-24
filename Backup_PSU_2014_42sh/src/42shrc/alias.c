@@ -68,5 +68,5 @@ int		list_stock_rc(t_stock **alias, char *raw_line)
       return (puterr(ERROR_MALLOC));
   freetab(tab);
   free(line);
-  return (SUCCES);
+  return (SUCCESS);
 }

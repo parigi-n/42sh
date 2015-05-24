@@ -11,7 +11,7 @@
 #ifndef STRING_H_
 # define STRING_H_
 
-# define SUCCES		0
+# define SUCCESS		0
 # define ERROR		-1
 # define INVALID_READ	"Invalid read.\n"
 # define INVALID_CMD	"Invalid command.\n"

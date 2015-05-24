@@ -1,5 +1,5 @@
 /*
-** parseur.c for parseur in /home/vautie_a/rendu/PSU_2014_minishell2/mysh_src
+** parser.c for parser in /home/vautie_a/rendu/PSU_2014_minishell2/mysh_src
 ** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
@@ -28,7 +28,7 @@ static int	len_type(char *str, int i)
   int		len;
 
   len = 0;
-  while (char_cmp_str(str[i], "|&;") == SUCCES)
+  while (char_cmp_str(str[i], "|&;") == SUCCESS)
     {
       i++;
       len++;
@@ -45,7 +45,7 @@ static int	determin_type(char *new)
   x = 0;
   while (g_tab[x].type != 0)
     {
-      if (my_strcmp(g_tab[x].str, new) == SUCCES)
+      if (my_strcmp(g_tab[x].str, new) == SUCCESS)
 	return (g_tab[x].type);
       x++;
     }
@@ -61,7 +61,7 @@ static int	creat_type(char *str, int i, int len)
   x = 0;
   if ((new = malloc(sizeof(char) * (len + 1))) == NULL)
     return (ERROR);
-  while (char_cmp_str(str[i], "|&;") == SUCCES)
+  while (char_cmp_str(str[i], "|&;") == SUCCESS)
     {
       new[x] = str[i];
       x++;

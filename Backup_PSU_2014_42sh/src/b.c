@@ -30,7 +30,7 @@ static int	end_mysh(t_struct *var)
       return (ERROR);
     }
   g_pid_fils = 0;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		do_mysh(t_struct *var, t_buff **buffer)
@@ -57,7 +57,7 @@ int		do_mysh(t_struct *var, t_buff **buffer)
     }
   if (end_mysh(var) == -1)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		mysh(t_struct *var)
@@ -69,7 +69,7 @@ int		mysh(t_struct *var)
   while (my_get_next_str(var) == 0)
     {
       my_printf("\nstr: -%s-\n", var->buff);
-      if ((check = parseur(var)) == -1)
+      if ((check = parser(var)) == -1)
 	return (puterr("fail_pars\n"));
       my_show_list_pars(var->buffer);
       do_mysh(var, &var->buffer);

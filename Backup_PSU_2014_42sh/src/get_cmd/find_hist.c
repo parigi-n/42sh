@@ -17,7 +17,7 @@ char		*find_hist_str(t_hist **list, char *str)
   tmp = *list;
   while (tmp != NULL)
     {
-      if (my_strncmp(str, tmp->str) == SUCCES)
+      if (my_strncmp(str, tmp->str) == SUCCESS)
 	return (tmp->str);
       tmp = tmp->next;
     }
@@ -55,5 +55,5 @@ int		hist(t_struct *var)
       if ((var->buff = my_strcpy(str)) == NULL)
 	return (puterr(ERROR_MALLOC));
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

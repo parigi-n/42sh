@@ -29,5 +29,5 @@ char		*is_read(char **tab)
 int		my_read(char *str)
 {
 
-  return (SUCCES);
+  return (SUCCESS);
 }

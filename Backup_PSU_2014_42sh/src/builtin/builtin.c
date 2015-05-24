@@ -16,7 +16,7 @@ static int	echo(char **tab)
   if (tab[1] != NULL)
     my_putstr(tab[1]);
   my_printf("\n");
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	builtin_alias(t_struct *var, char **tab, int end)

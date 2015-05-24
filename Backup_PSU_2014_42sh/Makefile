@@ -44,7 +44,7 @@ SRC		= src/main.c \
 		src/pars/type.c \
 		src/pars/alias.c \
 		src/pars/decal_read.c \
-		src/pars/parseur.c \
+		src/pars/parser.c \
 		src/pars/len_pars.c \
 		src/pars/parsing.c \
 		src/list/pars_list.c \

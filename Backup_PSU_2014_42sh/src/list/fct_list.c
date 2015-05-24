@@ -29,7 +29,7 @@ int		erase_list(t_stock **list, char *str)
   free(wait);
   wait = tmp;
   *list = wait;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		add_list_stock(t_stock **list, char *name, char *comment)
@@ -47,7 +47,7 @@ int		add_list_stock(t_stock **list, char *name, char *comment)
       if ((tmp->comment = my_strcpy(comment)) == NULL)
 	return (-1);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		listlen(t_stock **list)

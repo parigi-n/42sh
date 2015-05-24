@@ -14,8 +14,8 @@ static int	find_alias(char *str, char *alias, int *i)
 {
   while (str[*i] != '\0')
     {
-      if ((*i == 0) || (*i >= 1 && char_cmp_str(str[*i - 1], " |&;") == SUCCES))
-	if (my_strcmp_op(str, alias, *i) == SUCCES)
+      if ((*i == 0) || (*i >= 1 && char_cmp_str(str[*i - 1], " |&;") == SUCCESS))
+	if (my_strcmp_op(str, alias, *i) == SUCCESS)
 	  return (0);
       *i = *i + 1;
     }
@@ -55,7 +55,7 @@ static char	*while_alias(char *str, t_stock **list)
       i = 0;
       while (str[i] != '\0')
 	{
-	  if (find_alias(str, tmp->name, &i) == SUCCES)
+	  if (find_alias(str, tmp->name, &i) == SUCCESS)
 	    {
 	      if ((str = alias_cat(str, tmp->name,
 				   tmp->comment, &i)) == NULL)
@@ -75,5 +75,5 @@ int		remplace_alias(t_struct *var)
     return (ERROR);
   if ((var->buff = epur_str(var->buff, 1)) == NULL)
     return (-1);
-  return (SUCCES);
+  return (SUCCESS);
 }

@@ -25,13 +25,13 @@ static int	gere_flag(t_struct *var, int argc, char **argv)
   i = 0;
   while (argv[i] != NULL)
     {
-      if (argc >= 2 && my_strcmp(argv[i], "-curse") == SUCCES)
+      if (argc >= 2 && my_strcmp(argv[i], "-curse") == SUCCESS)
 	var->term.curse = 1;
-      if (argc >= 2 && my_strcmp(argv[i], "-rc") == SUCCES)
+      if (argc >= 2 && my_strcmp(argv[i], "-rc") == SUCCESS)
 	var->flag_rc = 1;
       i++;
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	init_struct(t_struct *var, int argc,
@@ -55,7 +55,7 @@ static int	init_struct(t_struct *var, int argc,
     if ( open_rc(var) == ERROR)
       return (ERROR);
   g_pid_fils = 0;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		main(int argc, char **argv, char *envp[])
@@ -72,5 +72,5 @@ int		main(int argc, char **argv, char *envp[])
   (void)argv;
   (void)envp;
   (void)var;
-  return (SUCCES);
+  return (SUCCESS);
 }

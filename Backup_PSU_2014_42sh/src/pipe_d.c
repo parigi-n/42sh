@@ -22,7 +22,7 @@ static int	son_pipe(int fd, int pipefd[2],
   exe_cmd(var, tmp->tab);
   close(var->exe.fdout);
   exit(2);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	end_pipe(int *fd, int pipefd[],
@@ -32,7 +32,7 @@ static int	end_pipe(int *fd, int pipefd[],
   builtin_main(var, tmp->tab);
   close(pipefd[1]);
   *fd = pipefd[0];
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		pipe_me(int *fd, int pipefd[2],
@@ -42,5 +42,5 @@ int		pipe_me(int *fd, int pipefd[2],
     son_pipe(*fd, pipefd, var, tmp);
   else
     end_pipe(fd, pipefd, var, tmp);
-  return (SUCCES);
+  return (SUCCESS);
 }

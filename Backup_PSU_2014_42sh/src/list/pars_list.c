@@ -59,7 +59,7 @@ int		my_put_in_list_pars(t_buff **list, char *str,
   if (l_a->next != NULL)
     l_a->next->prev = l_a;
   *list = l_a;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 t_buff		*reverse_list_pars(t_buff *buffer)
@@ -95,5 +95,5 @@ int		prev_list_pars(t_buff **list)
       wait = tmp;
       tmp = tmp->next;
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

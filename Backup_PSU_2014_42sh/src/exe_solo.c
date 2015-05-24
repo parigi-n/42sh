@@ -22,5 +22,5 @@ int		exe_solo(t_struct *var, char **tab)
 	wait(&var->status);
       g_pid_fils = 0;
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

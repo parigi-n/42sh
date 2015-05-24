@@ -15,14 +15,14 @@ int		gere_up(t_struct *var)
 {
   var->term.pos = var->term.pos + 1;
   var->term.pos = var->term.pos % var->term.lim_hist;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		gere_down(t_struct *var)
 {
   var->term.pos = var->term.pos - 1;
   var->term.pos = var->term.pos % var->term.lim_hist;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		gere_right(t_struct *var, char *str)
@@ -32,7 +32,7 @@ int		gere_right(t_struct *var, char *str)
       my_putstr(str);
       var->term.i = var->term.i + 1;
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		gere_left(t_struct *var, char *str)
@@ -42,7 +42,7 @@ int		gere_left(t_struct *var, char *str)
       var->term.i = var->term.i - 1;
       my_putstr(str);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		gere_key_control(t_struct *var, char c)
@@ -60,5 +60,5 @@ int		gere_key_control(t_struct *var, char c)
       if ((len = my_strlen(var->buff)) > 0)
         var->buff[len - 1] = '\0';
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

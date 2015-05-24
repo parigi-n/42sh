@@ -22,7 +22,7 @@ int	check_buff(char *str)
 	i++;
       c = str[i];
       if (c == '\0')
-	return (SUCCES);
+	return (SUCCESS);
       i++;
       while (str[i] != '\0' && str[i] != c)
 	i++;
@@ -30,5 +30,5 @@ int	check_buff(char *str)
 	return (1);
       i++;
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

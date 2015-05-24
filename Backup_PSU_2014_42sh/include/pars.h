@@ -35,7 +35,7 @@ typedef struct	s_tabtype
 char		*next_buff(char *, int);
 char		*parsing_add(char *, int *, char *);
 int		find_type(char *, int *);
-int		parseur(t_struct *var);
+int		parser(t_struct *var);
 int		remp_alias(t_struct *);
 int		parsing(char *, int);
 int		parsing_len(char *, int);

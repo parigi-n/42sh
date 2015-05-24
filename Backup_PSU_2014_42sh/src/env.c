@@ -31,5 +31,5 @@ int		get_env(t_stock **envp, char **env)
     }
   if (len > 1 && (*envp = reverse_list(*envp)) == NULL)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }

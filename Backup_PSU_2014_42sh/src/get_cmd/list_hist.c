@@ -40,7 +40,7 @@ int		my_put_in_list_hist(t_hist **list,
   l_a->next = *list;
   *list = l_a;
   nb++;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 void		my_show_list_hist(t_hist **list)

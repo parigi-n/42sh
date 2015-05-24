@@ -1,5 +1,5 @@
 /*
-** parseur.c for parseur in /home/vautie_a/rendu/PSU_2014_minishell2/mysh_src
+** parser.c for parser in /home/vautie_a/rendu/PSU_2014_minishell2/mysh_src
 ** 
 ** Made by Jules Vautier
 ** Login   <vautie_a@epitech.net>
@@ -10,11 +10,11 @@
 
 #include "my.h"
 
-static int	free_parseur(char *new, char **tab)
+static int	free_parser(char *new, char **tab)
 {
   free(new);
   freetab(tab);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static char	**mod_tab(char **tab)
@@ -47,7 +47,7 @@ static char	**mod_tab(char **tab)
   return (new_tab);
 }
 
-static int	do_parseur(t_struct *var, int i)
+static int	do_parser(t_struct *var, int i)
 {
   int		len;
   int		type;
@@ -71,12 +71,12 @@ static int	do_parseur(t_struct *var, int i)
         return (puterr(ERROR_MALLOC));
       if ((type = find_type(var->buff, &i)) < 1)
 	return (ERROR);
-      free_parseur(new, tab);
+      free_parser(new, tab);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
-int		parseur(t_struct *var)
+int		parser(t_struct *var)
 {
   int		i;
 
@@ -88,10 +88,10 @@ int		parseur(t_struct *var)
     return (-2);
   if (remplace_alias(var) == ERROR)
     return (puterr("error alias\n"));
-  if (do_parseur(var, i) == -1)
+  if (do_parser(var, i) == -1)
     return (ERROR);
   if ((var->buffer = reverse_list_pars(var->buffer)) == NULL)
     return (puterr(ERROR_MALLOC));
   prev_list_pars(&var->buffer);
-  return (SUCCES);
+  return (SUCCESS);
 }

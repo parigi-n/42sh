@@ -44,7 +44,7 @@ static int	init_exe_cmd(t_struct *var, char **tab)
     return (ERROR);
   if (redir(var, tab) == ERROR)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	do_exe_cmd(t_struct *var, int i, char **tab)
@@ -63,7 +63,7 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
       var->check = 1;
       execve(tab[0], delete_redir(tab), var->exe.envtab);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		exe_cmd(t_struct *var, char **tab)
@@ -71,7 +71,7 @@ int		exe_cmd(t_struct *var, char **tab)
   int		i;
 
   i = 0;
-  if (builtin(var, tab) == SUCCES)
+  if (builtin(var, tab) == SUCCESS)
     exit(0);
   if ((init_exe_cmd(var, tab)) == -1)
     exit(-1);
