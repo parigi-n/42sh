@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Sun May 24 09:03:09 2015 Jules Vautier
+** Last update Sun May 24 10:27:51 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -87,9 +87,12 @@ int		parseur(t_struct *var)
   if (var->buff[0] == '\0')
     return (-2);
   if (remplace_alias(var) == ERROR)
-    return (puterr("error alias\n"));
+    return (-2);
   if (do_parseur(var, i) == -1)
-    return (ERROR);
+    {
+      printf_err(INVALID_SYNTAX, var->buff);
+      return (-2);
+    }
   if ((var->buffer = reverse_list_pars(var->buffer)) == NULL)
     return (puterr(ERROR_MALLOC));
   prev_list_pars(&var->buffer);
