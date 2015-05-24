@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:00:43 2015 david sebaoun
-** Last update Sun May 17 15:38:12 2015 david sebaoun
+** Last update Sun May 24 17:41:11 2015 Nicolas PARIGI
 */
 
 #include <unistd.h>
@@ -15,5 +15,5 @@ int	my_putchar(const char c)
 {
   if (write(1, &c, 1) == ERROR)
     return (ERROR);
-  return (OK);
+  return (SUCCES);
 }

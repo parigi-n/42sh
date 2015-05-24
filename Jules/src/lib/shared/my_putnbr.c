@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:04:31 2015 david sebaoun
-** Last update Sun May 17 15:36:48 2015 david sebaoun
+** Last update Sun May 24 17:43:29 2015 Nicolas PARIGI
 */
 
 #include <stddef.h>
@@ -28,5 +28,5 @@ int	my_putnbr(int nb)
       my_putchar((nb / x) % 10 + 48);
       x = x / 10;
     }
-  return (OK);
+  return (SUCCES);
 }

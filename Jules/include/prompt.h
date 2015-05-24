@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sat May 16 16:56:10 2015 Nicolas PARIGI
-** Last update Sat May 16 16:56:14 2015 Nicolas PARIGI
+** Last update Sun May 24 17:39:27 2015 Nicolas PARIGI
 */
 
 #ifndef PROMPT_H_
@@ -38,7 +38,7 @@ int		flag_time_year_first(t_stock **env);
 int		flag_time_year_complete(t_stock **env);
 char		*pwd_home(char *home, char *path);
 int		prompt_bashrc(t_struct *var, char *raw_line);
-int		bashrc_prompt_fct(t_struct *var, char **tab);
+int		bashrc_prompt_fct(t_struct *var, char **);
 int		my_prompt(char *prompt_line, t_stock **env);
 int		check_quote(char *line);
 

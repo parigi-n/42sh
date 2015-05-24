@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Sun May 24 11:43:30 2015 Jules Vautier
+** Last update Sun May 24 17:33:45 2015 Nicolas PARIGI
 */
 
 #ifndef STRUCT_H_
@@ -21,7 +21,7 @@ typedef struct		s_stock
 typedef struct		s_buff
 {
   char			*buff;
-  char			**tab;
+  char			**tabl;
   int			type;
   struct s_buff		*next;
   struct s_buff		*prev;

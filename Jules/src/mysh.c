@@ -54,8 +54,8 @@ static int	do_mysh(t_struct *var, t_buff **buffer)
       tmp = exe_while(tmp, var->status);
       if (tmp != NULL)
 	{
-	  if (my_strcmp(tmp->tab[0], "exit") == 0)
-	    exit(my_exit(var, tmp->tab));
+	  if (my_strcmp(tmp->tabl[0], "exit") == 0)
+	    exit(my_exit(var, tmp->tabl));
 	  if ((pipe(pipefd)) == -1)
 	    exit(puterr("Fail with pipe\n"));
 	  if ((g_pid_fils = fork()) == -1)

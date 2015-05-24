@@ -16,7 +16,7 @@ int	my_get_next_str_unraw(t_struct *var);
 int	my_get_next_str(t_struct *var);
 int	un_raw_mod();
 int	end_get_cmd(t_struct *);
-int	key_hook(t_struct *, char *);
+int	key_hoSUCCES(t_struct *, char *);
 int	gere_left(t_struct *, char *);
 int	gere_right(t_struct *, char *);
 int	gere_up(t_struct *);

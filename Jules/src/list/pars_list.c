@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Dec  8 11:30:18 2014 jules vautier
-** Last update Sat May 23 11:34:21 2015 Jules Vautier
+** Last update Sun May 24 17:40:45 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -19,7 +19,7 @@ void		free_list_pars(t_buff **list)
   while (tmp != NULL)
     {
       wait = tmp->next;
-      freetab(tmp->tab);
+      freetab(tmp->tabl);
       free(tmp->buff);
       free(tmp);
       tmp = wait;
@@ -53,7 +53,7 @@ int		my_put_in_list_pars(t_buff **list, char *str,
   if ((l_a->buff = my_strcpy(str)) == NULL)
     return (ERROR);
   l_a->type = type;
-  if ((l_a->tab = tabcpy(tab)) == NULL)
+  if ((l_a->tabl = tabcpy(tab)) == NULL)
     return (ERROR);
   l_a->next = *list;
   if (l_a->next != NULL)
@@ -74,7 +74,7 @@ t_buff		*reverse_list_pars(t_buff *buffer)
   while (tmp != NULL)
     {
       if (my_put_in_list_pars(&new, tmp->buff,
-			      tmp->type, tmp->tab) == -1)
+			      tmp->type, tmp->tabl) == -1)
 	return (NULL);
       tmp = tmp->next;
     }

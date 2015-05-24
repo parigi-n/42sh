@@ -19,7 +19,7 @@ int		end_get_cmd(t_struct *var)
   return (2);
 }
 
-int		key_hook(t_struct *var, char *str)
+int		key_hoSUCCES(t_struct *var, char *str)
 {
   if (str[0] == 27 && str[1] == 91)
     {

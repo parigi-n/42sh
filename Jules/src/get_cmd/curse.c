@@ -24,7 +24,7 @@ int			init_var_term(t_term *term)
     return (ERROR);
   my_printf("%s", term->cl);
   my_printf("%s", term->vi);
-  return (OK);
+  return (SUCCES);
 }
 
 int			un_raw_mod()
@@ -36,7 +36,7 @@ int			un_raw_mod()
   t.c_lflag = (ECHO | ICANON | ISIG);
   if ((tcsetattr(0, 0, &t)) == -1)
     return (puterr("Fail tcsetattr in un_raw_mod.\n"));
-  return (OK);
+  return (SUCCES);
 }
 
 int			raw_mode(t_stock **envp)
@@ -57,5 +57,5 @@ int			raw_mode(t_stock **envp)
   t.c_cc[VTIME] = 0;
   if ((tcsetattr(0,  TCSANOW, &t)) == -1)
     return (ERROR);
-  return (OK);
+  return (SUCCES);
 }

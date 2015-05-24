@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Oct 10 21:03:48 2014 jules vautier
-** Last update Sun May 24 17:09:31 2015 Jules Vautier
+** Last update Sun May 24 17:33:30 2015 Nicolas PARIGI
 */
 
 #ifndef MY_H_
@@ -17,7 +17,6 @@
 # include "shared.h"
 # include "string.h"
 # include "printf.h"
-# include "wordtab.h"
 # include "struct.h"
 # include "list.h"
 # include "mysh.h"

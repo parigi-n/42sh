@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Sun May 24 17:10:54 2015 Jules Vautier
+** Last update Sun May 24 17:39:02 2015 Nicolas PARIGI
 */
 
 #ifndef MYSH_H_
@@ -17,7 +17,7 @@
 # define DEFAULT_PROMPT "\033[1;36m salut \033[0m"
 
 int	mysh(t_struct *);
-int	exe_cmd(t_struct *var, char **tab);
+int	exe_cmd(t_struct *var, char **);
 char	**do_cmd(char *, char **);
 char	*my_getstock(t_stock **, char *);
 char	*prepare_for_tab(char *);

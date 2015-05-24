@@ -67,7 +67,7 @@ int		my_get_next_str_raw(t_struct *var)
 	}
       else if (len == 3)
 	{
-	  key_hook(var, buff);
+	  key_hoSUCCES(var, buff);
 	}
     }
   return (puterr(INVALID_READ));
