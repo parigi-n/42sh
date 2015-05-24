@@ -1,0 +1,51 @@
+______________________________________________________
+
+   Man_prompt for man prompt in /home/parigi_n/Testrendu/PSU_2014_42sh/Dossier_travail
+   
+   Made by Nicolas PARIGI
+   Login   <parigi_n@epitech.net>
+   
+   Started on  Sat May 23 16:04:44 2015 Nicolas PARIGI
+   Last update Sat May 23 16:05:57 2015 Nicolas PARIGI
+______________________________________________________
+
+Variables description from http://www.nparikh.org/unix/prompt.php#tcsh
+
+The prompt can be customized by setting the variable in the .tcshrc file.
+Syntax :
+set prompt = "[your prompt]"
+
+List of variables :
+%/  The current working directory.
+%~  The  current working directory, but with one's
+   home directory represented by  `~'  and  other
+   users' home directories represented by `~user'
+   as per Filename substitution.  `~user' substi-
+   tution  happens  only if the shell has already
+   used `~user' in a pathname in the current ses-
+   sion.
+%h, %!
+   The current history event number.
+%M  The full hostname (e.g. jaguar.apple.com).
+%m  The hostname up to the first `.' (e.g. jaguar).
+%t
+   The time of day in 12-hour AM/PM format.
+%T  Like  `%t', but in 24-hour format (but see the
+   ampm shell variable).
+%P  Like  `%p', but in 24-hour format (but see the
+   ampm shell variable).
+%%  A single `%'.
+%\  A single `\'.
+%n  The user name.
+%d  The weekday in `Day' format.
+%D  The day in `dd' format.
+%w  The month in `Mon' format.
+%W  The month in `mm' format.
+%y  The year in `yy' format.
+%Y  The year in `yyyy' format.
+%{string%}
+   Includes  string as a literal escape sequence.
+   It should be  used  only  to  change  terminal
+   attributes  and  should  not  move  the cursor
+   location.  This cannot be the last sequence in
+   prompt.
