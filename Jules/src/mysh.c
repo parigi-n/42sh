@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sun May 24 09:34:42 2015 Jules Vautier
-** Last update Sun May 24 19:47:48 2015 Jules Vautier
+** Last update Sun May 24 20:40:05 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -34,6 +34,19 @@ static t_buff	*exe_while(t_buff *tmp, int status)
   return (tmp);
 }
 
+static int	while_mysh(int fd, int pipefd[2],
+			   t_struct *var, t_buff *tmp)
+{
+  my_printf("while %s\n", tmp->buff);
+  if ((pipe(pipefd)) == -1)
+    return (puterr("Fail with pipe\n"));
+  if ((g_pid_fils = fork()) == -1)
+    return (puterr("Fail with fork\n"));
+  if (pipe_me(&fd, pipefd, var, tmp) == ERROR)
+    return (ERROR);
+  return (SUCCES);
+}
+
 static int	do_mysh(t_struct *var, t_buff **buffer)
 {
   t_buff	*tmp;
@@ -50,19 +63,11 @@ static int	do_mysh(t_struct *var, t_buff **buffer)
 	  if (my_strcmp(tmp->tabl[0], "exit") == 0)
 	    return (my_exit(var, tmp->tabl));
 	  if ((var->status = exe_cmd(var, tmp->tabl)) != ERROR)
-	    {
-	      if ((pipe(pipefd)) == -1)
-		return (puterr("Fail with pipe\n"));
-	      if ((g_pid_fils = fork()) == -1)
-		return (puterr("Fail with fork\n"));
-	      if (pipe_me(&fd, pipefd, var, tmp) == ERROR)
-		return (ERROR);
-	    }
-	  my_printf("status %i\n", var->status);
+	    if (while_mysh(fd, pipefd, var, tmp) == ERROR)
+	      return (ERROR);
 	  tmp = tmp->next;
 	}
     }
-      my_printf("wtf\n");
   if (end_mysh(var) == -1)
     return (ERROR);
   return (SUCCES);
@@ -76,7 +81,6 @@ int		mysh(t_struct *var)
     {
       if ((check = parseur(var)) == 0)
 	{
-	  my_show_list_pars(var->buffer);
 	  if ((check = do_mysh(var, &var->buffer)) != SUCCES)
 	    return (SUCCES);
 	}

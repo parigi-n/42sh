@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Sun May 24 19:56:03 2015 Jules Vautier
+** Last update Sun May 24 20:42:37 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -28,6 +28,8 @@ static int	end_pipe(int *fd, int pipefd[],
 			  t_struct *var, t_buff *tmp)
 {
   wait(&var->status);
+  if (var->status == SEGFAULT)
+    my_printf("Segmentation fault");
   freetab(var->exe.envtab);
   freetab(var->exe.envi);
   builtin_main(var, tmp->tabl);
