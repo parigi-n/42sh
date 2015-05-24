@@ -5,7 +5,7 @@
 ** Login   <pellem_m@epitech.net>
 ** 
 ** Started on  Fri May 22 16:43:08 2015 Martin PELLEMOINE
-** Last update Sun May 24 21:09:18 2015 Martin PELLEMOINE
+** Last update Sun May 24 21:55:53 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
@@ -61,10 +61,12 @@ t_hist		my_find_in_hist(t_hist **hist_stock, int position)
   t_stock	*tmp;
   int		i;
 
-  tmp = list;
+  i = 0;
+  tmp = *list;
   while (i < position)
     {
       tmp = tmp->next;
       i++;
     }
+  return (tmp);
 }
