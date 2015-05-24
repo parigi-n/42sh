@@ -13,7 +13,7 @@
 
 typedef struct	s_wordtab
 {
-char		**tab;
+  char		**tab;
   int		i;
   int		n;
   int		x;

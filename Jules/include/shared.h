@@ -14,7 +14,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define OK	0
 # define ERROR	-1
 # define QUOTE	39
 # define DQUOTE	34
