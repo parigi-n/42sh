@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sun May 24 11:48:19 2015 Jules Vautier
+** Last update Sun May 24 17:52:57 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -67,7 +67,7 @@ int		my_get_next_str_raw(t_struct *var)
 	}
       else if (len == 3)
 	{
-	  key_hoSUCCES(var, buff);
+	  key_hook(var, buff);
 	}
     }
   return (puterr(INVALID_READ));

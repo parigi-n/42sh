@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
-** Last update Sun May 24 17:14:28 2015 Jules Vautier
+** Last update Sun May 24 17:53:38 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -19,7 +19,7 @@ int		end_get_cmd(t_struct *var)
   return (2);
 }
 
-int		key_hoSUCCES(t_struct *var, char *str)
+int		key_hook(t_struct *var, char *str)
 {
   if (str[0] == 27 && str[1] == 91)
     {
