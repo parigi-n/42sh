@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Apr 29 16:50:15 2015 Jules Vautier
-** Last update Sun May 24 17:33:45 2015 Nicolas PARIGI
+** Last update Sun May 24 19:40:55 2015 Jules Vautier
 */
 
 #ifndef STRUCT_H_
@@ -62,6 +62,7 @@ typedef struct		s_exe
 typedef struct		s_struct
 {
   t_term		term;
+  int			ret;
   int			check;
   int			flag_rc;
   int			pid;

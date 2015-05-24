@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-** Last update Sun May 24 17:07:12 2015 Nicolas PARIGI
+** Last update Sun May 24 19:43:50 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -70,10 +70,9 @@ int		main(int argc, char **argv, char *envp[])
   signal(SIGINT, gere_sig);
   signal(SIGQUIT, gere_sig);
   mysh(&var);
-  write(1, "\n", 1);
   (void)argc;
   (void)argv;
   (void)envp;
   (void)var;
-  return (SUCCES);
+  return (var.ret);
 }

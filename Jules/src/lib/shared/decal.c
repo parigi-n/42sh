@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri May  8 09:09:43 2015 Jules Vautier
-** Last update Wed May 20 17:38:51 2015 Jules Vautier
+** Last update Sun May 24 18:49:20 2015 Jules Vautier
 */
 
 #include	"my.h"
@@ -35,7 +35,7 @@ char		*decaln(char *str, int deb, int len)
   i = deb + len;
   x = deb;
   if (i > my_strlen(str))
-    return (NULL);
+    return (str);
   while (str[i] != '\0')
     {
       str[x] = str[i];
