@@ -5,14 +5,12 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Sun May 24 10:23:07 2015 Jules Vautier
+** Last update Sun May 24 18:06:11 2015 Nicolas PARIGI
 */
 
 #ifndef STRING_H_
 # define STRING_H_
 
-# define SUCCES		0
-# define ERROR		-1
 # define INVALID_READ	"Invalid read.\n"
 # define INVALID_CMD	"Invalid command.\n"
 # define INVALID_PIPE	"Invalid pipe\n"

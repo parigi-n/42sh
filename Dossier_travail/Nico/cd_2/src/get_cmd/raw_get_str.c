@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sat May 23 16:02:42 2015 Jules Vautier
+** Last update Sun May 24 18:09:41 2015 Nicolas PARIGI
 */
 
 extern int	g_pid_fils;
@@ -13,7 +13,6 @@ extern int	g_pid_fils;
 #define _POSIX_SOURCE
 #include <sys/types.h>
 #include <signal.h>
-
 #include "my.h"
 
 static int	gere_key_control(t_struct *var, char c)
@@ -29,7 +28,10 @@ static int	gere_key_control(t_struct *var, char c)
   else if (c == ERASE)
     {
       if ((len = my_strlen(var->buff)) > 0)
-	var->buff[len - 1] = '\0';
+	{
+	  var->term.i--;
+	  var->buff[len - 1] = '\0';
+	}
     }
 }
 

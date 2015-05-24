@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sun May 24 17:52:57 2015 Nicolas PARIGI
+** Last update Sun May 24 18:04:36 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -30,14 +30,8 @@ static int	solo_char(t_struct *var, char c)
 
   if (c == '\n' && (check % 2) == 0)
     return (end_get_cmd(var));
-  if (c == ERASE)
-    {
-      if ((len = my_strlen (var->buff)) > 0)
-	{
-	  var->term.i--;
-	  var->buff[len - 1] = '\0';
-	}
-    }
+  if (c <= 31 || c == ERASE)
+    gere_key_control(var, c);
   else
     {
       if ((var->buff = add_char(var->buff, var->term.i, c)) == NULL)
