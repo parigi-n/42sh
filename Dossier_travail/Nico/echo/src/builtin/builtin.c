@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Sun May 24 16:25:41 2015 Nicolas PARIGI
+** Last update Sun May 24 12:06:59 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -16,10 +16,11 @@ static int	echo(char **tab)
   int		i;
 
   i = 1;
-  if (tab == NULL && my_tablen(tab) > 1)
-    return (ERROR);
-  while (tab[i] != NULL)
-    my_putstr(tab[i++]);
+  if (tab != NULL && my_tablen(tab) > 1)
+    {
+      while(tab[i] != NULL)
+	my_putstr(tab[i++]);
+    }
   my_printf("\n");
   return (SUCCES);
 }
