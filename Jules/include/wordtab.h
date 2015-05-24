@@ -5,21 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Oct 28 19:11:11 2014 jules vautier
-** Last update Sun May 17 18:36:03 2015 Jules Vautier
+** Last update Sun May 24 18:06:55 2015 Nicolas PARIGI
 */
 
 #ifndef WORDTAB_H_
 # define WORDTAB_H_
-
-typedef struct	s_wordtab
-{
-char		**tab;
-  int		i;
-  int		n;
-  int		x;
-  int		len;
-  int		wordlen;
-}		t_wordtab;
 
 char		*epur_str(char *, int);
 int		my_count_nbr(char *dest);

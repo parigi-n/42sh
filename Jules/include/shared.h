@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:06:37 2015 david sebaoun
-** Last update Sun May 24 16:10:53 2015 Jules Vautier
+** Last update Sun May 24 17:42:53 2015 Nicolas PARIGI
 */
 
 #ifndef SHARED_H_
@@ -14,7 +14,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define OK	0
+# define SUCCES (0)
 # define ERROR	-1
 # define QUOTE	39
 # define DQUOTE	34
@@ -33,6 +33,7 @@ char		*get_next_line(int fd);
 char		*my_strcpy(char *str);
 char		*my_strncpy(char *str, int i);
 char		*my_strlcpy(char *str, int i);
+char		*my_strcpy_inter(char *str, int deb, int end);
 char		*my_strcat(char *str, char *way);
 char		*my_strcat_separ(char *str1, char *str2, const char separator);
 char		*add_char(char *str, int i, char c);

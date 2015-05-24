@@ -5,11 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
-<<<<<<< HEAD
-** Last update Sun May 24 11:46:51 2015 Jules Vautier
-=======
-** Last update Sat May 23 19:33:26 2015 Martin PELLEMOINE
->>>>>>> dfc23cc18e4b7f40ea8a9f36cc395ba2a4fc9079
+** Last update Sun May 24 19:43:50 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -22,13 +18,16 @@ static int	gere_flag(t_struct *var, int argc, char **argv)
 {
   int		i;
 
-  i = 0;
+  i = 1;
   while (argv[i] != NULL)
     {
       if (argc >= 2 && my_strcmp(argv[i], "-curse") == SUCCES)
 	var->term.curse = 1;
       else if (argc >= 2 && my_strcmp(argv[i], "-rc") == SUCCES)
 	var->flag_rc = 1;
+      else
+	printf_err("%s%s", argv[i],
+		   " : Unknown flag. Please check the included man file");
       i++;
     }
   return (SUCCES);
@@ -50,7 +49,7 @@ static int	init_struct(t_struct *var, int argc,
   var->term.ret[1] = 91;
   var->term.ret[2] = 68;
   var->term.ret[3] = '\0';
-  if ((var->term.prompt = my_strcpy("$>")) == NULL)
+  if ((var->term.prompt = my_strcpy("\033[1;36m>$ \033[0m")) == NULL)
     return (ERROR);
   gere_flag(var, argc, argv);
   if (get_env(&var->env, envp) == -1)
@@ -71,10 +70,9 @@ int		main(int argc, char **argv, char *envp[])
   signal(SIGINT, gere_sig);
   signal(SIGQUIT, gere_sig);
   mysh(&var);
-  write(1, "\n", 1);
   (void)argc;
   (void)argv;
   (void)envp;
   (void)var;
-  return (SUCCES);
+  return (var.ret);
 }

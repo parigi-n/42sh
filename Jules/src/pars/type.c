@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Sun May 24 10:19:40 2015 Jules Vautier
+** Last update Sun May 24 20:05:34 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -84,6 +84,11 @@ int		find_type(char *str, int *ptri)
   i = *ptri;
   if (str[i] == '\0')
     return (TYPE_NEW);
+  if (str[i] == ';' && str[i + 1] == '\0')
+    {
+      *ptri = *ptri + 1;
+      return (TYPE_NEW);
+    }
   if ((len = len_type(str, i)) == ERROR)
     return (ERROR);
   if ((type = creat_type(str, i, len)) == -1)

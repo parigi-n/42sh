@@ -1,11 +1,11 @@
 /*
-** cd.c for cd in /home/vautie_a/rendu/PSU_2014_minishell1/mysh_src
+** cd.c for cd new in /home/parigi_n/Testrendu/PSU_2014_42sh/Jules
 ** 
-** Made by Jules Vautier
-** Login   <vautie_a@epitech.net>
+** Made by Nicolas PARIGI
+** Login   <parigi_n@epitech.net>
 ** 
-** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Sat May 23 11:30:38 2015 Jules Vautier
+** Started on  Sun May 24 16:57:23 2015 Nicolas PARIGI
+** Last update Sun May 24 20:46:40 2015 kevin ventalon
 */
 
 #include "my.h"
@@ -14,7 +14,6 @@ static int	do_cd(char *str, t_stock **env)
 {
   char		*oldpwd;
 
-  my_printf("on est dans cd: go -%s-\n", str);
   if (chdir(str) == -1)
     {
       if ((access(str, F_OK)) == -1)
@@ -79,6 +78,6 @@ int		my_cd(t_struct *var, char **tab)
   if (path == NULL)
     return (puterr(ERROR_CD));
   if (do_cd(path, &var->env) == -1)
-    return(ERROR);
+    return (ERROR);
   return (SUCCES);
 }

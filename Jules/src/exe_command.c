@@ -5,15 +5,34 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Sun May 24 08:43:01 2015 Jules Vautier
+** Last update Sun May 24 20:49:16 2015 kevin ventalon
 */
 
 #include "my.h"
 
+char		**delete_redir(char **tab)
+{
+  int		i;
+  char		**new_tab;
+
+  i = 0;
+  if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
+    return (NULL);
+  while (tab[i] != NULL && tab[i][0] != '>' && tab[i][0] != '<' &&
+	 tab[i][my_strlen(tab[i]) - 1] != '>' &&
+	 tab[i][my_strlen(tab[i]) - 1] != '>')
+    {
+      new_tab[i] = my_strcpy(tab[i]);
+      ++i;
+    }
+  new_tab[i] = NULL;
+  return (new_tab);
+}
+
 static int	init_exe_cmd(t_struct *var, char **tab)
 {
   var->exe.fdin = 0;
-  var->exe.fdout = 0;
+  var->exe.fdout = 1;
   var->check = 0;
   var->exe.tmp = NULL;
   var->exe.envi = NULL;
@@ -23,14 +42,14 @@ static int	init_exe_cmd(t_struct *var, char **tab)
     return (ERROR);
   if ((var->exe.tmp = my_strcpy(tab[0])) == NULL)
     return (ERROR);
-  /*if (redir(var, tab) == ERROR)
-    return (ERROR);*/
+  if (redir(var, tab) == ERROR)
+    return (ERROR);
   return (SUCCES);
 }
 
 static int	do_exe_cmd(t_struct *var, int i, char **tab)
 {
-  char	*str;
+  char		*str;
 
   free(tab[0]);
   tab[0] = NULL;
@@ -42,9 +61,9 @@ static int	do_exe_cmd(t_struct *var, int i, char **tab)
   if (access(tab[0], X_OK) == 0)
     {
       var->check = 1;
-      execve(tab[0], tab, var->exe.envtab);
+      return (SUCCES);
     }
-  return (SUCCES);
+  return (ERROR);
 }
 
 int		exe_cmd(t_struct *var, char **tab)
@@ -53,19 +72,19 @@ int		exe_cmd(t_struct *var, char **tab)
 
   i = 0;
   if (builtin(var, tab) == SUCCES)
-    exit(0);
+    return (SUCCES);
   if ((init_exe_cmd(var, tab)) == -1)
-    exit(-1);
+    return (ERROR);
   if (access(tab[0], X_OK) == 0)
     {
       var->check = 1;
-      execve(tab[0], tab, var->exe.envtab);
+      return (SUCCES);
     }
   while (var->exe.envi[i] != NULL)
     {
-      if (do_exe_cmd(var, i, tab) == -1)
-	exit(2);
+      if (do_exe_cmd(var, i, tab) == 0)
+	return (SUCCES);
       i++;
     }
-  return (ERROR);
+  return (puterr(INVALID_CMD));
 }
