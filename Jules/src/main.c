@@ -5,7 +5,11 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
+<<<<<<< HEAD
+** Last update Sat May 23 20:16:37 2015 Nicolas PARIGI
+=======
 ** Last update Sat May 23 19:33:26 2015 Martin PELLEMOINE
+>>>>>>> dfc23cc18e4b7f40ea8a9f36cc395ba2a4fc9079
 */
 
 #include <signal.h>
@@ -60,8 +64,8 @@ int		main(int argc, char **argv, char *envp[])
 
   if (init_struct(&var, argc, argv, envp) == -1)
     return (puterr(ERROR_INIT));
-  if (signal(SIGINT, gere_sig) == SIG_ERR)
-    return (puterr(ERROR_SIGNAL));
+  signal(SIGINT, gere_sig);
+  signal(SIGQUIT, gere_sig);
   mysh(&var);
   write(1, "\n", 1);
   (void)argc;
