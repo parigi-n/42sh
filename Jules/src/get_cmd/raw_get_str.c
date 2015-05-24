@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sun May 24 18:04:36 2015 Nicolas PARIGI
+** Last update Sun May 24 21:20:33 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -26,7 +26,6 @@ static int	init(t_struct *var)
 static int	solo_char(t_struct *var, char c)
 {
   static int	check = 0;
-  int		len;
 
   if (c == '\n' && (check % 2) == 0)
     return (end_get_cmd(var));

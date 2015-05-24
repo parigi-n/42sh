@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Sun May 24 18:02:26 2015 Jules Vautier
+** Last update Sun May 24 21:21:08 2015 Jules Vautier
 */
 
 #ifndef GETCMD_H_
@@ -21,5 +21,6 @@ int	gere_left(t_struct *, char *);
 int	gere_right(t_struct *, char *);
 int	gere_up(t_struct *);
 int	gere_down(t_struct *);
+int	gere_key_control(t_struct *, char);
 
 #endif /* !GETCMD_H_ */

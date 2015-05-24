@@ -6,7 +6,7 @@
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sun May 24 21:08:52 2015 kevin ventalon
+** Last update Sun May 24 21:21:29 2015 Jules Vautier
 =======
 ** Last update Sun May 24 18:48:20 2015 Jules Vautier
 >>>>>>> 1ffc752301840300eaa11aff2ff94a4312662012
@@ -51,8 +51,6 @@ int		gere_left(t_struct *var, char *str)
 
 int		gere_key_control(t_struct *var, char c)
 {
-  int		len;
-
   if (c == 3)
     {
       my_putchar('\n');

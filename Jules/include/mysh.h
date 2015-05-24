@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Sun May 24 20:33:22 2015 Jules Vautier
+** Last update Sun May 24 21:26:29 2015 Jules Vautier
 */
 
 #ifndef MYSH_H_
@@ -26,6 +26,7 @@ void	gere_sig();
 int	my_get_envp(t_struct *, char **);
 int	my_unsetenv(t_struct *);
 int	builtin(t_struct *, char **);
+int	builtin_main(t_struct *, char **);
 int	my_cd(t_struct *, char **);
 int	my_setenv(t_struct *);
 int	my_check_setenv(t_struct *);
@@ -39,5 +40,6 @@ int	fct_pipe(t_struct *var, char **, char **);
 char	**wordtab_env(char *str);
 int	my_prompt(char *, t_stock **);
 int	pipe_me(int *fd, int pipefd[2], t_struct *var, t_buff *tmp);
+char	**delete_redir(char **);
 
 #endif /* !MYSH_H_ */
