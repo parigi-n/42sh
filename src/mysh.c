@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sun May 24 09:34:42 2015 Jules Vautier
-** Last update Sun May 24 20:40:05 2015 Jules Vautier
+** Last update Sun May 24 22:57:53 2015 Jules Vautier
 */
 
 #include <signal.h>
@@ -37,7 +37,6 @@ static t_buff	*exe_while(t_buff *tmp, int status)
 static int	while_mysh(int fd, int pipefd[2],
 			   t_struct *var, t_buff *tmp)
 {
-  my_printf("while %s\n", tmp->buff);
   if ((pipe(pipefd)) == -1)
     return (puterr("Fail with pipe\n"));
   if ((g_pid_fils = fork()) == -1)
