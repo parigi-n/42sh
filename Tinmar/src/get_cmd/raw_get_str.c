@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sun May 24 09:13:27 2015 Jules Vautier
+** Last update Sun May 24 16:00:10 2015 kevin ventalon
 */
 
 #include "my.h"
@@ -29,9 +29,20 @@ static int	solo_char(t_struct *var, char c)
   int		len;
 
   if (c == '\n' && (check % 2) == 0)
-    return (end_get_cmd(var));
+    {
+      my_put_in_hist(&var->term.hist, var->buff);
+      my_show_hist(&var->term.hist);
+      var->term.hist->nb++;
+      my_printf("LOOOL\n");
+      if (var->term.hist->nb == var->term.lim_hist)
+	{
+	  my_printf("Je free\n");
+	  free_hist(&var->term.hist);
+	}
+    }
   if (c == ERASE)
     {
+      my_printf("Erase");
       if ((len = my_strlen (var->buff)) > 0)
 	{
 	  var->term.i--;
@@ -40,6 +51,7 @@ static int	solo_char(t_struct *var, char c)
     }
   else
     {
+      my_printf("Else");
       var->term.i++;
       if ((var->buff = add_char(var->buff, var->term.i, c)) == NULL)
 	return (ERROR);

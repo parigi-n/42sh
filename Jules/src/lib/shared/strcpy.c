@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Jan 20 16:32:59 2015 Jules Vautier
-** Last update Sun May 17 15:43:33 2015 david sebaoun
+** Last update Sun May 24 15:51:08 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -62,6 +62,27 @@ char		*my_strlcpy(char *str, int i)
       new[x] = str[i];
       x++;
       i++;
+    }
+  new[x] = '\0';
+  return (new);
+}
+
+char		*my_strcpy_inter(char *str, int deb, int end)
+{
+  char		*new;
+  int		x;
+
+  x = 0;
+  if ((new = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
+    return (NULL);
+  new[x] = '\0';
+  if (deb > my_strlen(str))
+    return (new);
+  while (str[deb] != '\0' && deb <= end)
+    {
+      new[x] = str[deb];
+      x++;
+      deb++;
     }
   new[x] = '\0';
   return (new);
