@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Sun May 17 12:06:37 2015 david sebaoun
-** Last update Fri May 22 09:50:56 2015 Jules Vautier
+** Last update Sun May 24 16:10:53 2015 Jules Vautier
 */
 
 #ifndef SHARED_H_
@@ -13,9 +13,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
 # define OK	0
 # define ERROR	-1
-# define UCAST	(char *)
+# define QUOTE	39
+# define DQUOTE	34
 
 int		my_putnbr(int nb);
 int		my_putstr(const char *str);

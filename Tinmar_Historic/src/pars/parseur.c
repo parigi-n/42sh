@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Fri May 22 19:32:10 2015 david sebaoun
+** Last update Sun May 24 12:02:07 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -25,7 +25,6 @@ static char	**mod_tab(char **tab)
 
   i = -1;
   j = 0;
-  /* my_show_tab(tab); */
   if ((new_tab = malloc(sizeof(char *) * (my_tablen(tab) + 1))) == NULL)
     return (NULL);
   while (tab[++i] != NULL)
@@ -45,7 +44,6 @@ static char	**mod_tab(char **tab)
     }
   new_tab[j] = NULL;
   freetab(tab);
-  /* my_show_tab(new_tab); */
   return (new_tab);
 }
 
@@ -89,9 +87,12 @@ int		parseur(t_struct *var)
   if (var->buff[0] == '\0')
     return (-2);
   if (remplace_alias(var) == ERROR)
-    return (puterr("error alias\n"));
+    return (-2);
   if (do_parseur(var, i) == -1)
-    return (ERROR);
+    {
+      printf_err(INVALID_SYNTAX, var->buff);
+      return (-2);
+    }
   if ((var->buffer = reverse_list_pars(var->buffer)) == NULL)
     return (puterr(ERROR_MALLOC));
   prev_list_pars(&var->buffer);

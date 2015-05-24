@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Wed Oct 29 13:53:54 2014 jules vautier
-** Last update Sun May 17 18:31:55 2015 Jules Vautier
+** Last update Sun May 24 16:15:18 2015 Jules Vautier
 */
 
 #include "shared.h"
@@ -13,42 +13,45 @@
 static int	nb_word(char *str, int i, char *separ)
 {
   int		len;
+  char		c;
 
   len = 0;
   while (str[i] != '\0')
     {
       while (str[i] != '\0' && char_cmp_str(str[i], separ) == 0)
 	i++;
-      if (char_cmp_str(str[i], separ) == 0)
+      if (str[i] == QUOTE || str[i] == DQUOTE)
 	{
+	  c = str[i];
 	  i++;
-	  while (str[i] != '\0' && char_cmp_str(str[i], separ) != 0)
+	  while (str[i] != '\0' && str[i] != c)
 	    i++;
-	  if (char_cmp_str(str[i], separ) == 0)
-	    i++;
+	  len++;
 	}
       else
 	{
 	  while (str[i] != '\0' && char_cmp_str(str[i], separ) != 0)
-	    i++;
+	    {
+	      if (str[i] != '\0')
+		i++;
+	    }
+	  len++;
 	}
-      while (str[i] != '\0' && char_cmp_str(str[i], separ) == 0)
-	i++;
-      len++;
     }
   return (len);
 }
 
-static int		word_len(char *str,
-				 int i, char *separ)
+static int	word_len(char *str,
+			 int i, char *separ)
 {
   int		len;
+  char		c;
 
   len = 0;
-  if (char_cmp_str(str[i], separ) == 0)
+  if (str[i] == QUOTE || str[i] == DQUOTE)
     {
-      i++;
-      while (str[i] != '\0' && char_cmp_str(str[i], separ) != 0)
+      c = str[i++];
+      while (str[i] != '\0' && str[i] != c)
 	{
 	  i++;
 	  len++;
@@ -56,7 +59,8 @@ static int		word_len(char *str,
     }
   else
     {
-      while (str[i] != '\0' && char_cmp_str(str[i], separ) != 0)
+      while (str[i] != '\0' && char_cmp_str(str[i], separ) != 0
+	     && str[i] != QUOTE && str[i] != DQUOTE)
 	{
 	  i++;
 	  len++;
@@ -65,38 +69,12 @@ static int		word_len(char *str,
   return (len);
 }
 
-static char	*remp_tab(char *str, char *src,
-				  int *nb, char *separ)
-{
-  int		i;
-  int		n;
-
-  i = *nb;
-  n = 0;
-  if (char_cmp_str(src[i], separ) == 0)
-    {
-      i++;
-      while (src[i] != '\0' && char_cmp_str(src[i], separ) != 0)
-	str[n++] = src[i++];
-      i++;
-    }
-  else
-    {
-      while (src[i] != '\0' && char_cmp_str(src[i], separ) != 0)
-	str[n++] = src[i++];
-    }
-  str[n] = '\0';
-  *nb = i;
-  return (str);
-}
-
-char		**my_word_to_tab(char *str,
-					 char *separ)
+char		**my_word_to_tab(char *str, char *separ)
 {
   char		**tab;
-  int			len;
-  int			i;
-  int			x;
+  int		len;
+  int		i;
+  int		x;
 
   x = 0;
   i = 0;
@@ -106,12 +84,15 @@ char		**my_word_to_tab(char *str,
   if ((tab = malloc(sizeof(char *) * (len + 1))) == NULL)
     return (NULL);
   tab[len] = NULL;
+
   while (str[i] != '\0')
     {
+      while (str[i] != '\0' && char_cmp_str(str[i], separ) == 0)
+	i++;
       len = word_len(str, i, separ);
-      if ((tab[x] = malloc(sizeof(char) * (len + 1))) == NULL)
+      if ((tab[x] = my_strcpy_inter(str, i, i + len - 1)) == NULL)
 	return (NULL);
-      tab[x] = remp_tab(tab[x], str, &i, separ);
+      i = i + len;
       while (str[i] != '\0' && char_cmp_str(str[i], separ) == 0)
 	i++;
       x++;

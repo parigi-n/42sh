@@ -5,13 +5,14 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Jan 15 09:24:53 2015 Jules Vautier
-** Last update Sat May 23 19:06:43 2015 Jules Vautier
+** Last update Sat May 23 19:23:46 2015 Jules Vautier
 */
 
 #ifndef MYSH_H_
 # define MYSH_H_
 
-# define FAIL_STATUS	65280
+# define SEGFAUL	11
+# define FAIL_STATUS	512
 # define RC_NAME	".tcshrc"
 # define DEFAULT_PROMPT "\033[1;36m salut \033[0m"
 # define QUOTE		39

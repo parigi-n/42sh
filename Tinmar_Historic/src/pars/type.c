@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Fri May 22 18:49:40 2015 david sebaoun
+** Last update Sun May 24 10:19:40 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -70,11 +70,7 @@ static int	creat_type(char *str, int i, int len)
   new[x] = '\0';
   type = determin_type(new);
   if (type == 0)
-    {
-      /*COMMENTAIRE DANS LE CODE*/
-      puterr("METTRE UN PRINTF ICI\n");
-      return (-2);
-    }
+    return (-2);
   free(new);
   return (type);
 }

@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
-** Last update Sat May 23 16:39:54 2015 Jules Vautier
+** Last update Sun May 24 20:49:48 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
@@ -13,29 +13,40 @@
 
 int		gere_up(t_struct *var)
 {
-  /*if (var->term.hist < onche)*/
-    var->term.hist = var->term.hist - 1;
+  var->term.pos = var->term.pos + 1;
+  var->term.pos = var->term.pos % var->term.lim_hist;
+  if (var->buff == NULL)
+      return (ERROR);
+  if ((var->buff = my_strcpy(var->term.hist->str)) == NULL)
+    return (ERROR);
+  my_putstr(var->term.hist->str);
   return (SUCCES);
 }
 
 int		gere_down(t_struct *var)
 {
-  if (var->term.hist > 0)
-    var->term.hist = var->term.hist - 1;
+  var->term.pos = var->term.pos - 1;
+  var->term.pos = var->term.pos % var->term.lim_hist;
   return (SUCCES);
 }
 
-int		gere_right(t_struct *var)
+int		gere_right(t_struct *var, char *str)
 {
   if (var->term.i < my_strlen (var->buff))
-    var->term.i = var->term.i + 1;
+    {
+      my_putstr(str);
+      var->term.i = var->term.i + 1;
+    }
   return (SUCCES);
 }
 
-int		gere_left(t_struct *var)
+int		gere_left(t_struct *var, char *str)
 {
   if (var->term.i > 0)
-    var->term.i = var->term.i - 1;
+    {
+      var->term.i = var->term.i - 1;
+      my_putstr(str);
+    }
   return (SUCCES);
 }
 

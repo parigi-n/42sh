@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Jan 23 12:09:15 2015 Jules Vautier
-** Last update Sat May 23 10:42:55 2015 Jules Vautier
+** Last update Sat May 23 19:44:06 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -40,6 +40,5 @@ int		builtin_main(t_struct *var, char **tab)
     end = builtin_alias(var, tab, end);
   else
     end = builtin_env(var, tab, end);
-  var->status = end;
   return (end);
 }

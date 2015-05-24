@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 11:09:47 2015 Jules Vautier
-** Last update Sat May 23 18:49:43 2015 Jules Vautier
+** Last update Sun May 24 10:22:41 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -37,7 +37,6 @@ static char	*alias_cat(char *str, char *name, char *content, int *i)
   free(tmp);
   if ((str = my_strcat(new, wait)) == NULL)
     return (NULL);
-  my_printf("wtf %s\n", str);
   free(new);
   free(wait);
   *i = *i + my_strlen(name);

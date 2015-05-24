@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 17:24:31 2015 Jules Vautier
-** Last update Sat May 23 16:39:24 2015 Martin PELLEMOINE
+** Last update Sun May 24 18:39:30 2015 Martin PELLEMOINE
 */
 
 #include "my.h"
@@ -18,27 +18,9 @@ static int	init(t_struct *var)
     return (ERROR);
   var->buff[0] = '\0';
   var->term.i = 0;
+  var->term.pos = 0;
+  my_prompt(var->term.prompt, &var->env);
   return (SUCCES);
-}
-
-static char	*re_alloc(char *str, char c)
-{
-  char		*new;
-  int			i;
-
-  i = 0;
-  if ((new = malloc(sizeof(char) *
-		    (my_strlen (str) + 2))) == NULL)
-    return (NULL);
-  while (str[i] != '\0')
-    {
-      new[i] = str[i];
-      i++;
-    }
-  new[i++] = c;
-  new[i++] = '\0';
-  free(str);
-  return (new);
 }
 
 static int	solo_char(t_struct *var, char c)
@@ -47,24 +29,21 @@ static int	solo_char(t_struct *var, char c)
   int		len;
 
   if (c == '\n' && (check % 2) == 0)
-    {
-      my_put_in_hist(&var->term.hist, var->buff);
-      my_show_hist(&var->term.hist);
-      var->term.hist->nb++;
-      if (var->term.hist->nb == var->term.lim_hist)
-      	free_hist(&var->term.hist);
-      return (2);
-    }
+    return (end_get_cmd(var));
   if (c == ERASE)
     {
-      printf("cd =");
       if ((len = my_strlen (var->buff)) > 0)
-	var->buff[len - 1] = '\0';
+	{
+	  var->term.i--;
+	  var->buff[len - 1] = '\0';
+	}
     }
   else
+
     {
-      if ((var->buff = re_alloc(var->buff, c)) == NULL)
+      if ((var->buff = add_char(var->buff, var->term.i, c)) == NULL)
 	return (ERROR);
+      var->term.i++;
     }
   eff_line(var->buff);
   my_prompt(var->term.prompt, &var->env);
@@ -87,9 +66,9 @@ int		my_get_next_str_raw(t_struct *var)
 	  if (solo_char(var, buff[0]) == 2)
 	    return (un_raw_mod());
 	}
-      else
+      else if (len == 3)
 	{
-	  /*key_hook + hist + autocmpl*/;
+	  key_hook(var, buff);
 	}
     }
   return (puterr(INVALID_READ));

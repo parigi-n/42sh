@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Tue Apr 28 15:46:15 2015 Jules Vautier
-** Last update Fri May 22 11:58:16 2015 Nicolas PARIGI
+** Last update Sun May 24 10:23:07 2015 Jules Vautier
 */
 
 #ifndef STRING_H_
@@ -18,6 +18,7 @@
 # define INVALID_PIPE	"Invalid pipe\n"
 # define INVALID_DIR	"Invalid redirection\n"
 # define INVALID_ALIAS	"Invalid alias syntax\n"
+# define INVALID_SYNTAX	"Invalid syntax in cmd %s\n"
 # define ERROR_PATH	"Can't find the path.\n"
 # define ERROR_HOME	"Can't find the home.\n"
 # define ERROR_OPEN	"Error Open.\n"
@@ -37,8 +38,8 @@
 
 /* CD */
 
-# define ERROR_NOPWD	"Error : Can't get previous working directory, Oldpdw not set.\n"
-# define ERROR_NOOLDPWD	"Error : Can't set previous working directory (Oldpwd).\n"
+# define ERROR_NOPWD	"Error : Can't get previous working directory.\n"
+# define ERROR_NOOLDPWD	"Error : Can't set previous working directory.\n"
 # define ERROR_NONEWPWD	"Error : Can't set actual working directory (Pwd).\n"
 # define ERROR_CD	"Error : Undefined error in CD.\n"
 #endif /* !STRING_H_ */
