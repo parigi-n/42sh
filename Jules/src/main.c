@@ -6,7 +6,7 @@
 ** 
 ** Started on  Mon Jan 12 19:10:30 2015 Jules Vautier
 <<<<<<< HEAD
-** Last update Sat May 23 20:16:37 2015 Nicolas PARIGI
+** Last update Sun May 24 10:46:38 2015 Jules Vautier
 =======
 ** Last update Sat May 23 19:33:26 2015 Martin PELLEMOINE
 >>>>>>> dfc23cc18e4b7f40ea8a9f36cc395ba2a4fc9079
@@ -27,7 +27,7 @@ static int	gere_flag(t_struct *var, int argc, char **argv)
     {
       if (argc >= 2 && my_strcmp(argv[i], "-curse") == SUCCES)
 	var->term.curse = 1;
-      if (argc >= 2 && my_strcmp(argv[i], "-rc") == SUCCES)
+      else if (argc >= 2 && my_strcmp(argv[i], "-rc") == SUCCES)
 	var->flag_rc = 1;
       i++;
     }
