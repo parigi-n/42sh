@@ -21,7 +21,7 @@ static int	son_pipe(int fd, int pipefd[2],
   close(pipefd[0]);
   if (execve(tmp->tabl[0], delete_redir(tmp->tabl), var->exe.envtab) == ERROR)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	end_pipe(int *fd, int pipefd[],
@@ -39,7 +39,7 @@ static int	end_pipe(int *fd, int pipefd[],
   if (var->exe.fdin != 0)
     close(var->exe.fdin);
   *fd = pipefd[0];
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		pipe_me(int *fd, int pipefd[2],
@@ -52,5 +52,5 @@ int		pipe_me(int *fd, int pipefd[2],
     }
   else
     end_pipe(fd, pipefd, var, tmp);
-  return (SUCCES);
+  return (SUCCESS);
 }

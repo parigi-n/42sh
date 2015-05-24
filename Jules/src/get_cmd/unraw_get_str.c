@@ -33,5 +33,5 @@ int		my_get_next_str_unraw(t_struct *var)
     }
   if (var->buff == NULL)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }

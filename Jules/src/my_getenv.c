@@ -17,7 +17,7 @@ char		*my_getstock(t_stock **list, char *str)
   tmp = *list;
   while (tmp != NULL)
     {
-      if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCES)
+      if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCESS)
 	return (tmp->comment);
 	tmp = tmp->next;
     }
@@ -31,7 +31,7 @@ char		*my_getstock_name(t_stock **list, char *str)
   tmp = *list;
   while (tmp != NULL)
     {
-      if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCES)
+      if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCESS)
 	return (tmp->name);
       tmp = tmp->next;
     }
@@ -45,7 +45,7 @@ t_stock		*my_getstock_list(t_stock **list, char *str)
   tmp = *list;
   while (tmp != NULL)
     {
-      if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCES)
+      if (tmp->name != NULL && my_strcmp(tmp->name, str) == SUCCESS)
 	return (tmp);
       tmp = tmp->next;
     }

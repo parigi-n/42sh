@@ -17,7 +17,7 @@ int		parsing_len(char *str, int i)
 
   len = 0;
   if (i > my_strlen(str))
-    return (SUCCES);
+    return (SUCCESS);
   while (str[i] != '\0' && char_cmp_str(str[i], "|&;") == ERROR)
     {
       if (str[i] == QUOTE || str[i] == '"')

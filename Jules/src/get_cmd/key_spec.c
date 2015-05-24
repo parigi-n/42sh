@@ -33,5 +33,5 @@ int		key_hook(t_struct *var, char *str)
       else if (str[2] == 68)
 	gere_left(var, str);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

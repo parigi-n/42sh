@@ -149,5 +149,5 @@ int		prompt_bashrc(t_struct *var, char *raw_line)
   bashrc_prompt_fct(var, tab);
   freetab(tab);
   free(line);
-  return (SUCCES);
+  return (SUCCESS);
 }

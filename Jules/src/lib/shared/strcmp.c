@@ -26,7 +26,7 @@ int	my_strcmp(const char *str,
     }
   if (str[i] != new[i])
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int	my_strlcmp(const char *str,
@@ -49,7 +49,7 @@ int	my_strlcmp(const char *str,
     }
   if (str[i] != new[n])
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int	my_strncmp(const char *str,
@@ -68,7 +68,7 @@ int	my_strncmp(const char *str,
     }
   if (str[i] != new[i])
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int	my_strcmp_op(const char *str,
@@ -92,6 +92,6 @@ int	my_strcmp_op(const char *str,
     }
   if ((str[i] == ' ' || str[i] == '\0' ||
        str[i] == '\t' || str[i] == '\n') && new[x] == '\0')
-    return (SUCCES);
+    return (SUCCESS);
   return (ERROR);
 }

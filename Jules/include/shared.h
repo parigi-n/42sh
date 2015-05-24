@@ -14,7 +14,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define SUCCES (0)
+# define SUCCESS (0)
 # define ERROR	-1
 # define QUOTE	39
 # define DQUOTE	34

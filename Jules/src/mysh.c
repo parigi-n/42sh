@@ -22,7 +22,7 @@ static int	end_mysh(t_struct *var)
   var->buffer = NULL;
   var->buff = NULL;
   g_pid_fils = 0;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static t_buff	*exe_while(t_buff *tmp, int status)
@@ -44,7 +44,7 @@ static int	while_mysh(int fd, int pipefd[2],
     return (puterr("Fail with fork\n"));
   if (pipe_me(&fd, pipefd, var, tmp) == ERROR)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	do_mysh(t_struct *var, t_buff **buffer)
@@ -70,7 +70,7 @@ static int	do_mysh(t_struct *var, t_buff **buffer)
     }
   if (end_mysh(var) == -1)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		mysh(t_struct *var)
@@ -81,8 +81,8 @@ int		mysh(t_struct *var)
     {
       if ((check = parseur(var)) == 0)
 	{
-	  if ((check = do_mysh(var, &var->buffer)) != SUCCES)
-	    return (SUCCES);
+	  if ((check = do_mysh(var, &var->buffer)) != SUCCESS)
+	    return (SUCCESS);
 	}
       free(var->buff);
     }

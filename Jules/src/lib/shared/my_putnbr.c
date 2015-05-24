@@ -28,5 +28,5 @@ int	my_putnbr(int nb)
       my_putchar((nb / x) % 10 + 48);
       x = x / 10;
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

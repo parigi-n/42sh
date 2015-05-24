@@ -15,5 +15,5 @@ int	my_putchar(const char c)
 {
   if (write(1, &c, 1) == ERROR)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }

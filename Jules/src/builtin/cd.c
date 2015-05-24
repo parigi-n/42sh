@@ -31,7 +31,7 @@ static int	do_cd(char *str, t_stock **env)
       if ((add_list_stock(env, "PWD", str)) == -1)
 	puterr(ERROR_MALLOC);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static char	*get_home(t_stock **env, char *raw_path)
@@ -79,5 +79,5 @@ int		my_cd(t_struct *var, char **tab)
     return (puterr(ERROR_CD));
   if (do_cd(path, &var->env) == -1)
     return (ERROR);
-  return (SUCCES);
+  return (SUCCESS);
 }

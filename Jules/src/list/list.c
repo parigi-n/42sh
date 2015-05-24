@@ -39,7 +39,7 @@ int		my_put_in_list_stock(t_stock **list,
     return (ERROR);
   l_a->next = *list;
   *list = l_a;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 void		my_show_list(t_stock *list)

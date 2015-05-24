@@ -22,7 +22,7 @@ static int	exe_write(int pipefd[2], int fd,
     exit(puterr(ERROR_DUP));
   exe_solo(var, tab);
   exit(1);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	write_in(int pipefd[2], int fd)
@@ -37,7 +37,7 @@ static int	write_in(int pipefd[2], int fd)
       buff[len] = '\0';
       write(fd, buff, len);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		my_write(t_struct *var, char **tab1, char **tab2)
@@ -57,7 +57,7 @@ int		my_write(t_struct *var, char **tab1, char **tab2)
   else
     {
       if (write_in(pipefd, fd) == -1)
-	return (SUCCES);
+	return (SUCCESS);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }

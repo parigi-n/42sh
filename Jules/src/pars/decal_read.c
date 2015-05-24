@@ -20,8 +20,8 @@ char		*decal_read(char *str)
       if ((str[i] == '<' && str[i + 1] == ' ') ||
 	  (str[i] == '>' && str[i + 1] == ' '))
 	str = decaln(str, i + 1, 1);
-      if ((my_strncmp(str, "<<", 2) == SUCCES && str[i + 2] == ' ') ||
-      	  (my_strncmp(str, ">>", 2) == SUCCES && str[i + 2] == ' '))
+      if ((my_strncmp(str, "<<", 2) == SUCCESS && str[i + 2] == ' ') ||
+      	  (my_strncmp(str, ">>", 2) == SUCCESS && str[i + 2] == ' '))
       	str = decaln(str, i + 2, 1);
       i++;
     }

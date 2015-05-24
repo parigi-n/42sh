@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Mon Jan 26 18:11:37 2015 Jules Vautier
-** Last update Sat May 23 20:08:27 2015 Nicolas PARIGI
+** Last update Sun May 24 21:38:24 2015 Nicolas PARIGI
 */
 
 #define _POSIX_SOURCE
@@ -24,7 +24,7 @@ void		gere_sig(int sign)
 	puterr(ERROR_KILL);
     }
   else if (g_pid_fils == 0 && sign == SIGQUIT)
-    exit(0);
+    kill(SIGSTOP, 0);
   my_printf("\n\033[1;36m%s \033[0m", ">$");
   g_pid_fils = 0;
   signal(sign, gere_sig);

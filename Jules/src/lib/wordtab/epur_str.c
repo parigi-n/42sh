@@ -25,7 +25,7 @@ static int	check_space(char *new, char *str,
     new[n++] = ' ';
   *ptri = i;
   *ptrn = n;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	quote(char *new, char *str,
@@ -46,7 +46,7 @@ static int	quote(char *new, char *str,
     }
   *ptri = i;
   *ptrn = n;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 char	*epur_str(char *str, int check)

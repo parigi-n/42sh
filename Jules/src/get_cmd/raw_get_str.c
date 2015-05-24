@@ -20,7 +20,7 @@ static int	init(t_struct *var)
   var->term.i = 0;
   var->term.pos = 0;
   my_prompt(var->term.prompt, &var->env);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static int	solo_char(t_struct *var, char c)
@@ -40,7 +40,7 @@ static int	solo_char(t_struct *var, char c)
   eff_line(var->buff);
   my_prompt(var->term.prompt, &var->env);
   aff_last_line(var, c);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		my_get_next_str_raw(t_struct *var)

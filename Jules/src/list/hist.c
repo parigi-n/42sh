@@ -49,7 +49,7 @@ int		my_put_in_hist(t_hist **hist, char *cmd)
   if (tmp->next != NULL)
     tmp->next->prev = tmp;
   *hist = tmp;
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 void		my_show_hist(t_hist **hist_stock)

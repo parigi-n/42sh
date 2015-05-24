@@ -14,7 +14,7 @@ static int	free_parseur(char *new, char **tab)
 {
   free(new);
   freetab(tab);
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 static char	**mod_tab(char **tab)
@@ -73,7 +73,7 @@ static int	do_parseur(t_struct *var, int i)
 	return (ERROR);
       free_parseur(new, tab);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
 
 int		parseur(t_struct *var)
@@ -96,5 +96,5 @@ int		parseur(t_struct *var)
   if ((var->buffer = reverse_list_pars(var->buffer)) == NULL)
     return (puterr(ERROR_MALLOC));
   prev_list_pars(&var->buffer);
-  return (SUCCES);
+  return (SUCCESS);
 }

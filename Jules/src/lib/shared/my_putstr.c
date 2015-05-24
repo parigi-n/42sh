@@ -15,5 +15,5 @@ int	 my_putstr(const char *str)
 {
   if (str != NULL)
     write(1, str, my_strlen(str));
-  return (SUCCES);
+  return (SUCCESS);
 }

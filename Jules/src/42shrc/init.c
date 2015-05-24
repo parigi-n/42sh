@@ -59,5 +59,5 @@ int		open_rc(t_struct *var)
   close(fd);
   if (var->term.prompt == NULL)
     var->term.prompt = DEFAULT_PROMPT;
-  return (SUCCES);
+  return (SUCCESS);
 }

@@ -17,7 +17,7 @@ static int	find_alias(char *str, char *alias)
   i = 0;
   while (str[i] != '\0')
     {
-      if (my_strcmp_op(str, alias, i) == SUCCES)
+      if (my_strcmp_op(str, alias, i) == SUCCESS)
 	return (i);
       i++;
     }
@@ -83,5 +83,5 @@ int		remp_alias(t_struct *var)
       check = while_alias(var, tab, check);
       freetab(tab);
     }
-  return (SUCCES);
+  return (SUCCESS);
 }
