@@ -5,7 +5,7 @@
 ** Login   <sebaou_d@epitech.net>
 ** 
 ** Started on  Thu May 14 15:52:00 2015 david sebaoun
-** Last update Sun May 24 10:30:36 2015 Jules Vautier
+** Last update Sun May 24 11:29:59 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -15,7 +15,7 @@ extern int	g_pid_fils;
 static int	son_pipe(int fd, int pipefd[2],
 			 t_struct *var, t_buff *tmp)
 {
-  dup2(fd, 0);
+  /*dup2(fd, 0);*/
   if (tmp->next != NULL && tmp->next->type == TYPE_PIPE)
     dup2(pipefd[1], 1);
   close(pipefd[0]);
@@ -30,7 +30,7 @@ static int	end_pipe(int *fd, int pipefd[],
   wait(&var->status);
   builtin_main(var, tmp->tab);
   close(pipefd[1]);
-  *fd = pipefd[0];
+  /**fd = pipefd[0];*/
   return (SUCCES);
 }
 
