@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu Apr 30 12:11:26 2015 Jules Vautier
-** Last update Sun May 24 18:27:08 2015 Nicolas PARIGI
+** Last update Sun May 24 18:48:20 2015 Jules Vautier
 */
 
 #include "my.h"
@@ -57,11 +57,9 @@ int		gere_key_control(t_struct *var, char c)
     }
   else if (c == ERASE)
     {
-      if ((len = my_strlen(var->buff)) > 0)
-	{
-	  var->term.i--;
-	  var->buff[len - 1] = '\0';
-	}
+      if (var->term.i > 0)
+	var->term.i--;
+      var->buff = decaln(var->buff, var->term.i, 1);
     }
   return (SUCCES);
 }
