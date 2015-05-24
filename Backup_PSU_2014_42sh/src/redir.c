@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Sat Jan 31 09:39:51 2015 Jules Vautier
-** Last update Sun May 24 20:28:00 2015 david sebaoun
+** Last update Sun May 24 22:17:07 2015 david sebaoun
 */
 
 #include <sys/stat.h>
@@ -55,25 +55,24 @@ static int	redir_right(t_struct *var, char *path)
   return (var->exe.fdout);
 }
 
-static int	redir_left(t_struct *var, char *path)
-{
-  if (var->exe.fdin != 0)
-    close(var->exe.fdin);
-  if (my_strlen(path) > 2 && path[0] == '<' && path[1] == '<')
-    {
-      if ((var->exe.fdin = open(mod_path(path, '<'), O_RDWR)) == ERROR)
-	return (puterr("Error : error while opening output file\n"));
-    }
-  if (my_strlen(path) > 1 && path[0] == '<' && path[1] != '<')
-    {
-      if ((var->exe.fdin = open(mod_path(path, '<'), O_RDWR)) == ERROR)
-	return (puterr("Error : error while opening input file\n"));
-      if (dup2(0, var->exe.fdin) == ERROR)
-	return (puterr("Error : dup2 sys call failed in\n"));
-      send_file(var->exe.fdin, );
-    }
-  return (var->exe.fdin);
-}
+/* static int	redir_left(t_struct *var, char *path) */
+/* { */
+/*   if (var->exe.fdin != 0) */
+/*     close(var->exe.fdin); */
+/*   if (my_strlen(path) > 2 && path[0] == '<' && path[1] == '<') */
+/*     { */
+/*       if ((var->exe.fdin = open(mod_path(path, '<'), O_RDWR)) == ERROR) */
+/* 	return (puterr("Error : error while opening output file\n")); */
+/*     } */
+/*   if (my_strlen(path) > 1 && path[0] == '<' && path[1] != '<') */
+/*     { */
+/*       if ((var->exe.fdin = open(mod_path(path, '<'), O_RDWR)) == ERROR) */
+/* 	return (puterr("Error : error while opening input file\n")); */
+/*       if (dup2(0, var->exe.fdin) == ERROR) */
+/* 	return (puterr("Error : dup2 sys call failed in\n")); */
+/*     } */
+/*   return (var->exe.fdin); */
+/* } */
 
 int		redir(t_struct *var, char **tab)
 {
@@ -91,13 +90,13 @@ int		redir(t_struct *var, char **tab)
     if (tab[i][0] == '>' || ((tab[i][0] == '>') && (tab[i][1] == '>')))
       if ((var->exe.fdout = redir_right(var, tab[i])) == ERROR)
 	return (ERROR);
-  i = -1;
-  while (tab[++i] != NULL)
-    {
-      if (tab[i][0] == '<' || ((tab[i][0] == '<') && (tab[i][1] == '<')))
-	if ((var->exe.fdin = redir_left(var, tab[i])) == ERROR)
-	  return (ERROR);
-    }
+  /* i = -1; */
+  /* while (tab[++i] != NULL) */
+  /*   { */
+  /*     if (tab[i][0] == '<' || ((tab[i][0] == '<') && (tab[i][1] == '<'))) */
+  /* 	if ((var->exe.fdin = redir_left(var, tab[i])) == ERROR) */
+  /* 	  return (ERROR); */
+  /*   } */
   if (dup2(var->exe.fdout, 1) == ERROR)
     return (puterr("Error: dup2 sys call failed out\n"));
   return (SUCCES);
