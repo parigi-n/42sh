@@ -5,7 +5,7 @@
 ** Login   <parigi_n@epitech.net>
 ** 
 ** Started on  Sun May 24 16:57:23 2015 Nicolas PARIGI
-** Last update Sun May 24 16:57:26 2015 Nicolas PARIGI
+** Last update Sun May 24 20:46:40 2015 kevin ventalon
 */
 
 #include "my.h"
@@ -14,7 +14,6 @@ static int	do_cd(char *str, t_stock **env)
 {
   char		*oldpwd;
 
-  my_printf("on est dans cd: go -%s-\n", str);
   if (chdir(str) == -1)
     {
       if ((access(str, F_OK)) == -1)
