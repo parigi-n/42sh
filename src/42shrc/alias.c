@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Thu May  7 16:14:28 2015 Jules Vautier
-** Last update Sat May 23 11:15:25 2015 Jules Vautier
+** Last update Sun Jun  7 19:31:26 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -27,7 +27,7 @@ static int	rc_alias_parse_name(char *str)
     }
   if (check_egal < 1)
     {
-      puterr("Wrong alias syntax (No '=' in alias name or not enough char).\n");
+      puterr("Wrong alias syntax (use alias foo='bar').\n");
       return (-1);
     }
   str[check_egal] = '\0';

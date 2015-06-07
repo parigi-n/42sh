@@ -5,7 +5,7 @@
 ** Login   <vautie_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 08:17:58 2015 Jules Vautier
-** Last update Sun May 24 12:02:07 2015 Jules Vautier
+** Last update Sun Jun  7 19:12:40 2015 Nicolas PARIGI
 */
 
 #include "my.h"
@@ -37,9 +37,8 @@ static char	**mod_tab(char **tab)
   i = -1;
   while (tab[++i] != NULL)
     {
-      if (tab[i][0] == '<' || tab[i][0] == '>' ||
-  	  (tab[i][0] == '>' && tab[i][1] == '>') ||
-  	  (tab[i][0] == '<' && tab[i][1] == '<'))
+      if (tab[i][0] == '<' || tab[i][0] == '>' || (tab[i][0] == '>'
+						   && tab[i][1] == '>') || (tab[i][0] == '<' && tab[i][1] == '<'))
 	new_tab[j++] = my_strcpy(tab[i]);
     }
   new_tab[j] = NULL;
