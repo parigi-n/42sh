@@ -6,7 +6,7 @@ A UNIX shell, coded in C without extern library (that was mandatory).
 
 Authors :
 
-- Jules VAUTIER
+- Jules VAUTIER https://github.com/JulesVautier
 - Nicolas PARIGI https://github.com/parigi-n
 - David SEBAOUN https://github.com/david-sebaoun
 - Martin PELLEMOINE https://github.com/pellem
